@@ -1,0 +1,92 @@
+.music
+    height: 100%
+    display: grid
+    grid-template-columns: repeat(10, 1fr)
+    grid-template-rows: 1fr 1fr
+    height: min-content
+    grid-gap: 10px
+    grid-auto-rows: 21.5px
+
+.music__albumcover
+    width: 100%
+    border-radius: 10px
+    grid-row: span 1
+    grid-column: span 1
+    $min-size: 53px
+    min-width: $min-size
+    min-height: $min-size
+
+.music-track
+    grid-row: span 1
+    grid-column: span 9
+    display: grid
+    grid-template-column: 1fr 1fr
+
+.music__description
+    font-weight: 100
+    grid-column: span 1
+
+.track
+    grid-column: span 1
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.music__track
+    width: 100%
+    appearance: none
+    outline: none
+    &::-webkit-slider-thumb
+        appearance: none
+        border-radius: 5px
+        background: #d8d8d8
+        width: 12px
+        height: 20px
+    background: #979797
+    height: 1px
+
+.track__value
+    margin-left: 15px
+    font-size: 14px
+    color: #a1a1a1
+    font-weight: 100
+
+.music-nav
+    grid-gap: 0 6px
+    grid-row: span 1
+    grid-column: span 10
+    display: grid
+    grid-template-columns: repeat(10, 1fr)
+
+.music__prev,
+.music__next
+    grid-column: span 1
+    
+.music__prev
+    margin-right: 20px
+
+.volume
+    grid-column: span 8
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+.music__volume
+    width: 100%
+    appearance: none
+    outline: none
+    &::-webkit-slider-thumb
+        appearance: none
+        border-radius: 100%
+        background: #605757
+        $s: 16px
+        width: $s
+        height: $s
+    background: #f3f3f3
+    height: 1px
+
+.volume__value
+    margin-left: 15px
+    font-size: 14px
+    font-weight: 100
+    color: #a1a1a1

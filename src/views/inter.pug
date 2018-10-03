@@ -3,8 +3,8 @@ mixin dataBlock (data)
         img.graph(src='assets/Richdata.svg')
     if data.temperature
         .state
-            .temperature!= `Температура: <b>${data.temperature}</b>`
-            .humidity!= `Влажность: <b>${data.humidity}</b>`
+            .temperature!= `Температура: <b>${data.temperature} C</b>`
+            .humidity!= `Влажность: <b>${data.humidity}%</b>`
     if data.image
         img.image(src='assets/image.jpg')
     if data.buttons
@@ -12,20 +12,29 @@ mixin dataBlock (data)
         .button.button__close!= data.buttons[1]
     if data.track
         .music
-            img.albumcover(src=`${data.albumcover}`, alt='albumcover')
-            .track
-                .track__desc!= `${data.artist} - ${data.track.name}`.trim()
+            img.music__albumcover(src=`${data.albumcover}`, alt='albumcover')
+            .music-track
+                .music__description!= `${data.artist} - ${data.track.name}`.trim()
                 - let len = data.track.length.split(':');
                 - len = len[0] * 60 + len[1];
-                input.track__range(type='range' min='0' max=`len` step='1' value='0') 
-                img.track__prev(src='assets/Prev.svg')
-                img.track__next(src='assets/Prev.svg' style='transform: rotate(180deg)')
-                input.track__volume(type='range' min='0' max='100' step='1' value=`${data.volume}`)
-    
+                .track
+                    input.music__track(type='range' min='0' max=`${len}` step='1' value='0')
+                    .track__value!= data.track.length
+            .music-nav
+                img.music__prev(src='assets/Prev.svg')
+                img.music__next(src='assets/Prev.svg' style='transform: rotate(180deg)')
+                .volume
+                    input.music__volume(type='range' min='0' max='100' step='1' value=`${data.volume}`)
+                    .volume__value!= data.volume + '%'
+
 mixin eventBlock (event)
     - isCritical = event.type === 'critical';
     - event.icon = (isCritical ? event.icon + '-white' : event.icon) + '.svg'; 
     .event(class=`event_size_${event.size} event_type_${event.type}`)
+        .empty
+            img.cross(src=`assets/cross${isCritical ? '-white' : ''}.svg`)
+        .empty
+            img.slide(src=`assets/next${isCritical ? '-white' : ''}.svg`)
         .event__header
             .event-intro
                 img.event__icon(src=`assets/${event.icon}`)
@@ -33,12 +42,9 @@ mixin eventBlock (event)
             .event-desc
                 .event__source!= event.source
                 .event__time!= event.time
-            img.cross(src=`assets/cross${isCritical ? '-white' : ''}.svg`)
         .event__content
             if event.description
                 .event__description!= event.description || ''
             if event.data
                 .event__data
                     +dataBlock(event.data)
-            img.slide(src=`assets/next${isCritical ? '-white' : ''}.svg`)
-        

@@ -1,18 +1,24 @@
 .events
     display: grid
     grid-template-columns: repeat(10, 1fr)
-    grid-auto-rows: fit-content
+    grid-auto-rows: min-content
     grid-auto-flow: dense
     justify-content: space-between
     grid-gap: 20px 20px
     width: 100%
-    
-.cross
+
+.empty
     position: absolute
-    grid-column: 9 / 10
+    display: flex
+    justify-content: flex-end
+
+.cross
+    position: relative
+    right: 0
 
 .slide
-    position: absolute
+    position: relative
+    right: 0
 
 .event
     display: flex
@@ -27,12 +33,13 @@
 
 .event__header
     display: grid
-    grid-template-columns: repeat(10, 1fr)
-    grid-auto-rows: 53px
+    grid-template-columns: repeat(9, 1fr) 16px
+    grid-auto-rows: min-content
+    grid-gap: 20px 0
     padding: 20px
 
 .event-intro
-    grid-column: span 9
+    grid-column: span 10
     display: flex
     align-items: center
 
@@ -49,6 +56,7 @@
     grid-column: span 10
     grid-template-columns: repeat(auto-fill, minmax(125px, 200px))
     grid-auto-flow: dense
+    grid-gap: 20px 0
     font-weight: 100
     font-size: 18px
     display: grid
@@ -69,16 +77,28 @@
         color: $color-white
 
 .event__content
+    display: grid
+    align-items: stretch
+    grid-template-columns: repeat(9, 1fr) 16px
+    grid-auto-rows: min-content
     flex-grow: 1
     box-sizing: content-box
     padding: 20px
 
+.event__description
+    grid-column: span 10
+    font-size: 20px
+    font-weight: 500
+
 .event__data
+    grid-column: span 10
     margin-top: 30px
 
 .event_size_l
     grid-column: span 6
     grid-row: span 3
+    .event__description
+        font-size: 24px
 
 .event_size_m
     grid-column: span 5
