@@ -1,0 +1,117 @@
+*
+    -ms-overflow-style: none
+
+::-webkit-scrollbar
+    width: 2px
+    height: 2px
+    background: rgba(0, 0, 0, 0)
+
+::-webkit-scrollbar-thumb
+    background: rgba(51, 51, 51, .1)    
+
+::-webkit-scrollbar-button
+    width: 25px
+    height: 25px
+
+body,
+.main
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    font-family: Arial, sans-serif
+    font-weight: bold
+    font-size: 16px
+    overflow-x: hidden
+    color: $color-text-black
+
+.image
+    width: 100%
+    border-radius: 20px
+
+.graph
+    width: 100%
+    border-radius: 20px
+
+.albumcover
+    $s: 52px
+    width: $s
+    height: $s
+    border-radius: 10px
+
+.shade
+    overflow: hidden
+    position: fixed
+    top: 0
+    left: 0
+    background-color: rgba(51, 51, 51, .5)
+    width: 100%
+    width: 100vw
+    height: 100%
+    height: 100vh
+    transition: $animate
+    z-index: 10
+
+.null-opacity
+    opacity: 0
+
+.copyright
+    flex-grow: 2
+    font-size: 12px
+    text-align: right
+
+.transparent
+    opacity: 0
+    z-index: -1
+
+.container
+    display: flex
+    flex-direction: column
+    width: 94%
+    margin: 0 auto
+    align-items: center
+    justify-content: flex-start
+
+.link
+    color: $color-text-gray
+    cursor: pointer
+    &:hover
+        text-decoration: underline
+        color: $color-text-black
+
+.link_active
+    color: $color-text-black
+
+.slide-arrows
+    width: 36px
+    display: flex
+    justify-content: space-between
+    flex-direction: row
+
+.slide-arrows__arrow
+    width: 8px
+    height: 13px
+
+.media-mobile
+    display: none
+
+@media (max-width: $media-start-width)
+    body,
+    .main
+        overflow-y: auto
+        max-height: none
+        height: auto
+    ::-webkit-scrollbar-button
+        width: 10px
+        height: 10px
+
+@media (max-width: $media-mobile-width)
+    .media-mobile
+        display: block
+
+@media (max-width: $media-middle-width)
+    .container
+        width: 90%
+    .media-desktop
+        display: none

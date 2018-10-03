@@ -1,10 +1,17 @@
 doctype html
 html
-    head
-        meta(charset='utf-8')
-        meta(http-equiv='X-UA-Compatible' content='IE=edge')
-        meta(name='viewport' content='width=device-width, initial-scale=1')
-        title Yandex House
+    - const events = require('./events.json').events;
+    - events.sort((a, b) => {
+    -    a = a.time.slice(0, 5).split(':');
+    -    b = b.time.slice(0, 5).split(':');
+    -    a = a[0] * 60 + a[1];
+    -    b = b[0] * 60 + b[1];
+    -    return b - a; 
+    - });
+    include inter
+    include components/head
     body
-        h1 Hello?
-        p 2
+        .main
+            include components/header
+            include components/content
+            include components/footer

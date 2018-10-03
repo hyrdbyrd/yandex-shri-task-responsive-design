@@ -1,13 +1,227 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Yandex House</title>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yandex House</title>
+</head>
   <body>
-    <h1>Hello?</h1>
-    <p>2</p>
+    <div class="main">
+<header class="header section">
+  <div class="header-container container"><img class="header__logo" src="assets/logo.svg"><img class="media-mobile burger" src="assets/i_burger.svg">
+    <nav class="navigation navigation_header">
+      <div class="navigation_header-wrapper">
+<ul class="navigation-list navigation-list_header">
+  <li class="navigation-list__item navigation-list__item_header"><a class="link link_active">Сводка</a></li>
+  <li class="navigation-list__item navigation-list__item_header"><a class="link">Устройства</a></li>
+  <li class="navigation-list__item navigation-list__item_header"><a class="link">Сценарии</a></li>
+</ul>
+        <div class="media-mobile">
+<ul class="navigation-list navigation-list_footer">
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Помощь</a></li>
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Обратная Связь</a></li>
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Разбработчикам</a></li>
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Условия использования</a></li>
+</ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+      <section class="content section">
+        <div class="container content__container">
+          <div class="content__title">Лента событий</div>
+          <div class="events">
+              <div class="event event_size_l event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/stats.svg">
+                    <div class="event__title">Еженедельный отчет по расходам ресурсов</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Сенсоры потребления</div>
+                    <div class="event__time">19:00, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content">
+                  <div class="event__description">Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем неделей ранее.</div>
+                  <div class="event__data"><img class="graph" src="assets/Richdata.svg">
+                  </div><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_s event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/key.svg">
+                    <div class="event__title">Дверь открыта</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Сенсор входной двери</div>
+                    <div class="event__time">18:50, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content"><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_s event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/robot-cleaner.svg">
+                    <div class="event__title">Уборка закончена</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Пылесос</div>
+                    <div class="event__time">18:45, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content"><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_s event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/router.svg">
+                    <div class="event__title">Новый пользователь</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Роутер</div>
+                    <div class="event__time">18:45, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content"><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_m event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/thermal.svg">
+                    <div class="event__title">Изменен климатический режим</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Сенсор микроклимата</div>
+                    <div class="event__time">18:30, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content">
+                  <div class="event__description">Установлен климатический режим «Фиджи»</div>
+                  <div class="event__data">
+                      <div class="state">
+                        <div class="temperature">Температура: <b>24</b></div>
+                        <div class="humidity">Влажность: <b>80</b></div>
+                      </div>
+                  </div><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_m event_type_critical">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/ac-white.svg">
+                    <div class="event__title">Невозможно включить кондиционер</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Кондиционер</div>
+                    <div class="event__time">18:21, Сегодня</div>
+                  </div><img class="cross" src="assets/cross-white.svg">
+                </div>
+                <div class="event__content">
+                  <div class="event__description">В комнате открыто окно, закройте его и повторите попытку</div><img class="slide" src="assets/next-white.svg">
+                </div>
+              </div>
+              <div class="event event_size_m event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/music.svg">
+                    <div class="event__title">Музыка включена</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Яндекс.Станция</div>
+                    <div class="event__time">18:16, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content">
+                  <div class="event__description">Сейчас проигрывается:</div>
+                  <div class="event__data">
+                      <div class="music"><img class="albumcover" src="https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/m1000x1000" alt="albumcover">
+                        <div class="track">
+                          <div class="track__desc">Florence & The Machine - Big God</div>
+                          <input class="track__range" type="range" min="0" max="len" step="1" value="0"><img class="track__prev" src="assets/Prev.svg"><img class="track__next" src="assets/Prev.svg" style="transform: rotate(180deg)">
+                          <input class="track__volume" type="range" min="0" max="100" step="1" value="80">
+                        </div>
+                      </div>
+                  </div><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_m event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/fridge.svg">
+                    <div class="event__title">Заканчивается молоко</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Холодильник</div>
+                    <div class="event__time">17:23, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content">
+                  <div class="event__description">Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список покупок?</div>
+                  <div class="event__data">
+                      <div class="button button__confirm">Да</div>
+                      <div class="button button__close">Нет</div>
+                  </div><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_s event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/battery.svg">
+                    <div class="event__title">Зарядка завершена</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Оконный сенсор</div>
+                    <div class="event__time">16:22, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content">
+                  <div class="event__description">Ура! Устройство «Оконный сенсор» снова в строю!</div><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_s event_type_info">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/kettle.svg">
+                    <div class="event__title">Вода вскипела</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Чайник</div>
+                    <div class="event__time">16:20, Сегодня</div>
+                  </div><img class="cross" src="assets/cross.svg">
+                </div>
+                <div class="event__content"><img class="slide" src="assets/next.svg">
+                </div>
+              </div>
+              <div class="event event_size_l event_type_critical">
+                <div class="event__header">
+                  <div class="event-intro"><img class="event__icon" src="assets/cam-white.svg">
+                    <div class="event__title">Пылесос застрял</div>
+                  </div>
+                  <div class="event-desc">
+                    <div class="event__source">Сенсор движения</div>
+                    <div class="event__time">16:17, Сегодня</div>
+                  </div><img class="cross" src="assets/cross-white.svg">
+                </div>
+                <div class="event__content">
+                  <div class="event__description">Робопылесос не смог сменить свое местоположение в течение последних 3 минут. Похоже, ему нужна помощь.</div>
+                  <div class="event__data"><img class="image" src="assets/image.jpg">
+                  </div><img class="slide" src="assets/next-white.svg">
+                </div>
+              </div>
+          </div>
+        </div>
+      </section>
+<footer class="footer section media-desktop">
+  <div class="footer-container container">
+    <nav class="navigation navigation_footer">
+<ul class="navigation-list navigation-list_footer">
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Помощь</a></li>
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Обратная Связь</a></li>
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Разбработчикам</a></li>
+  <li class="navigation-list__item navigation-list__item_footer"><a class="link">Условия использования</a></li>
+</ul>
+      <div class="copyright">&copy; 2001-2017 ООО «Яндекс»</div>
+    </nav>
+  </div>
+</footer>
+    </div>
   <script type="text/javascript" src="bundle.js"></script></body>
 </html>

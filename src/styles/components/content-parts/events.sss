@@ -1,0 +1,89 @@
+.events
+    display: grid
+    grid-template-columns: repeat(10, 1fr)
+    grid-auto-rows: fit-content
+    grid-auto-flow: dense
+    justify-content: space-between
+    grid-gap: 20px 20px
+    width: 100%
+    
+.cross
+    position: absolute
+    grid-column: 9 / 10
+
+.slide
+    position: absolute
+
+.event
+    display: flex
+    flex-direction: column
+    overflow: hidden
+    width: 100%
+    height: 100%
+    transition: $animate
+    border-radius: 20px
+    &:hover
+        box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50)
+
+.event__header
+    display: grid
+    grid-template-columns: repeat(10, 1fr)
+    grid-auto-rows: 53px
+    padding: 20px
+
+.event-intro
+    grid-column: span 9
+    display: flex
+    align-items: center
+
+.event__icon
+    $s: 52px
+    width: $s
+    height: $s
+
+.event__title
+    margin-left: 20px
+    font-size: 24px
+
+.event-desc
+    grid-column: span 10
+    grid-template-columns: repeat(auto-fill, minmax(125px, 200px))
+    grid-auto-flow: dense
+    font-weight: 100
+    font-size: 18px
+    display: grid
+    align-items: center
+    justify-content: space-between
+
+.event_type_info
+    background: $color-lightGray
+    &:hover
+        background: $color-darkGray
+
+.event_type_critical
+    background: $color-red
+    .event__content
+        background: $color-lightGray
+        border-radius: 20px
+    .event__header
+        color: $color-white
+
+.event__content
+    flex-grow: 1
+    box-sizing: content-box
+    padding: 20px
+
+.event__data
+    margin-top: 30px
+
+.event_size_l
+    grid-column: span 6
+    grid-row: span 3
+
+.event_size_m
+    grid-column: span 5
+    grid-row: span 2
+
+.event_size_s
+    grid-column: span 4
+    grid-row: span 1
