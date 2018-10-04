@@ -31,24 +31,8 @@ body,
     border-radius: 20px
 
 .graph
-    height: 100%
-    border-radius: 20px
-
-.shade
-    overflow: hidden
-    position: fixed
-    top: 0
-    left: 0
-    background-color: rgba(51, 51, 51, .5)
     width: 100%
-    width: 100vw
-    height: 100%
-    height: 100vh
-    transition: $animate
-    z-index: 10
-
-.null-opacity
-    opacity: 0
+    border-radius: 20px
 
 .copyright
     flex-grow: 2
@@ -77,16 +61,6 @@ body,
 .link_active
     color: $color-text-black
 
-.slide-arrows
-    width: 36px
-    display: flex
-    justify-content: space-between
-    flex-direction: row
-
-.slide-arrows__arrow
-    width: 8px
-    height: 13px
-
 .media-mobile
     display: none
 
@@ -101,11 +75,11 @@ body,
         height: 10px
 
 @media (max-width: $media-mobile-width)
+    .container 
+        width: 90%
     .media-mobile
         display: block
 
 @media (max-width: $media-middle-width)
-    .container
-        width: 90%
     .media-desktop
         display: none

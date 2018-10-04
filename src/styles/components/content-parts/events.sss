@@ -53,18 +53,21 @@
     padding: 20px
 
 .event-intro
+    grid-gap: 0 20px
     grid-column: span 10
-    display: flex
+    display: grid
+    grid-template-columns: repeat(10, 1fr)
     align-items: center
 
 .event__icon
     $s: 52px
     width: $s
     height: $s
+    grid-column: span 1
 
 .event__title
-    margin-left: 20px
-    font-size: 24px
+    font-size: calc(0.505vw + 1rem)
+    grid-column: span 9
 
 .event-desc
     grid-column: span 10
@@ -99,29 +102,25 @@
     flex-grow: 1
     box-sizing: border-box
     box-sizing: content-box
+    grid-gap: 20px 0
 
 .event__description
     padding: 20px
+    padding-right: 40px
     grid-column: span 10
-    font-size: 20px
-    font-weight: 500
-
-.event__description
-    grid-column: span 10
-    font-size: 20px
+    font-size: calc(0.2vw + 1rem)
     font-weight: 500
 
 .event__data
     grid-column: span 10
     padding: 20px
-    margin-top: 30px
     padding-top: 0
 
 .event_size_l
     grid-column: span 7
     grid-row: span 3
     .event__description
-        font-size: 24px
+        font-size: calc(0.8vw + 1rem)
 
 .event_size_m
     grid-column: span 5
@@ -136,6 +135,7 @@
     grid-gap: 18px
     grid-template-columns: repeat(auto-fit, 132px)
     grid-auto-rows: 54px
+    font-size: calc(0.26vw + 1rem)
 
 .button
     border-radius: 8px
@@ -154,9 +154,10 @@
 @media (max-width: 991px)
     .events
         grid-template-columns: 1fr
-
     .event_size_l,
     .event_size_m,
     .event_size_s
         grid-column: span 1
         grid-row: span 1
+    .event__description
+        font-size: calc(1.2vw + 1rem)

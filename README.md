@@ -1,9 +1,19 @@
 # ДЗ - "Адаптивная вёрстка"
+## Просмотр
+Для просмотра результата, пройдите по ссылке: [project/dist](https://ilya777grin23.github.io/yandex-shri-task-responsive-design/dist/)
 ## Выбор инструментов
 Для удобства работы, и разделения частей, использовал сборку webpack:
 1. Pug - для разделения и шаблонизации кода.
 1. PostCSS - для разделения, и удобства написания кода.
 1. ESLint - для соблюдения стиля.
 1. Babel - хоть мы и работаем в "вечно зеленых" браузерах, но перестраховаться не мешает.
-## Просмотр
-Для просмотра результата, пройдите по ссылке: [project/dist](https://ilya777grin23.github.io/yandex-shri-task-responsive-design/dist/)
+## Почему Pug?
+* Для разделения компонентов, удобнее всего использовать include pugа.
+* Присутствует возможностей таких как: mixin, block, extends, include; и т.д.
+* Привычка использования данной технологии ускоряет работу.
+## PostCSS плагины
+* postcss-import
+* autoprefixer
+* precss
+* postcss-assets
+* postcss-preset-env
