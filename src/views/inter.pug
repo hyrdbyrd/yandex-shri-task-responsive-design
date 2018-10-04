@@ -33,7 +33,7 @@ mixin eventBlock (event)
     - event.icon = (isCritical ? event.icon + '-white' : event.icon) + '.svg'; 
     .event(class=`event_size_${event.size} event_type_${event.type}`)
         .empty
-            img.cross(src=`assets/cross${isCritical ? '-white' : ''}.svg`)
+            img.event__nav.cross(src=`assets/cross${isCritical ? '-white' : ''}.svg`)
         .event__header
             .event-intro
                 img.event__icon(src=`assets/${event.icon}`)
@@ -48,4 +48,4 @@ mixin eventBlock (event)
                 .event__data
                     +dataBlock(event.data)
         .empty
-            img.slide(src=`assets/next${isCritical ? '-white' : ''}.svg`)
+            img.event__nav.slide(src=`assets/next${isCritical ? '-white' : ''}.svg`)

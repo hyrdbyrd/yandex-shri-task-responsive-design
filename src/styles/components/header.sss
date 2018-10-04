@@ -1,4 +1,5 @@
 .header
+    z-index: 10
     width: 100%
     background: $color-white
     &::after
@@ -17,6 +18,12 @@
 
 .navigation-list__item_header
     margin-right: 26px
+
+.burger
+    padding: 5px
+    border-radius: 5px
+    background: $color-white
+    z-index: 10000
 
 @media (max-width: $media-mobile-width)
     .header
@@ -44,6 +51,7 @@
         top: 0
         background: rgba(51, 51, 51, .5)
     .navigation_header_active
+        z-index: 1000
         left: 0
     .navigation_header-wrapper
         background: $color-white

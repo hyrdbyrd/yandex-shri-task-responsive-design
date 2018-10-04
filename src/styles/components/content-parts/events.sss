@@ -7,31 +7,6 @@
     grid-gap: 20px
     width: 100%
 
-.empty
-    display: none
-    justify-content: flex-end
-    float: right
-    clear: both
-    height: 0
-    overflow: visible
-
-.cross
-    position: relative
-    right: 0
-    $s: 18px
-    width: $s
-    height: $s
-    right: 20px
-    top: 20px
-
-.slide
-    position: relative
-    bottom: 40px
-    right: 20px
-    $s: 18px
-    width: $s
-    height: $s
-
 .event
     display: flex
     flex-direction: column
@@ -40,10 +15,57 @@
     height: 100%
     transition: $animate
     border-radius: 20px
+    box-sizing: border-box
     &:hover
         box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50)
         .empty
             display: flex
+
+.event_type_info
+    background: $color-lightGray
+    &:hover
+        background: $color-darkGray
+    .event__nav
+        background: $color-darkGray
+        box-shadow: 0 0 40px 20px $color-darkGray
+
+// red color = #db5341, rgba(219, 83, 65, 1)
+.event_type_critical
+    background: $color-red
+    .event__content
+        background: $color-lightGray
+        border-radius: 20px
+    .event__header
+        color: $color-white
+    .event__nav
+        background: $color-red
+        box-shadow: 0 0 20px 20px $color-red
+    .slide
+        box-shadow: 0 0 25px 5px $color-red
+        background: rgba(219, 83, 65, .7)
+
+.empty
+    display: none
+    justify-content: flex-end
+    float: right
+    clear: both
+    height: 0
+    overflow: visible
+
+.event__nav
+    z-index: 1
+    position: relative
+    $s: 18px
+    width: $s
+    height: $s
+    right: 20px
+
+.cross
+    top: 20px
+
+.slide
+    bottom: 40px
+    border-radius: 100%
 
 .event__header
     display: grid
@@ -80,18 +102,9 @@
     align-items: center
     justify-content: space-between
 
-.event_type_info
-    background: $color-lightGray
-    &:hover
-        background: $color-darkGray
-
-.event_type_critical
-    background: $color-red
-    .event__content
-        background: $color-lightGray
-        border-radius: 20px
-    .event__header
-        color: $color-white
+.event__time
+    font-size: calc(0.15vw + 1rem)
+    grid-column: span 1
 
 .event__content
     justify-items: stretch
@@ -154,6 +167,7 @@
 @media (max-width: 991px)
     .events
         grid-template-columns: 1fr
+        margin-bottom: 20px
     .event_size_l,
     .event_size_m,
     .event_size_s
