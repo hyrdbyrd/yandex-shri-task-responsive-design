@@ -6,7 +6,12 @@ mixin dataBlock (data)
             .temperature!= `Температура: <b>${data.temperature} C</b>`
             .humidity!= `Влажность: <b>${data.humidity}%</b>`
     if data.image
-        img.image(src='assets/image.jpg')
+        img.image(
+            srcset=`assets/cam@x1.png 1x,
+                    assets/cam@x2.png 2x,
+                    assets/cam@x3.png 3x`
+            src='assets/cam@x1.png'
+        )
     if data.buttons
         .buttons
             .button.button_type_confirm!= data.buttons[0]
@@ -37,7 +42,7 @@ mixin eventBlock (event)
         .event__header
             .event-intro
                 img.event__icon(src=`assets/${event.icon}`)
-                .event__title!= event.title
+                .event__title(data-title=`${event.title}`)!= event.title
             .event-desc
                 .event__source!= event.source
                 .event__time!= event.time

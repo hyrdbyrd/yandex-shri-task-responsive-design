@@ -6,6 +6,7 @@
 
     if (isTouchCapable) {
         window.addEventListener('DOMContentLoaded', () => {
+            // Set all crosses and slides to visible state
             document.body
                 .querySelector('.events')
                 .querySelectorAll('.empty')
