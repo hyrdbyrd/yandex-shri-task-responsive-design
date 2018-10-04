@@ -4,7 +4,7 @@ mixin dataBlock (data)
     if data.temperature
         .state
             .temperature!= `Температура: <b>${data.temperature} C</b>`
-            .humidity!=  `Влажность: <b>${data.humidity}%</b>`
+            .humidity!= `Влажность: <b>${data.humidity}%</b>`
     if data.image
         img.image(src='assets/image.jpg')
     if data.buttons
