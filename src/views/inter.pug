@@ -6,12 +6,19 @@ mixin dataBlock (data)
             .temperature!= `Температура: <b>${data.temperature} C</b>`
             .humidity!= `Влажность: <b>${data.humidity}%</b>`
     if data.image
-        img.image(
-            srcset=`assets/cam@x1.png 1x,
-                    assets/cam@x2.png 2x,
-                    assets/cam@x3.png 3x`
-            src='assets/cam@x1.png'
-        )
+        .box
+            .box-image-wrapper(
+                style='background-image: url(assets/cam@x3.png);'
+            )
+                img.box__image(
+                    srcset=`assets/cam@x1.png 1x,
+                            assets/cam@x2.png 2x,
+                            assets/cam@x3.png 3x`
+                    src='assets/cam@x3.png'
+                )
+            .box-options
+                .options__zoom(data-value='100%') Приближение: 100%
+                .options__brightness(data-value='50%') Яркость: 50%
     if data.buttons
         .buttons
             .button.button_type_confirm!= data.buttons[0]
