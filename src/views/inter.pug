@@ -37,7 +37,7 @@ mixin eventBlock (event)
     - isCritical = event.type === 'critical';
     - event.icon = (isCritical ? event.icon + '-white' : event.icon) + '.svg'; 
     .event(class=`event_size_${event.size} event_type_${event.type}`)
-        .empty
+        .empty.empty_cross
             img.event__nav.cross(src=`assets/cross${isCritical ? '-white' : ''}.svg`)
         .event__header
             .event-intro
@@ -46,11 +46,12 @@ mixin eventBlock (event)
             .event-desc
                 .event__source!= event.source
                 .event__time!= event.time
-        .event__content
-            if event.description
-                .event__description!= event.description || ''
-            if event.data
-                .event__data
-                    +dataBlock(event.data)
-        .empty
+        if event.description || event.data
+            .event__content
+                if event.description
+                    .event__description!= event.description || ''
+                if event.data
+                    .event__data
+                        +dataBlock(event.data)
+        .empty.empty_slide
             img.event__nav.slide(src=`assets/next${isCritical ? '-white' : ''}.svg`)
