@@ -3,7 +3,7 @@
     if (
         typeof checkDiv.style.webkitLineClamp !== 'undefined' &&
         typeof checkDiv.style.webkitBoxOrient !== 'undefined'
-    ) 
+    )
         return;
         
     window.addEventListener('DOMContentLoaded', () => {

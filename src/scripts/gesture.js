@@ -1,24 +1,35 @@
 export default class Gesture {
-    constructor(wrapper, brightOptionBlock, zoomOptionBlock) {
+    constructor(wrapper, brightOptionBlock, zoomOptionBlock, rotateOptionBlock) {
         this.image = {
             wrapper,
-            position: { x: 0, y: 0 },
             diagonalLength: 0
+        };
+        this.rotate = {
+            element: rotateOptionBlock,
+            position: { x: 0, y: 0 }
         };
         this.bright = {
             element: brightOptionBlock,
-            value: brightOptionBlock.getAttribute('data-value')
+            value: 100,
+            rotate: 0
         };
         this.zoom = {
             element: zoomOptionBlock,
-            value: zoomOptionBlock.getAttribute('data-value')
+            value: 100
         };
 
         wrapper.style.backgroundPosition = '0px 0px';
         wrapper.style.backgroundSize = `${this.zoom.value} ${this.zoom.value}`;
 
+        this.startLine = null;
+
         this.isUsed = false;
-        this.pointers = [];
+        this.pointers = [
+            // for debug
+            // {x: 480, y: 480, id: -1000}
+        ];
+
+        this.zoomTo = null;
 
         // Bind by this
         this.onPointerDown = this.onPointerDown.bind(this);
@@ -31,102 +42,150 @@ export default class Gesture {
 
     onPointerUp(event) {
         this.pointers = this.pointers.filter(pointer => pointer.id !== event.pointerId);
-        
+
         document.removeEventListener('pointerup', this.onPointerUp);
         document.removeEventListener('pointermove', this.onSingleMove);
         
-        const poses = this
-            .image
+        const poses = this.image
             .wrapper
             .style
             .backgroundPosition
             .split(' ')
             .map(e => e.slice(0, e.length - 2));
         
-        this.image.position = {
+        this.rotate.position = {
             x: poses[0],
-            y: poses[1]
+            y: poses[1],
         };
+
+        this.zoom.value = this.image.wrapper.style.backgroundSize.split(' ')[0];
+        this.startLine = null;
     }
 
     onPointerDown(event) {
-        const { wrapper } = this.image;
-        const { backgroundPositionX: bgX, backgroundPositionY: bgY } = wrapper;
-        
         this.pointers.push({
-            x: this.isUsed ? +bgX.slice(0, bgX.length) : event.clientX,
-            y: this.isUsed ? +bgY.slice(0, bgY.length) : event.clientY,
+            x: this.isUsed ? 0 : event.clientX,
+            y: this.isUsed ? 0 : event.clientY,
             id: event.pointerId
         });
 
         const isMultiPoint = this.pointers.length > 1;
-        if (isMultiPoint) {
-            document.removeEventListener('pointermove', this.onSingleMove);
-            document.addEventListener('pointermove', this.onMultiMove);
-        } else {
-            document.addEventListener('pointerup', this.onPointerUp);
-            document.addEventListener('pointermove', this.onSingleMove);
-        }
+
+        document[
+            isMultiPoint ? 
+                'removeEventListener' : 
+                'addEventListener'
+        ]('pointermove', this.onSingleMove);
+        document[
+            isMultiPoint ? 
+                'addEventListener' : 
+                'removeEventListener'
+        ]('pointermove', this.onMultiMove);
+
+        document.addEventListener('pointerup', this.onPointerUp);
     }
 
     slideTo(nextX, nextY) {
         const { wrapper } = this.image;
-        const wrapperMetrika = wrapper.getBoundingClientRect();
-        
-        let posX = nextX - this.pointers[0].x;
-        let posY = nextY - this.pointers[0].y;
-        
-        const maxY = wrapperMetrika.height - Math.abs(wrapperMetrika.top - wrapperMetrika.bottom);
-        if (posY > 0) posY = 0;
-        if (posY < maxY) posY = maxY;
 
         wrapper.style.backgroundPosition = wrapper.style.backgroundPosition
             .split(' ')
             .map((e, i) => {
-                let pos = +this.image.position[i === 0 ? 'x' : 'y'];
-                pos += i === 0 ? +posX : +posY;
-                return pos + 'px';
+                let pos;
+                if (i === 0) {
+                    const maxminX = 3600;   
+                    
+                    pos = +this.rotate.position.x;
+                    pos += +(nextX - this.pointers[0].x);
+
+                    if (pos > maxminX) pos = maxminX;
+                    if (pos < -maxminX) pos = -maxminX;
+                    
+                    this.rotate.element.innerText = `Поворот ${pos | 0}°`;
+                    
+                    return `${pos}px`;
+                } else if (i === 1) {
+                    const maxY = 100;
+                    
+                    pos = +this.rotate.position.y;
+                    pos += -1 * +(nextY - this.pointers[0].y) / 5;
+
+                    if (pos < 0) pos = 0;
+                    if (pos > maxY) pos = 100;
+                    
+                    return `${pos}%`;
+                } 
+                return '';
             })
             .join(' ');
     }
 
+    addPointer() {
+        this.pointers.push({ id: -1000, x: 480, y: 480 });
+    }
+
     multiGesture(nextPointer, idx) {
-        idx = idx === 0 ? 1 : 0;  
         const { pointers } = this;
-    
-        const a = Math.abs(pointers[idx].x - nextPointer.clientX);
-        const b = Math.abs(pointers[idx].y - nextPointer.clientY);
+        // Another index
+        let a, b;
+        
+        // Zoom part
+        a = Math.abs(pointers[idx].x - nextPointer.clientX);
+        b = Math.abs(pointers[idx].y - nextPointer.clientY);
         const diagonalLength = Math.sqrt(a ** 2 + b ** 2);
 
+        if (this.startLine === null) {
+            this.startLine = {
+                r: diagonalLength,
+                x: nextPointer.clientX,
+                y: nextPointer.clientY
+            };
+        }
+
         if (this.image.diagonalLength === 0) {
-            this.zoom = '100%';
+            this.zoom.value = 100;
+            this.image.diagonalLength = diagonalLength;
         } else {
-            let zoom = (this.image.diagonalLength - diagonalLength) * 100;
+            this.image.diagonalLength = diagonalLength;
+            let zoom = +this.image.diagonalLength;
+            zoom += this.zoom.value / 10;
             if (zoom < 100) {
                 zoom = 100;
             }
             if (zoom > 350) {
                 zoom = 350;
             }
-            this.zoom.value = `${zoom}%`;
+            this.zoom.value = zoom;
         }
 
-        this.image.diagonalLength = diagonalLength;
-        const { value: z } = this.zoom.value;
+        const { value: z } = this.zoom;
+        this.zoom.element.innerText = `Приближение: ${(z | 0)}%`;
+        this.image.wrapper.style.backgroundSize = `${z}% ${z}%`;
 
-        this.zoom.element.style.backgroundSize = `${z}% ${z}%`;
+        // Bright part
+        if (this.startLine === null) return;
+
+        let bright = (
+            this.bright.rotate + 
+            Math.atan(event.clientY / event.clientX) * 180 / Math.PI
+        ) / 1.5;
+
+        const minBright = 50;
+        const maxBright = 150;
+
+        if (bright < minBright) bright = minBright;
+        if (bright > maxBright) bright = maxBright;
+
+        this.bright.element.innerText = `Яркость: ${bright | 0}%`;        
+        this.image.wrapper.style.filter = `brightness(${bright}%)`;
+        this.bright.rotate = bright;
     }
 
     onMultiMove(event) {
-        const idx = this.pointers.findIndex(obj => obj.id === event.pointerId);
-        // If not find, will be -1 value
-        if (idx + 1)
-            this.pointers[idx] = {
-                x: event.clientX,
-                y: event.clientY
-            };
-        
-        this.multiGesture(event, idx);
+        const { pointers } = this;
+        let idx = pointers.findIndex(obj => obj.id === event.pointerId);
+
+        this.multiGesture(event, idx === 0 ? 1 : 0);
     }
 
     onSingleMove(event) {

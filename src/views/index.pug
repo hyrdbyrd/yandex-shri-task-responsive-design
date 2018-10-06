@@ -1,5 +1,10 @@
 doctype html
 html
+    meta(http-equiv="Cache-control" content="no-cache")
+    meta(http-equiv="Pragma" content="no-cache")
+    meta(http-equiv="Expires" content="-1")
+    include components/head
+    body
     - const events = require('./events.json').events;
     - events.sort((a, b) => {
     -    a = a.time.slice(0, 5).split(':');
@@ -9,9 +14,7 @@ html
     -    return b - a; 
     - });
     include inter
-    include components/head
-    body
-        .main
-            include components/header
-            include components/content
-            include components/footer
+    .main
+        include components/header
+        include components/content
+        include components/footer

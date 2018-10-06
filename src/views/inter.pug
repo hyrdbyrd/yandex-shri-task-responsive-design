@@ -17,8 +17,9 @@ mixin dataBlock (data)
                     src='assets/cam@x3.png'
                 )
             .box-options
-                .options__zoom(data-value='100%') Приближение: 100%
-                .options__brightness(data-value='50%') Яркость: 50%
+                .options__zoom Приближение: 100%
+                .options__brightness Яркость: 100%
+                .options__rotate Поворот 0°
     if data.buttons
         .buttons
             .button.button_type_confirm!= data.buttons[0]
