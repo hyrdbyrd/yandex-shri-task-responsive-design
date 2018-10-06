@@ -45,6 +45,7 @@ export default class Gesture {
 
         document.removeEventListener('pointerup', this.onPointerUp);
         document.removeEventListener('pointermove', this.onSingleMove);
+        document.removeEventListener('pointermove', this.onMultiMove);
         
         const poses = this.image
             .wrapper
