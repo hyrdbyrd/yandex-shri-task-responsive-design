@@ -34,7 +34,6 @@ export default class Gesture {
         this.onPointerUp = this.onPointerUp.bind(this);
         this.onMove = this.onMove.bind(this);
 
-        this.addPointer();
         this.init();
     }
 
@@ -82,8 +81,6 @@ export default class Gesture {
 
             this.zoom.diagonal = diagonal;
             this.bright.deg = deg;
-
-            console.log(this.firstLine);
         }
 
         document.addEventListener('pointermove', this.onMove);
@@ -176,14 +173,12 @@ export default class Gesture {
         if (newDiagonal >= this.firstLine.diagonal * 2) {
             this.isPinch = true;
             this.pinch(event);
-            console.log('pinch');
             return;
         }
 
         const newDegrees = this.getDeg(a, b);
         if (newDegrees >= this.firstLine.deg * 1.5) {
             this.isRotate = true;
-            console.log('rotate');
             this.rotateOf(event);
         }
     }
