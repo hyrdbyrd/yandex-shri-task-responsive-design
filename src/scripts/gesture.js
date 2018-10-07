@@ -42,11 +42,14 @@ export default class Gesture {
 
     onPointerUp(event) {
         this.pointers = this.pointers.filter(pointer => pointer.id !== event.pointerId);
+        console.log(this.pointers);
 
-        document.removeEventListener('pointerup', this.onPointerUp);
-        document.removeEventListener('pointermove', this.onSingleMove);
-        document.removeEventListener('pointermove', this.onMultiMove);
-        
+        if (!this.pointers.length) {
+            document.removeEventListener('pointerup', this.onPointerUp);
+            document.removeEventListener('pointermove', this.onSingleMove);
+            document.removeEventListener('pointermove', this.onMultiMove);
+        }
+    
         const poses = this.image
             .wrapper
             .style
@@ -125,6 +128,10 @@ export default class Gesture {
         this.pointers.push({ id: -1000, x: 480, y: 480 });
     }
 
+    removePointer() {
+        this.pointers.pop();
+    }
+
     multiGesture(nextPointer, idx) {
         const { pointers } = this;
         // Another index
@@ -186,7 +193,7 @@ export default class Gesture {
         const { pointers } = this;
         let idx = pointers.findIndex(obj => obj.id === event.pointerId);
 
-        this.multiGesture(event, idx === 0 ? 1 : 0);
+        this.multiGesture(event, idx);
     }
 
     onSingleMove(event) {

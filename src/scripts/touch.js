@@ -31,12 +31,14 @@ import Gesture from './gesture';
                     
                     if (isTouchCapable) options.style.display = 'flex';
 
+                    window.ss =
                     new Gesture(
                         box.querySelector('.box-image-wrapper'), 
                         options.querySelector('.options__brightness'),
                         options.querySelector('.options__zoom'),
                         options.querySelector('.options__rotate')
                     );
+                    // window.ss.addPointer();
                 }
             });
     });
