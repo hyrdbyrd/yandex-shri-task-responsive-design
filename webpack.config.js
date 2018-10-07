@@ -6,8 +6,6 @@ const SRC_PATH = path.join(__dirname, 'src');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
-    watch: true,
     entry: path.join(SRC_PATH, 'index.js'),
     output: {
         path: DIST_PATH,

@@ -28,7 +28,8 @@
     "pug-loader": "^2.4.0"
   },
   "scripts": {
-    "start": "webpack"
+    "start": "webpack --watch --mode development",
+    "build": "webpack --mode production"
   },
   "author": "",
   "license": "ISC"
