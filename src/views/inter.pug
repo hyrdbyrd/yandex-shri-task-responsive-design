@@ -42,14 +42,14 @@ mixin dataBlock (data)
                     .volume__value!= data.volume + '%'
 
 mixin eventBlock (event)
-    - isCritical = event.type === 'critical';
-    - event.icon = (isCritical ? event.icon + '-white' : event.icon) + '.svg'; 
+    - const isCritical = event.type === 'critical';
+    - const postfix = isCritical ? '-white' : '';
     .event(class=`event_size_${event.size} event_type_${event.type}`)
         .empty.empty_cross
-            img.event__nav.cross(src=`assets/cross${isCritical ? '-white' : ''}.svg`)
+            img.event__nav.cross(src=`assets/cross${postfix}.svg`)
         .event__header
             .event-intro
-                img.event__icon(src=`assets/${event.icon}`)
+                img.event__icon(src=`assets/${event.icon + postfix}.svg`)
                 .event__title(data-title=`${event.title}`)!= event.title
             .event-desc
                 .event__source!= event.source
@@ -62,4 +62,4 @@ mixin eventBlock (event)
                     .event__data
                         +dataBlock(event.data)
         .empty.empty_slide
-            img.event__nav.slide(src=`assets/next${isCritical ? '-white' : ''}.svg`)
+            img.event__nav.slide(src=`assets/next${postfix}.svg`)

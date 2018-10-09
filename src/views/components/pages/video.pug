@@ -1,0 +1,18 @@
+extends ../content
+
+block content
+    .content__title Камеры видеонаблюдения
+    .videos
+        .videos-navigations
+            .sub-nav
+                p.sub-nav__title Яркость
+                input.navigations__bright(type='range' min='50' max='150' value='100')
+                p.sub-nav__title Контраст
+                input.navigations__contrast(type='range' min='50' max='150' value='100')
+            .all-cams Все видео
+            canvas.analyser(width='120', height='100')
+        video#video-1.video(muted='', autoplay='')
+        video#video-2.video(muted='', autoplay='')
+        video#video-3.video(muted='', autoplay='')
+        video#video-4.video(muted='', autoplay='')
+    script(src='/video.js')
