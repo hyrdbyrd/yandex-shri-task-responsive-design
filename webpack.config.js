@@ -6,7 +6,7 @@ const SRC_PATH = path.join(__dirname, 'src');
 module.exports = {
     entry: {
         bundle: path.join(SRC_PATH, 'index.js'),
-        video: path.join(SRC_PATH, 'scripts/video.js')
+        media: path.join(SRC_PATH, 'scripts/media.js')
     },
     output: {
         path: DIST_PATH,

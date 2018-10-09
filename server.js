@@ -11,7 +11,7 @@ events.sort((a, b) => {
     return b - a; 
 });
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 
 app.set('view engine', 'pug');
 app.set('views', './src/views/components/pages');

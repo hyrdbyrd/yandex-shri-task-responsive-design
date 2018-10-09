@@ -10,9 +10,9 @@ block content
                 p.sub-nav__title Контраст
                 input.navigations__contrast(type='range' min='50' max='150' value='100')
             .all-cams Все видео
-            canvas.analyser(width='120', height='100')
+            canvas.analyser
         video#video-1.video(muted='', autoplay='')
         video#video-2.video(muted='', autoplay='')
         video#video-3.video(muted='', autoplay='')
         video#video-4.video(muted='', autoplay='')
-    script(src='/video.js')
+    script(src='/media.js')
