@@ -76,11 +76,9 @@ export default class Gesture {
             const { x, y } = this.lines;
 
             const diagonal = this.zoom.diagonal + this.getLine(x, y);
-            const deg = this.rotate.deg + this.getDeg(x, y);
 
             this.firstLine = {
                 pointers,
-                deg,
                 diagonal
             };
 
@@ -179,23 +177,27 @@ export default class Gesture {
 
     checkGesture(event) {
         const { x, y } = this.lines;
-        const inaccuracy = 1;
+        const inaccuracy = 2;
         
         const newDiagonal = this.getLine(x, y);
-        if (
-            newDiagonal >= this.firstLine.diagonal * inaccuracy || 
-            newDiagonal <= this.firstLine.diagonal * inaccuracy
-        ) {
+        if (newDiagonal >= this.firstLine.diagonal * inaccuracy) {
             this.isPinch = true;
             this.pinch(event);
             return;
         }
 
-        // const newDegrees = this.getDeg(a, b);
-        // if (newDegrees >= this.firstLine.deg * 2) {
-        //     this.isRotate = true;
-        //     this.rotateOf(event);
-        // }
+        const p = this.pointers.find(obj => obj.id === event.pointerId);
+        const diffX = this.getLine(p.x, p.y);
+        const diffY = this.getLine(p.prevX, p.prevY);
+
+        // Get degs behind lines
+        let newDegrees = Math.abs(this.getDeg(diffX, diffY)) * 180 / Math.PI;
+        console.log(newDegrees);
+        // If diff rotatet's more than 30 degrees
+        if (newDegrees >= 46) {
+            this.isRotate = true;
+            this.rotateOf(event);
+        }
     }
 
     pinch() {
@@ -206,8 +208,6 @@ export default class Gesture {
         const minZoom = 100;
 
         let newD = this.getLine(x, y) * 2.5;
-        // newD *= this.getSign(Math.abs(x) > Math.abs(y) ? x : -y);
-        // newD += this.zoom.diagonal;
         
         if (newD > maxZoom) newD = maxZoom;
         if (newD < minZoom) newD = minZoom;
@@ -216,24 +216,44 @@ export default class Gesture {
 
         const { position: p } = this.rotate;
 
-        let xPos = p.x + center.x;
         let yPos = (p.y + center.y) / 100;
 
-        if (xPos > 3600) xPos = 3600;
-        else if (xPos < -3600) xPos = -3600;
-        else if (yPos < 0) yPos = 0;
-        else if (yPos > 100) yPos = 100;
+        if (yPos < 0) yPos = 0;
+        if (yPos > 100) yPos = 100;
 
         this.zoom.diagonal = newD;
         this.zoom.element.innerText = `Приближение: ${newD | 0}%`;
-        image.style.backgroundSize = `${newD}% ${newD}%`;
-        image.style.backgroundPositionX = `${xPos}px`;
-        image.style.backgroundPositionY = `${yPos}%`; 
 
+        image.style.backgroundSize = `${newD}% ${newD}%`;
+        image.style.backgroundPositionY = `${yPos}%`;
     }
 
-    rotateOf() {}
+    rotateOf(event) {
+        // Get needs pointer from array of pointers
+        const p = this.pointers.find(obj => obj.id === event.pointerId);
 
+        // Lines of prev and current coords
+        const diffX = p.x - p.prevX;
+        const diffY = p.y - p.prevY;
+
+        // Get degs behind lines
+        let diff = this.getDeg(diffX, diffY) * 180 / Math.PI / 50;
+        diff += this.bright.deg;
+
+        // Set minmax
+        const minBright = 25;
+        const maxBright = 200;
+
+        if (diff < minBright) diff = minBright;
+        if (diff > maxBright) diff = maxBright;
+
+        this.bright.deg = diff;
+        this.bright.element.innerText = `Яркость: ${diff | 0}%`;
+
+        this.image.style.filter = `brightness(${diff}%)`;
+    }
+
+    // Return length of delta coords
     get lines() {
         const { pointers: p } = this;
         return {
@@ -242,18 +262,17 @@ export default class Gesture {
         };
     }
 
-    getLine(a, b) {
-        return Math.sqrt(a ** 2 + b ** 2) / 5;
+    // Get line by Pifagoar teorem's
+    getLine(x, y) {
+        return Math.sqrt(x ** 2 + y ** 2) / 5;
     }
 
-    getDeg(a, b) {
-        return Math.atan2(a, b);       
+    // Return Math.atan2 reverse (was cr-ed for debug)
+    getDeg(x, y) {
+        return Math.atan2(y, x);
     }
 
-    getSign(val) {
-        return val < 0 ? -1 : 1;
-    }
-
+    // Returns coords of center behind fingers
     getCenterCoords() {
         const { pointers: p, image } = this;
         return {
