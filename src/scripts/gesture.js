@@ -204,18 +204,22 @@ export default class Gesture {
         const { image } = this;
         let { x, y } = this.lines;
 
+        // Set minmax
         const maxZoom = 350;
         const minZoom = 100;
 
+        // New diagonal
         let newD = this.getLine(x, y) * 2.5;
         
         if (newD > maxZoom) newD = maxZoom;
         if (newD < minZoom) newD = minZoom;
 
+        // Center coords
         const center = this.getCenterCoords();
 
         const { position: p } = this.rotate;
 
+        // y position
         let yPos = (p.y + center.y) / 100;
 
         if (yPos < 0) yPos = 0;
