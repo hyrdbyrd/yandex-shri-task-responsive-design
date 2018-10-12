@@ -32,7 +32,6 @@ export default function getObjects(videos, navs) {
 
             if (mediaSource.get(video)) {
                 const { source, analyser } = mediaSource.get(video);
-                console.log(source, analyser);
                 analysAudio(audioCtx, video, source, analyser);
             } else {
                 analysAudio(audioCtx, video);
@@ -53,7 +52,5 @@ export default function getObjects(videos, navs) {
         video.addEventListener('click', onClickVideo);
     }
 
-    return {
-        getActiveVideo, initVideo
-    };
+    return { getActiveVideo, initVideo };
 }

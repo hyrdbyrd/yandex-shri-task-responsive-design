@@ -48,6 +48,7 @@ export default function analysAudio(audioCtx, element, source, analyser) {
 
     window.disconnectFromCurrentStream = function() {
         visual(true);
+        audioCtx.disconnect();
         delete window.disconnectFromCurrentStream;
         return { source, analyser };
     };
