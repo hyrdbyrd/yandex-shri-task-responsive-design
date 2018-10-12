@@ -6,7 +6,7 @@ export default function getObjects(videos, navs) {
         return videos.querySelector('.video_active');
     }
 
-    function initVideo(video, url) {
+    function initVideo(video, url, audioCtx, mediaSource) {
         if (!video) return;
 
         function onCanPlay() {
@@ -28,8 +28,15 @@ export default function getObjects(videos, navs) {
             
             const { offsetTop: top, offsetLeft: left } = video;
             video.style.transform = `translateX(${-left}px) translateY(${-top}px)`;
+        
 
-            analysAudio(video);
+            if (mediaSource.get(video)) {
+                const { source, analyser } = mediaSource.get(video);
+                console.log(source, analyser);
+                analysAudio(audioCtx, video, source, analyser);
+            } else {
+                analysAudio(audioCtx, video);
+            }
         }
 
         if (Hls.isSupported()) {

@@ -1,21 +1,15 @@
-export default function analysAudio(src) {
-    // Set audio context
-    const audioCtx = new AudioContext();
-
-    // Check the context
-    if (!audioCtx) alert('Ваш браузер не поддерживает некоторые технологии');
-    
-    const source = audioCtx.createMediaElementSource(src);
-    const analyser = audioCtx.createAnalyser();
-    analyser.fftSize = 256;
-
-    source.connect(analyser);
-    analyser.connect(audioCtx.destination);
-
-    console.log(audioCtx, source, analyser);
+export default function analysAudio(audioCtx, element, source, analyser) {
+    if (!source || !analyser) {
+        source = audioCtx.createMediaElementSource(element);
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 256;
+        
+        source.connect(analyser);
+        analyser.connect(audioCtx.destination);
+    }
 
     visual();
-    function visual() {
+    function visual(isClearRender=false) {
         const canvas = document.querySelector('.analyser');
         const ctx = canvas.getContext('2d');
 
@@ -44,9 +38,17 @@ export default function analysAudio(src) {
                 ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;
                 ctx.fillRect(x * m.fr.width, m.height - height, m.fr.width, height);
             });
-            requestAnimationFrame(render);
+            if (!isClearRender) {
+                requestAnimationFrame(render);
+            }
         }
 
         render();
     }
+
+    window.disconnectFromCurrentStream = function() {
+        visual(true);
+        delete window.disconnectFromCurrentStream;
+        return { source, analyser };
+    };
 }
