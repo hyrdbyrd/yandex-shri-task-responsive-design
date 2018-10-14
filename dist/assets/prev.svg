@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+<svg xmlns="http://www.w3.org/2000/svg" width="53" height="52"><g fill="none" fill-rule="evenodd"><rect width="53" height="52" fill="#D8D8D8" fill-opacity=".4" rx="26"/><path fill="#8C8B8B" d="M11.652 24.013l10.01-9.009A2 2 0 0 1 25 16.491v18.018a2 2 0 0 1-3.338 1.487l-10.01-9.01a2 2 0 0 1 0-2.973z"/><path fill="#8C8B8B" d="M24.652 24.013l10.01-9.009A2 2 0 0 1 38 16.491v18.018a2 2 0 0 1-3.338 1.487l-10.01-9.01a2 2 0 0 1 0-2.973z"/></g></svg>
+=======
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="53px" height="52px" viewBox="0 0 53 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
@@ -16,3 +19,4 @@
         </g>
     </g>
 </svg>
+>>>>>>> master
