@@ -19,8 +19,11 @@ import Gesture from './gesture';
                     eventBlock
                         .querySelectorAll('.empty')
                         .forEach(e => {
-                            if (!e.classList.contains('empty_slide'))
+                            if (isTouchCapable) {
+                                e.style.display = 'none';
+                            } else {
                                 e.style.display = 'flex';
+                            }
                         });
                 }
                 
@@ -31,14 +34,12 @@ import Gesture from './gesture';
                     
                     if (isTouchCapable) options.style.display = 'flex';
 
-                    window.ss =
                     new Gesture(
                         box.querySelector('.box-image-wrapper'), 
                         options.querySelector('.options__brightness'),
                         options.querySelector('.options__zoom'),
                         options.querySelector('.options__rotate')
                     );
-                    // window.ss.addPointer();
                 }
             });
     });
