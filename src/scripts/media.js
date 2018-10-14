@@ -7,7 +7,6 @@ protocol = protocol.slice(0, protocol.length - 1);
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
 const audioCtx = new AudioContext();
-const storageOfMedia = new Map();
 
 window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.querySelector('.analyser');
@@ -49,7 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
         contrast.value = '100';
         navs.classList.remove('navigations_active');
         vA.style.transform = '';
-        storageOfMedia.set(vA, window.disconnectFromCurrentStream());
+        audioCtx.disconnect();
     });
 
     ['sosed', 'dog', 'cat', 'hall']
@@ -58,8 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
             initVideo(
                 document.getElementById(`video-${id + 1}`),
                 `http://localhost:9191/master?url=${url}`,
-                audioCtx,
-                storageOfMedia
+                audioCtx
             );
         });
 });

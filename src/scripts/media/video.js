@@ -1,12 +1,14 @@
 import './videos.sss';
-import analysAudio from './audio';
+import { analysAudio } from './audio';
 
 export default function getObjects(videos, navs) {
+    const mediaSource = new Map();
+
     function getActiveVideo() {
         return videos.querySelector('.video_active');
     }
 
-    function initVideo(video, url, audioCtx, mediaSource) {
+    function initVideo(video, url, audioCtx) {
         if (!video) return;
 
         function onCanPlay() {
@@ -34,7 +36,7 @@ export default function getObjects(videos, navs) {
                 const { source, analyser } = mediaSource.get(video);
                 analysAudio(audioCtx, video, source, analyser);
             } else {
-                analysAudio(audioCtx, video);
+                mediaSource.set(video, analysAudio(audioCtx, video));
             }
         }
 
