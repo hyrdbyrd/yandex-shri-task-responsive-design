@@ -7,6 +7,8 @@ const PORT = process.env.PORT || 8000;
 app.set('view engine', 'pug');
 app.set('views', './src/views/components/pages');
 
+app.use(cors());
+
 app
     .use(express.static('./dist'))
     .use((req, res, next) => {
@@ -15,8 +17,6 @@ app
     })
     .use('/status', require('./routes/status'))
     .use('/api/events', require('./routes/api'))
-    .use('/streams/:path/:source', cors())
-    .use('/video', cors())
     .get('/video', (req, res) => { res.render('video'); })
     .use('/events', require('./routes/pagination'))
     .use((req, res, next) => {

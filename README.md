@@ -1,6 +1,6 @@
 ## Для запуска понадобиться
 ```
-npm i
+npm ci
 npm start
 ```
 После, открыть ссылку [localhost:8000](http://localhost:8000/events)

@@ -42,15 +42,19 @@ window.addEventListener('DOMContentLoaded', () => {
         const vA = gAV();
 
         vA.classList.remove('video_active');
+        // Switch off the audio
         vA.muted = true;
+        // Clear the filter
         vA.style.filter = '';
         bright.value = '100';
         contrast.value = '100';
+
         navs.classList.remove('navigations_active');
+        // Clear translate
         vA.style.transform = '';
-        audioCtx.disconnect();
     });
 
+    // All paths to streams
     ['sosed', 'dog', 'cat', 'hall']
         .map(path => encodeURIComponent(`${protocol}://${hostname}:${port}/streams/${path}/master.m3u8`))
         .forEach((url, id) => {
