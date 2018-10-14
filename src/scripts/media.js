@@ -3,24 +3,25 @@ import getObjects from './media/video';
 // Set all vars, without DOM
 let { port, hostname, protocol } = document.location;
 protocol = protocol.slice(0, protocol.length - 1);
-
+// AudioContext
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
-
 const audioCtx = new AudioContext();
 
 window.addEventListener('DOMContentLoaded', () => {
+    // Canvas for analyser
     const canvas = document.querySelector('.analyser');
-
+    // Equals Math.floor(window[`inner${dimension}`])
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth | 0;
         canvas.height = window.innerHeight | 0;
     });
-
+    // All elems, whose must switch class
     const videos = document.body.querySelector('.videos');
     const navs = videos.querySelector('.videos-navigations');
 
     const { initVideo, getActiveVideo: gAV } = getObjects(videos, navs);
 
+    // All subnavs
     const bright = navs.querySelector('.navigations__bright');
     const contrast = navs.querySelector('.navigations__contrast');
     const allCamsBtn = navs.querySelector('.all-cams');

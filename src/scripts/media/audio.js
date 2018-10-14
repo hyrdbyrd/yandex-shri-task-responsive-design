@@ -1,6 +1,8 @@
 export function analysAudio(audioCtx, element, source, analyser) {
+    // If we not get that source
     if (!source || !analyser) {
         source = audioCtx.createMediaElementSource(element);
+        // Set analyser
         analyser = audioCtx.createAnalyser();
         analyser.fftSize = 256;
         
@@ -16,11 +18,12 @@ export function analysAudio(audioCtx, element, source, analyser) {
 export function visual(analyser, canvas) {
     canvas = canvas || document.querySelector('.analyser');
     const ctx = canvas.getContext('2d');
-
+    // Equals Math.floor(window[`inner${dimension}`])
     canvas.width = window.innerWidth | 0;
     canvas.height = window.innerHeight | 0;
 
     function render() {
+        // Get all decBels for this media
         const dataList = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(dataList);
 
