@@ -18,7 +18,13 @@ import Gesture from './gesture';
                 if (isTouchCapable) {
                     eventBlock
                         .querySelectorAll('.empty')
-                        .forEach(e => e.style.display = 'flex');
+                        .forEach(e => {
+                            if (isTouchCapable) {
+                                e.style.display = 'none';
+                            } else {
+                                e.style.display = 'flex';
+                            }
+                        });
                 }
                 
                 const box = eventBlock.querySelector('.box');
@@ -26,17 +32,14 @@ import Gesture from './gesture';
                 if (box) {
                     const options = box.querySelector('.box-options');
                     
-                    if (isTouchCapable) options.style.display = 'block';
+                    if (isTouchCapable) options.style.display = 'flex';
 
-                    // window.ss = 
                     new Gesture(
                         box.querySelector('.box-image-wrapper'), 
                         options.querySelector('.options__brightness'),
                         options.querySelector('.options__zoom'),
                         options.querySelector('.options__rotate')
                     );
-
-                    // window.ss.addPointer();
                 }
             });
     });
