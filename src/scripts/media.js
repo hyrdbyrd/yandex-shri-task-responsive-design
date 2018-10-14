@@ -3,6 +3,7 @@ import getObjects from './media/video';
 // Set all vars, without DOM
 let { port, hostname, protocol } = document.location;
 protocol = protocol.slice(0, protocol.length - 1);
+<<<<<<< HEAD
 // AudioContext
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioCtx = new AudioContext();
@@ -11,17 +12,34 @@ window.addEventListener('DOMContentLoaded', () => {
     // Canvas for analyser
     const canvas = document.querySelector('.analyser');
     // Equals Math.floor(window[`inner${dimension}`])
+=======
+
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+const audioCtx = new AudioContext();
+
+window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.querySelector('.analyser');
+
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
     window.addEventListener('resize', () => {
         canvas.width = window.innerWidth | 0;
         canvas.height = window.innerHeight | 0;
     });
+<<<<<<< HEAD
     // All elems, whose must switch class
+=======
+
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
     const videos = document.body.querySelector('.videos');
     const navs = videos.querySelector('.videos-navigations');
 
     const { initVideo, getActiveVideo: gAV } = getObjects(videos, navs);
 
+<<<<<<< HEAD
     // All subnavs
+=======
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
     const bright = navs.querySelector('.navigations__bright');
     const contrast = navs.querySelector('.navigations__contrast');
     const allCamsBtn = navs.querySelector('.all-cams');
@@ -43,6 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const vA = gAV();
 
         vA.classList.remove('video_active');
+<<<<<<< HEAD
         // Switch off the audio
         vA.muted = true;
         // Clear the filter
@@ -56,6 +75,17 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // All paths to streams
+=======
+        vA.muted = true;
+        vA.style.filter = '';
+        bright.value = '100';
+        contrast.value = '100';
+        navs.classList.remove('navigations_active');
+        vA.style.transform = '';
+        audioCtx.disconnect();
+    });
+
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
     ['sosed', 'dog', 'cat', 'hall']
         .map(path => encodeURIComponent(`${protocol}://${hostname}:${port}/streams/${path}/master.m3u8`))
         .forEach((url, id) => {
