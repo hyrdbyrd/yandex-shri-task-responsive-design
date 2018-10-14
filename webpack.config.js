@@ -3,19 +3,15 @@ const path = require('path');
 const DIST_PATH = path.join(__dirname, 'dist');
 const SRC_PATH = path.join(__dirname, 'src');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
-    entry: path.join(SRC_PATH, 'index.js'),
+    entry: {
+        bundle: path.join(SRC_PATH, 'index.js'),
+        media: path.join(SRC_PATH, 'scripts/media.js')
+    },
     output: {
         path: DIST_PATH,
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.join(SRC_PATH, 'views/index.pug')
-        })
-    ],
     module: {
         rules: [
             {
@@ -54,13 +50,6 @@ module.exports = {
                         }
                     }
                 ]
-            },
-            {
-                test: /\.(pug|jade)$/,
-                loader: 'pug-loader',
-                options: {
-                    pretty: true
-                }
             },
             {
                 test: /\.(jpe?g|gif|png|woff|ttf|wav|mp3|mp4)$/,
