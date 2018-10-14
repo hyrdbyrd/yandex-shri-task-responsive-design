@@ -1,4 +1,7 @@
 {
+    "globals": {
+        "Hls": true
+    },
     "env": {
         "browser": true,
         "node": true,

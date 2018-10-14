@@ -1,0 +1,7 @@
+extends ../content
+
+block content
+    .content__title Лента событий
+        .events
+            each event in events.events
+                +eventBlock(event)
