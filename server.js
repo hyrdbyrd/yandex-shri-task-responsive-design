@@ -38,4 +38,8 @@ app.listen(PORT, err => {
     }
 
     console.log(`Server listening ${PORT} port`);
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 4a55321ff92828cfa40384994533d8861d71b384

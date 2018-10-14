@@ -2,8 +2,16 @@ import './videos.sss';
 import { analysAudio } from './audio';
 
 export default function getObjects(videos, navs) {
+<<<<<<< HEAD
     // Storage, with AudioContext.createMediaElement(element)
     // and analysers for this media
+=======
+<<<<<<< HEAD
+    // Storage, with AudioContext.createMediaElement(element)
+    // and analysers for this media
+=======
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
+>>>>>>> 4a55321ff92828cfa40384994533d8861d71b384
     const mediaSource = new Map();
 
     function getActiveVideo() {

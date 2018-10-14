@@ -1,8 +1,19 @@
 export function analysAudio(audioCtx, element, source, analyser) {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 4a55321ff92828cfa40384994533d8861d71b384
     // If we not get that source
     if (!source || !analyser) {
         source = audioCtx.createMediaElementSource(element);
         // Set analyser
+<<<<<<< HEAD
+=======
+=======
+    if (!source || !analyser) {
+        source = audioCtx.createMediaElementSource(element);
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
+>>>>>>> 4a55321ff92828cfa40384994533d8861d71b384
         analyser = audioCtx.createAnalyser();
         analyser.fftSize = 256;
         
@@ -18,12 +29,27 @@ export function analysAudio(audioCtx, element, source, analyser) {
 export function visual(analyser, canvas) {
     canvas = canvas || document.querySelector('.analyser');
     const ctx = canvas.getContext('2d');
+<<<<<<< HEAD
     // Equals Math.floor(window[`inner${dimension}`])
+=======
+<<<<<<< HEAD
+    // Equals Math.floor(window[`inner${dimension}`])
+=======
+
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
+>>>>>>> 4a55321ff92828cfa40384994533d8861d71b384
     canvas.width = window.innerWidth | 0;
     canvas.height = window.innerHeight | 0;
 
     function render() {
+<<<<<<< HEAD
         // Get all decBels for this media
+=======
+<<<<<<< HEAD
+        // Get all decBels for this media
+=======
+>>>>>>> dbfedc17b995433c5a57804b797925065faaa97e
+>>>>>>> 4a55321ff92828cfa40384994533d8861d71b384
         const dataList = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(dataList);
 
