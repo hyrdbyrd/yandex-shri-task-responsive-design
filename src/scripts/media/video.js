@@ -1,12 +1,14 @@
 import './videos.sss';
-import analysAudio from './audio';
+import { analysAudio } from './audio';
 
 export default function getObjects(videos, navs) {
+    const mediaSource = new Map();
+
     function getActiveVideo() {
         return videos.querySelector('.video_active');
     }
 
-    function initVideo(video, url, audioCtx, mediaSource) {
+    function initVideo(video, url, audioCtx) {
         if (!video) return;
 
         function onCanPlay() {
@@ -32,10 +34,9 @@ export default function getObjects(videos, navs) {
 
             if (mediaSource.get(video)) {
                 const { source, analyser } = mediaSource.get(video);
-                console.log(source, analyser);
                 analysAudio(audioCtx, video, source, analyser);
             } else {
-                analysAudio(audioCtx, video);
+                mediaSource.set(video, analysAudio(audioCtx, video));
             }
         }
 
@@ -53,7 +54,5 @@ export default function getObjects(videos, navs) {
         video.addEventListener('click', onClickVideo);
     }
 
-    return {
-        getActiveVideo, initVideo
-    };
+    return { getActiveVideo, initVideo };
 }

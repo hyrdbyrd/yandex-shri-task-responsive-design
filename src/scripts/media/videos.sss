@@ -25,6 +25,7 @@
     transition: all .2s linear
 
 .analyser
+    z-index: -1
     position: fixed
     right: 0
     bottom: 0
@@ -35,6 +36,8 @@
     position: fixed
     height: 100vh
     background: rgba(0, 0, 0, .9)
+    top: 0
+    left: 0
 
 .all-cams
     background: #ce1f00
@@ -48,9 +51,14 @@
 .sub-nav
     display: grid
     grid-template-columns: 1fr 1fr
-    align-items: center
-    grid-auto-rows: min-content
     grid-gap: 5px
+    z-index: 1000
 
 .sub-nav__title
     margin: 0
+
+@media(max-width: 500px)
+    .video_active
+        object-fit: contain
+    .videos
+        grid-template-columns: 1fr
