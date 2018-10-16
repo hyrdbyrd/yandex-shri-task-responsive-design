@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "husky": {
-    "pre-commit": "svgo dist/assets/*.svg --multipass --enable=removeDesc --enable=removeTitle --enable=sortAttrs --enable=removeViewBox --enable=removeStyleElement"
+    "pre-commit": "svgo dist/assets/*.svg --multipass --enable=removeDesc --enable=removeTitle --enable=sortAttrs --enable=removeViewBox --enable=removeStyleElement && echo \"SVGO was include. All files optimize\""
   },
   "dependencies": {
     "@videojs/murphy": "^0.1.1",
