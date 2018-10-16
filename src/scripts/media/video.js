@@ -43,7 +43,7 @@ export default function getObjects(videos, navs) {
         }
 
         if (Hls.isSupported()) {
-            var hls = new Hls();
+            const hls = new Hls();
             hls.loadSource(url);
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, onCanPlay);

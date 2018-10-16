@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 8000;
 app.set('view engine', 'pug');
 app.set('views', './src/views/components/pages');
 
-app.use(cors());
-
 app
     .use(express.static('./dist'))
     .use((req, res, next) => {
@@ -17,8 +15,9 @@ app
     })
     .use('/status', require('./routes/status'))
     .use('/api/events', require('./routes/api'))
-    .get('/video', (req, res) => { res.render('video'); })
     .use('/events', require('./routes/pagination'))
+    .use('/cams', express.static('./streams'), cors())
+    .get('/video', (req, res) => { res.render('video'); })
     .use((req, res, next) => {
         const error = new Error('Ошибка :(');
         error.status = 404;

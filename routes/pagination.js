@@ -22,29 +22,35 @@ router
                 throw err;
             }
             
-            let pags = req.params.pagination;
-            pags = pags ? pags.split(':').filter(val => !isNaN(+val)) : [];
-
+            // Get user GET url
+            let slice = req.params.pagination;
+            // Parse our db
             const newEvents = JSON.parse(data.toString());
 
-            if (pags.length < 2) {
-                res.render('events', { events: newEvents } );
+
+            // Format data
+            slice = slice ? slice.split(':').filter(val => !isNaN(+val)) : [];
+
+            // If not get "to"
+            if (!slice[1]) slice[1] = newEvents.events.length;
+            // If not get "from"
+            if (!slice[0]) slice[0] = 0;
+            // If has get, try minus one
+            else slice[0] -= slice[0] - 1 < 0 ? 0 : 1;
+
+            // Format to object
+            slice = { from: slice[0], to: slice[1] };
+
+            // If "from" bigger than "to"
+            if (slice.from > slice.to) {
+                [slice.from, slice.to] = [slice.to, slice.from];
+            }
+
+            newEvents.events = newEvents.events.slice(slice.from, slice.to);
+            if (newEvents.events.length === 0) {
+                res.render('events', { events: JSON.parse(data.toString()) });
             } else {
-                pags[0] -= 1;
-
-                if (pags[0] < 0) pags[0] = 0; 
-                if (pags[1] < 0) pags[1] = 0;
-
-                if (pags[0] > pags[1]) {
-                    [pags[0], pags[1]] = [pags[1], pags[0]]
-                }
-
-                newEvents.events = newEvents.events.slice(pags[0], pags[1]);
-                if (newEvents.events.length === 0) {
-                    res.render('events', { events: JSON.parse(data.toString()) });
-                } else {
-                    res.render('events', { events: newEvents });
-                }
+                res.render('events', { events: newEvents });
             }
         });
     });
