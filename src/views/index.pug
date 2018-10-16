@@ -3,19 +3,14 @@ html
     meta(http-equiv="Cache-control" content="no-cache")
     meta(http-equiv="Pragma" content="no-cache")
     meta(http-equiv="Expires" content="-1")
+    base(href=`${origin}`)
+    script(src='bundle.js')
+    script(src="https://cdn.jsdelivr.net/npm/hls.js@latest")
     script(src="https://code.jquery.com/pep/0.4.3/pep.js")
     include components/head
     body
-    - const events = require('./events.json').events;
-    - events.sort((a, b) => {
-    -    a = a.time.slice(0, 5).split(':');
-    -    b = b.time.slice(0, 5).split(':');
-    -    a = a[0] * 60 + a[1];
-    -    b = b[0] * 60 + b[1];
-    -    return b - a; 
-    - });
     include inter
     .main
         include components/header
-        include components/content
+        block content-block
         include components/footer

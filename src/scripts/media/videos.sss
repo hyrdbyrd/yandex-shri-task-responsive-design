@@ -1,0 +1,64 @@
+.videos
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 20px
+    align-items: center
+
+.videos-navigations
+    padding: 20px
+    transition: all .2s linear
+    color: #fff
+    position: fixed
+    top: 20px
+    left: 20px
+    background: rgba(0, 0, 0, .5)
+    opacity: 0
+    z-index: -1
+
+.navigations_active
+    opacity: 1
+    z-index: 10000
+
+.video
+    width: 100%
+    height: auto
+    transition: all .2s linear
+
+.analyser
+    z-index: -1
+    position: fixed
+    right: 0
+    bottom: 0
+
+.video_active
+    z-index: 1000
+    object-fit: cover
+    position: fixed
+    height: 100vh
+    background: rgba(0, 0, 0, .9)
+    top: 0
+    left: 0
+
+.all-cams
+    background: #ce1f00
+    position: fixed
+    bottom: 20px
+    left: 20px
+    border-radius: 20px
+    padding: 20px
+    z-index: 10000
+
+.sub-nav
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-gap: 5px
+    z-index: 1000
+
+.sub-nav__title
+    margin: 0
+
+@media(max-width: 500px)
+    .video_active
+        object-fit: contain
+    .videos
+        grid-template-columns: 1fr

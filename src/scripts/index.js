@@ -1,4 +1,4 @@
-import './touch';
-import './burger';
-import './interactive';
-import './3eDots';
+import './design/touch';
+import './design/burger';
+import './design/interactive';
+import './design/3eDots';
