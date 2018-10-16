@@ -12,8 +12,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const canvas = document.querySelector('.analyser');
     // Equals Math.floor(window[`inner${dimension}`])
     window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth | 0;
-        canvas.height = window.innerHeight | 0;
+        canvas.width = Math.floor(window.innerWidth);
+        canvas.height = Math.floor(window.innerHeight);
     });
     // All elems, whose must switch class
     const videos = document.body.querySelector('.videos');
@@ -28,20 +28,29 @@ window.addEventListener('DOMContentLoaded', () => {
 
     bright.addEventListener('change', function () {
         // video_active
+        // Cr-ed for not call that func at yet
         const vA = gAV();
+        if (!vA) return;
+
         vA.style.filter = vA.style.filter.replace(/brightness\([\s\S]*\)/ig, '') + `brightness(${this.value}%)`;
     });
 
     contrast.addEventListener('change', function () {
         // video_active
+        // Cr-ed for not call that func at yet
         const vA = gAV();
+        if (!vA) return;
+
         vA.style.filter = vA.style.filter.replace(/contrast\([\s\S]*\)/ig, '') + `contrast(${this.value}%)`;
     });
 
     allCamsBtn.addEventListener('click', () => {
         // video_active
+        // Cr-ed for not call that func at yet
         const vA = gAV();
+        if (!vA) return;
 
+        // Clear state
         vA.classList.remove('video_active');
         // Switch off the audio
         vA.muted = true;
@@ -50,6 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
         bright.value = '100';
         contrast.value = '100';
 
+        // Clear state
         navs.classList.remove('navigations_active');
         // Clear translate
         vA.style.transform = '';
@@ -57,11 +67,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // All paths to streams
     ['sosed', 'dog', 'cat', 'hall']
-        .map(path => encodeURIComponent(`${protocol}://${hostname}:${port}/streams/${path}/master.m3u8`))
-        .forEach((url, id) => {
+        .forEach((path, id) => {
             initVideo(
-                document.getElementById(`video-${id + 1}`),
-                `http://localhost:9191/master?url=${url}`,
+                document.querySelector(`.video-${id + 1}`),
+                // Create url by path
+                `http://localhost:9191/master?url=${
+                    encodeURIComponent(
+                        `${protocol}://${hostname}:${port}/cams/${path}/master.m3u8`
+                    )
+                }`,
                 audioCtx
             );
         });
