@@ -2,6 +2,9 @@ import './videos.sss';
 import { analysAudio } from './audio';
 
 export default function getObjects(videos, navs) {
+    const ctx = (document.createElement('canvas')).getContext('2d');
+    const brightnessLvlNode = document.querySelector('.navigations__brigtness');
+
     // Storage, with AudioContext.createMediaElement(element)
     // and analysers for this media
     const mediaSource = new Map();
@@ -20,10 +23,27 @@ export default function getObjects(videos, navs) {
         function onClickVideo(event) {
             event.preventDefault();
 
+            // Check the brightness
+            ctx.drawImage(video, 0, 0, 1, 1);
+            const summ = (ctx.getImageData(0, 0, 1, 1).data.reduce((prev, cur) => prev + cur) - 255) / 3;
+            
+            let brightnessLvl;
+            if (summ > 200) {
+                brightnessLvl = 'Очень ярко';
+            } else if (summ > 150) {
+                brightnessLvl = 'Ярко';
+            } else if (summ > 100) {
+                brightnessLvl = 'Тускло';
+            } else {
+                brightnessLvl = 'Темно';
+            }
+
+            // Add text for brightess
+            brightnessLvlNode.innerText = brightnessLvl;
+
             if (video.muted) {
                 video.muted = false;
             }
-
             
             if (this.classList.contains('video_active')) return;
             
@@ -31,8 +51,7 @@ export default function getObjects(videos, navs) {
             navs.classList.add('navigations_active');
             
             const { offsetTop: top, offsetLeft: left } = video;
-            video.style.transform = `translateX(${-left}px) translateY(${-top}px)`;
-        
+            video.style.transform = `translate(${-left}px, ${-top}px)`;
 
             if (mediaSource.get(video)) {
                 const { source, analyser } = mediaSource.get(video);

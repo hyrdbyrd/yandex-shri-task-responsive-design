@@ -16,6 +16,7 @@ app
     .use('/status', require('./routes/status'))
     .use('/api/events', require('./routes/api'))
     .use('/events', require('./routes/pagination'))
+    .use(cors())
     .use('/cams', express.static('./streams'), cors())
     .get('/video', (req, res) => { res.render('video'); })
     .use((req, res, next) => {
@@ -26,6 +27,7 @@ app
     .use((error, req, res, next) => {
         const title = error.status || 400;
         const text = error.message;
+        res.status(error.status || 400);        
         res.render('content', { title, text });
         next();
     });
