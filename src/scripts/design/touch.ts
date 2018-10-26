@@ -1,4 +1,4 @@
-import Gesture from './gesture';
+import Gesture from './gesture.ts';
 (function(){
     const isTouchCapable = 'ontouchstart' in window ||
         window.DocumentTouch && document instanceof window.DocumentTouch ||
@@ -12,7 +12,7 @@ import Gesture from './gesture';
 
         // Set all crosses and slides to visible state.
         // Set visibility for nav-boxes.
-        eventsBlock     
+        eventsBlock
             .querySelectorAll('.event')
             .forEach(eventBlock => {
                 if (isTouchCapable) {
@@ -26,16 +26,16 @@ import Gesture from './gesture';
                             }
                         });
                 }
-                
+
                 const box = eventBlock.querySelector('.box');
-                
+
                 if (box) {
                     const options = box.querySelector('.box-options');
-                    
+
                     if (isTouchCapable) options.style.display = 'flex';
 
                     new Gesture(
-                        box.querySelector('.box-image-wrapper'), 
+                        box.querySelector('.box-image-wrapper'),
                         options.querySelector('.options__brightness'),
                         options.querySelector('.options__zoom'),
                         options.querySelector('.options__rotate')

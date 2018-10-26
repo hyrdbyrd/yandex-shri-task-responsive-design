@@ -5,8 +5,8 @@ const SRC_PATH = path.join(__dirname, 'src');
 
 module.exports = {
     entry: {
-        bundle: path.join(SRC_PATH, 'index.js'),
-        media: path.join(SRC_PATH, 'scripts/media.js')
+        bundle: path.join(SRC_PATH, 'index.ts'),
+        media: path.join(SRC_PATH, 'scripts/media.ts')
     },
     output: {
         path: DIST_PATH,
@@ -15,7 +15,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(js|jsx|ts|tsx)$/,
                 use: [
                     'babel-loader',
                     'eslint-loader'

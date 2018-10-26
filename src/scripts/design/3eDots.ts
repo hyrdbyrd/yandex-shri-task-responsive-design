@@ -5,7 +5,7 @@
         typeof checkDiv.style.webkitBoxOrient !== 'undefined'
     )
         return;
-        
+
     window.addEventListener('DOMContentLoaded', () => {
         const body = document.body;
 
@@ -34,7 +34,7 @@
                 body.appendChild(clone);
                 const twolinesSize = clone.clientHeight * 2;
 
-                // Refresh white-space to normal 
+                // Refresh white-space to normal
                 // (for get real value of width)
                 clone.style.whiteSpace = 'normal';
                 clone.style.width = `${title.clientWidth}px`;

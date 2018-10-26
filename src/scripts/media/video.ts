@@ -1,5 +1,5 @@
 import './videos.sss';
-import { analysAudio } from './audio';
+import { analysAudio } from './audio.ts';
 
 export default function getObjects(videos, navs) {
     const ctx = (document.createElement('canvas')).getContext('2d');
@@ -26,7 +26,7 @@ export default function getObjects(videos, navs) {
             // Check the brightness
             ctx.drawImage(video, 0, 0, 1, 1);
             const summ = (ctx.getImageData(0, 0, 1, 1).data.reduce((prev, cur) => prev + cur) - 255) / 3;
-            
+
             let brightnessLvl;
             if (summ > 200) {
                 brightnessLvl = 'Очень ярко';
@@ -44,12 +44,12 @@ export default function getObjects(videos, navs) {
             if (video.muted) {
                 video.muted = false;
             }
-            
+
             if (this.classList.contains('video_active')) return;
-            
+
             video.classList.add('video_active');
             navs.classList.add('navigations_active');
-            
+
             const { offsetTop: top, offsetLeft: left } = video;
             video.style.transform = `translate(${-left}px, ${-top}px)`;
 
