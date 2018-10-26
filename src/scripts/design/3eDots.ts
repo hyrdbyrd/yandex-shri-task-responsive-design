@@ -1,11 +1,8 @@
-(function(){
-    const checkDiv = document.createElement('div');
-    if (
-        typeof checkDiv.style.webkitLineClamp !== 'undefined' &&
-        typeof checkDiv.style.webkitBoxOrient !== 'undefined'
-    )
-        return;
-
+const checkDiv = document.createElement('div');
+if (
+    typeof checkDiv.style.webkitLineClamp === 'undefined' &&
+    typeof checkDiv.style.webkitBoxOrient === 'undefined'
+) {
     window.addEventListener('DOMContentLoaded', () => {
         const body = document.body;
 
@@ -15,18 +12,19 @@
             .querySelectorAll('.event__title');
 
         function onResize() {
-            titleList.forEach(title => {
+            titleList.forEach((title) => {
                 // Get full text from title
                 const text = title.getAttribute('data-title');
 
                 // Clone title node
-                const clone = title.cloneNode(true);
+                const clone: HTMLElement = title.cloneNode(true) as HTMLElement;
 
                 // Set styles, for set needs state
                 clone.style.position = 'absolute';
                 clone.style.visibility = 'hidden';
                 clone.style.height = 'auto';
                 clone.style.width = '100%';
+
                 // For inline text
                 clone.style.whiteSpace = 'pre';
                 clone.innerHTML = text;
@@ -55,4 +53,4 @@
         window.addEventListener('resize', onResize);
         onResize();
     });
-})();
+}

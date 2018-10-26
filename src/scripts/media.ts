@@ -1,16 +1,17 @@
-import getObjects from './media/video.ts';
+import getObjects from './media/video';
 
 // Set all vars, without DOM
-let { port, hostname, protocol } = document.location;
+const { port, hostname } = document.location;
+let { protocol } = document.location;
 protocol = protocol.slice(0, protocol.length - 1);
+
 // AudioContext
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-const audioCtx = new AudioContext();
+// window.AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx: AudioContext = new AudioContext();
 
 window.addEventListener('DOMContentLoaded', () => {
     // Canvas for analyser
-    const canvas = document.querySelector('.analyser');
-    // Equals Math.floor(window[`inner${dimension}`])
+    const canvas: HTMLCanvasElement = document.querySelector('.analyser');
     window.addEventListener('resize', () => {
         canvas.width = Math.floor(window.innerWidth);
         canvas.height = Math.floor(window.innerHeight);
@@ -22,11 +23,11 @@ window.addEventListener('DOMContentLoaded', () => {
     const { initVideo, getActiveVideo: gAV } = getObjects(videos, navs);
 
     // All subnavs
-    const bright = navs.querySelector('.navigations__bright');
-    const contrast = navs.querySelector('.navigations__contrast');
-    const allCamsBtn = navs.querySelector('.all-cams');
+    const bright: HTMLInputElement = navs.querySelector('.navigations__bright');
+    const contrast: HTMLInputElement = navs.querySelector('.navigations__contrast');
+    const allCamsBtn: HTMLDivElement = navs.querySelector('.all-cams');
 
-    bright.addEventListener('change', function () {
+    bright.addEventListener('change', function() {
         // video_active
         // Cr-ed for not call that func at yet
         const vA = gAV();
@@ -35,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
         vA.style.filter = vA.style.filter.replace(/brightness\([\s\S]*\)/ig, '') + `brightness(${this.value}%)`;
     });
 
-    contrast.addEventListener('change', function () {
+    contrast.addEventListener('change', function() {
         // video_active
         // Cr-ed for not call that func at yet
         const vA = gAV();

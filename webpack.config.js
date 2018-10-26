@@ -8,6 +8,9 @@ module.exports = {
         bundle: path.join(SRC_PATH, 'index.ts'),
         media: path.join(SRC_PATH, 'scripts/media.ts')
     },
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".json"]
+    },
     output: {
         path: DIST_PATH,
         filename: '[name].js'
@@ -15,10 +18,16 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx|ts|tsx)$/,
+                exclude: /node_modules/,
+                test: /\.(js|ts)$/,
                 use: [
-                    'babel-loader',
-                    'eslint-loader'
+                    'tslint-loader',
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            onlyCompileBundledFiles: true
+                        }
+                    }
                 ]
             },
             {
@@ -55,6 +64,6 @@ module.exports = {
                 test: /\.(jpe?g|gif|png|woff|ttf|wav|mp3|mp4)$/,
                 loader: 'file-loader'
             }
-        ]
+        ],
     }
 };
