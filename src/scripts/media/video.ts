@@ -1,22 +1,28 @@
+import { analysAudio } from './audio';
 import './videos.sss';
-import { analysAudio } from './audio.ts';
+// import { interface } from 'tcomb';
 
-export default function getObjects(videos, navs) {
-    const ctx = (document.createElement('canvas')).getContext('2d');
-    const brightnessLvlNode = document.querySelector('.navigations__brigtness');
+interface IGetObjects {
+    getActiveVideo(): HTMLVideoElement;
+    initVideo(video: HTMLVideoElement, url: string, audioCtx: AudioContext): void;
+}
+
+export default function getObjects(videos, navs): IGetObjects {
+    const ctx: CanvasRenderingContext2D = (document.createElement('canvas')).getContext('2d');
+    const brightnessLvlNode: HTMLDivElement = document.querySelector('.navigations__brigtness');
 
     // Storage, with AudioContext.createMediaElement(element)
     // and analysers for this media
     const mediaSource = new Map();
 
-    function getActiveVideo() {
+    function getActiveVideo(): HTMLVideoElement {
         return videos.querySelector('.video_active');
     }
 
-    function initVideo(video, url, audioCtx) {
+    function initVideo(video, url, audioCtx): void {
         if (!video) return;
 
-        function onCanPlay() {
+        function onCanPlay(): void {
             video.play().catch();
         }
 
