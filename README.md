@@ -1,5 +1,6 @@
 ## Для запуска понадобиться
 ```
+git submodule update --init --recursive
 npm i
 npm run build
 npm start
