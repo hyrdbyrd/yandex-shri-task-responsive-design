@@ -1,8 +1,9 @@
-const express = require('express');
-const app = express();
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 
-const PORT = process.env.PORT || 8000;
+const app = express();
+
+const PORT: string = process.env.PORT || '8000';
 
 app.set('view engine', 'pug');
 app.set('views', './src/views/components/pages');
@@ -20,18 +21,21 @@ app
     .use('/cams', express.static('./streams'), cors())
     .get('/video', (req, res) => { res.render('video'); })
     .use((req, res, next) => {
-        const error = new Error('Ошибка :(');
-        error.status = 404;
+
+        const error = {
+            message: 'Ошибка :(',
+            status: 404
+        }
         next(error);
     })
     .use((error, req, res, next) => {
-        const title = error.status || 400;
-        const text = error.message;
-        res.status(error.status || 400);        
+        const title: number = error.status || 400;
+        const text: number = error.message;
+        res.status(title);
         res.render('content', { title, text });
         next();
     });
-    
+
 app.listen(PORT, err => {
     if (err) {
         console.error(err);

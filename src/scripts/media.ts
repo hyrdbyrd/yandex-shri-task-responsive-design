@@ -1,4 +1,4 @@
-import getObjects from './media/video';
+import getObjects from './media/video.ts';
 
 // Set all vars, without DOM
 let { port, hostname, protocol } = document.location;
