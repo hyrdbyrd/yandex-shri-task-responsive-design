@@ -1,12 +1,11 @@
 import Gesture from './gesture';
 
 const isTouchCapable = 'ontouchstart' in window ||
-    // window.DocumentTouch && document instanceof window.DocumentTouch ||
     navigator.maxTouchPoints > 0 ||
     navigator.msMaxTouchPoints > 0;
 
 window.addEventListener('DOMContentLoaded', () => {
-    const eventsBlock: HTMLDivElement = document.body.querySelector('.events');
+    const eventsBlock: HTMLDivElement | null = document.body.querySelector('.events');
 
     if (!eventsBlock) return;
 
@@ -30,16 +29,23 @@ window.addEventListener('DOMContentLoaded', () => {
             const box = eventBlock.querySelector('.box');
 
             if (box) {
-                const options = box.querySelector<HTMLDivElement>('.box-options');
+                const options: HTMLDivElement | null = box.querySelector<HTMLDivElement>('.box-options');
 
-                if (isTouchCapable) options.style.display = 'flex';
+                if (isTouchCapable && options !== null)
+                    options.style.display = 'flex';
 
-                new Gesture(
-                    box.querySelector<HTMLDivElement>('.box-image-wrapper'),
-                    options.querySelector<HTMLDivElement>('.options__brightness'),
-                    options.querySelector<HTMLDivElement>('.options__zoom'),
-                    options.querySelector<HTMLDivElement>('.options__rotate')
-                );
+                const wrapper: HTMLDivElement | null = box.querySelector('.box-image-wrapper');
+                const brightness: HTMLDivElement | null = options.querySelector('.options__brightness');
+                const zoom: HTMLDivElement | null = options.querySelector('.options__zoom');
+                const rotate: HTMLDivElement | null = options.querySelector('.options__rotate');
+
+                if (wrapper && brightness && zoom && rotate)
+                    new Gesture(
+                        wrapper,
+                        brightness,
+                        zoom,
+                        rotate
+                    );
             }
         });
 });

@@ -42,7 +42,7 @@ app
         next();
     });
 
-app.listen(PORT, (err) => {
+app.listen(PORT, (err: Error) => {
     if (err) {
         console.error(err);
         process.exit(1);

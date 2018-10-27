@@ -1,12 +1,14 @@
 window.addEventListener('DOMContentLoaded', () => {
     document.body
-        .querySelectorAll('.event')
+        .querySelectorAll<HTMLElement>('.event')
         .forEach((eventBlock) => {
             eventBlock.addEventListener('click', function(event) {
-                if ((event.target as HTMLElement).classList.contains('cross')) {
-                    this.classList.add('event_closed');
-                } else if ((event.target as HTMLElement).classList.contains('slide')) {
-                    this.classList.remove('event_closed');
+                const target: HTMLElement = <HTMLElement>event.target;
+
+                if (target.classList.contains('cross')) {
+                    eventBlock.classList.add('event_closed');
+                } else if (target.classList.contains('slide')) {
+                    eventBlock.classList.remove('event_closed');
                 }
             });
         });

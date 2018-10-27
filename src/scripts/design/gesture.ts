@@ -1,13 +1,48 @@
+interface IImage {
+    wrapper: HTMLDivElement
+};
+
+interface IZoom {
+    element: HTMLDivElement;
+    diagonal: number;
+    value: number | string;
+};
+
+interface IRotate {
+    element: HTMLDivElement;
+    position: {
+        x: number;
+        y: number;
+    };
+}
+
+interface IPointer {
+    x: number;
+    y: number;
+    id: number;
+}
+
+interface IBright {
+    element: HTMLDivElement;
+    deg: number;
+}
+
+interface IFstLine {
+    pointers: IPointer[];
+    diagonal: number;
+    deg: number;
+}
+
 export default class Gesture {
-    public image;
-    protected zoom;
+    public image: IImage;
+    protected zoom: IZoom;
 
-    protected pointers;
+    protected pointers: IPointer[];
 
-    protected rotate;
-    protected bright;
+    protected rotate: IRotate;
+    protected bright: IBright;
 
-    private firstLine = null;
+    private firstLine: IFstLine | null = null;
     private isPinch = false;
     private isRotate = false;
 
@@ -30,7 +65,8 @@ export default class Gesture {
         };
         this.zoom = {
             element: zoomOptionBlock,
-            diagonal: 0
+            diagonal: 0,
+            value: 100
         };
 
         wrapper.style.backgroundPosition = '0px 0px';
@@ -58,7 +94,7 @@ export default class Gesture {
         wrapper.addEventListener('pointerdown', this.onPointerDown);
     }
 
-    protected onPointerUp(event) {
+    protected onPointerUp(event: PointerEvent) {
         this.pointers = this.pointers.filter((pointer) => pointer.id !== event.pointerId);
 
         document.removeEventListener('pointermove', this.onSingleMove);
@@ -66,13 +102,13 @@ export default class Gesture {
 
         document.exitPointerLock();
 
-        this.zoom.value = this.image.wrapper.style.backgroundSize.split(' ')[0];
+        this.zoom.value = this.image.wrapper.style.backgroundSize.split(' ')[0] || 100;
         this.firstLine = null;
         this.isPinch = false;
         this.isRotate = false;
     }
 
-    protected onPointerDown(event) {
+    protected onPointerDown(event: PointerEvent) {
         this.pointers.push({
             x: event.clientX,
             y: event.clientY,
@@ -112,8 +148,8 @@ export default class Gesture {
         document.addEventListener('pointerup', this.onPointerUp);
     }
 
-    protected onMove(event) {
-        const idx = this.pointers.findIndex((obj) => obj.id === event.pointerId);
+    protected onMove(event: PointerEvent) {
+        const idx: number = this.pointers.findIndex((obj) => obj.id === event.pointerId);
 
         if (idx === -1) return;
 
@@ -121,11 +157,11 @@ export default class Gesture {
         this.pointers[idx].y += event.movementY;
     }
 
-    protected onSingleMove(event) {
+    protected onSingleMove(event: PointerEvent) {
         this.slideTo(event);
     }
 
-    protected slideTo(event) {
+    protected slideTo(event: PointerEvent) {
         const { wrapper } = this.image;
 
         wrapper.style.backgroundPosition = wrapper.style.backgroundPosition
@@ -162,7 +198,7 @@ export default class Gesture {
             .join(' ');
     }
 
-    protected onMultiMove(event) {
+    protected onMultiMove(event: PointerEvent) {
         const { pointers } = this;
         let idx = pointers.findIndex((obj) => obj.id === event.pointerId);
         if (idx === -1) idx = 0;
@@ -180,7 +216,7 @@ export default class Gesture {
         this.checkGesture(event);
     }
 
-    protected checkGesture(event) {
+    protected checkGesture(event: PointerEvent) {
         const { a, b } = this.lines;
 
         const newDiagonal = this.getLine(a, b);
@@ -197,7 +233,7 @@ export default class Gesture {
         }
     }
 
-    protected pinch(event) {
+    protected pinch(event: PointerEvent) {
         const { movementX: a, movementY: b } = event;
 
         const maxZoom = 350;
@@ -214,7 +250,7 @@ export default class Gesture {
         this.zoom.element.innerText = `Приближение: ${newD ? newD : 0}%`;
     }
 
-    protected rotateOf(event) {
+    protected rotateOf(event: PointerEvent) {
         const { movementX: moveX, movementY: moveY } = event;
 
         const maxBright = 150;
@@ -227,11 +263,11 @@ export default class Gesture {
         if (newD < minBright) newD = minBright;
 
         this.bright.deg = newD;
-        this.bright.element = `Яркость: ${newD ? newD : 0}`;
+        this.bright.element.innerText = `Яркость: ${Math.floor(newD ? newD : 0)}`;
         this.image.wrapper.style.filter = `brightness(${newD}%)`;
     }
 
-    get lines() {
+    get lines(): { a: number, b: number } {
         const { pointers: p } = this;
         return {
             a: Math.abs(p[0].x - p[1].x),
@@ -239,26 +275,26 @@ export default class Gesture {
         };
     }
 
-    protected getLine(a, b) {
+    protected getLine(a: number, b: number): number {
         return Math.sqrt(a ** 2 + b ** 2) / 5;
     }
 
-    protected getDeg(a, b) {
+    protected getDeg(a: number, b: number): number {
         return Math.atan2(a, b);
     }
 
-    protected addPointer() {
+    protected addPointer(): void {
         // wrapper metrika
-        const wM = this.image.wrapper.getBoundingClientRect();
+        const wM: ClientRect = this.image.wrapper.getBoundingClientRect();
 
         this.pointers.push({
             id: -1000,
-            x: wM.x + wM.width / 2,
+            x: wM.left + wM.width / 2,
             y: 539 + wM.height / 2
         });
     }
 
-    protected removePointer() {
+    protected removePointer(): void {
         this.pointers.pop();
     }
 

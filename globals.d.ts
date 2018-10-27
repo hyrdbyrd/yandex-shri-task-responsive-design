@@ -1,9 +1,20 @@
+declare interface Location {
+    port: string;
+    hostname: string;
+    protocol: string;
+}
+
+declare interface HTMLDivElement {
+    requestPointerLock(): void
+}
+
 declare interface Document {
     exitPointerLock(): void
 }
 
 declare interface Window {
-    DocumentTouch: Document
+    DocumentTouch: Document;
+    AudioContext: any;
 }
 
 declare interface CSSStyleDeclaration {
