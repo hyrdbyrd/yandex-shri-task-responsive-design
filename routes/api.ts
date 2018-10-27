@@ -31,9 +31,9 @@ function sendEvents(req: Request, res: Response, next: NextFunction) {
             // For queries like info:
             // or critical:
             // or :info
-            types = types.filter((val) => val.length > 0);
+            types = types.filter((val: string) => val.length > 0);
 
-            if (types.some((type) => !((config as any).types.indexOf(type) + 1))) {
+            if (types.some((type: string) => !((config as any).types.indexOf(type) + 1))) {
                 res.status(400);
                 next(new Error('Плохой запрос :('));
                 return;
@@ -41,7 +41,7 @@ function sendEvents(req: Request, res: Response, next: NextFunction) {
 
             result.events = result
                 .events
-                .filter((obj) => types.some((type) => type === obj.type));
+                .filter((obj) => types.some((type: string) => type === obj.type));
         }
 
         res.send(result);

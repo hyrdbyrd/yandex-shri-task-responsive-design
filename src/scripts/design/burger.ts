@@ -1,8 +1,8 @@
 window.addEventListener('DOMContentLoaded', () => {
-    const body = document.body;
-    const main = body.querySelector('.main');
+    const body: HTMLElement = document.body;
+    const main: HTMLDivElement = body.querySelector<HTMLDivElement>('.main');
     // Get needs navigation
-    const headerNav = main.querySelector('.navigation_header');
+    const headerNav: HTMLElement = main.querySelector<HTMLElement>('.navigation_header');
     main.querySelector('.burger').addEventListener('click', () => {
         headerNav.classList.toggle('navigation_header_active');
         // Switch-off overflow (be-se scroll is active)

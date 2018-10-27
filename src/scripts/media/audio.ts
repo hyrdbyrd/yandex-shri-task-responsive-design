@@ -1,4 +1,4 @@
-export function analysAudio(audioCtx, element, source?, analyser?) {
+export function analysAudio(audioCtx: AudioContext, element: HTMLMediaElement, source?: MediaElementAudioSourceNode, analyser?: AnalyserNode) {
     // If we not get that source
     if (!source || !analyser) {
         source = audioCtx.createMediaElementSource(element);
@@ -14,7 +14,7 @@ export function analysAudio(audioCtx, element, source?, analyser?) {
     return { source, analyser };
 }
 
-export function visual(analyser, canvas) {
+export function visual(analyser: AnalyserNode, canvas: HTMLCanvasElement) {
     canvas = canvas || document.querySelector('.analyser');
     const ctx = canvas.getContext('2d');
     // Equals Math.floor(window[`inner${dimension}`])
@@ -23,11 +23,11 @@ export function visual(analyser, canvas) {
 
     function render() {
         // Get all decBels for this media
-        const dataList = new Uint8Array(analyser.frequencyBinCount);
+        const dataList: Uint8Array= new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(dataList);
 
         // metrika
-        const m = {
+        const m: { fr: { width: number }, height: number, width: number } = {
             fr: {
                 width: Math.floor(canvas.width / dataList.length * 2.5)
             },
@@ -36,7 +36,7 @@ export function visual(analyser, canvas) {
         };
 
         ctx.clearRect(0, 0, m.width, m.height);
-        dataList.forEach((height, x) => {
+        dataList.forEach((height: number, x: number) => {
             // Create effect, of linear-gradient from red to blue, and to green
             // 25 - prefer 255, but without 5 :)
             const r = height + (25 * (x / dataList.length));

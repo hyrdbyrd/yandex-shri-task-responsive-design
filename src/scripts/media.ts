@@ -11,21 +11,22 @@ const audioCtx: AudioContext = new AudioContext();
 
 window.addEventListener('DOMContentLoaded', () => {
     // Canvas for analyser
-    const canvas: HTMLCanvasElement = document.querySelector('.analyser');
+    const canvas: HTMLCanvasElement = document.querySelector<HTMLCanvasElement>('.analyser');
+
     window.addEventListener('resize', () => {
         canvas.width = Math.floor(window.innerWidth);
         canvas.height = Math.floor(window.innerHeight);
     });
     // All elems, whose must switch class
-    const videos = document.body.querySelector('.videos');
-    const navs = videos.querySelector('.videos-navigations');
+    const videos: HTMLVideoElement = document.body.querySelector<HTMLVideoElement>('.videos');
+    const navs: HTMLDivElement = videos.querySelector<HTMLDivElement>('.videos-navigations');
 
     const { initVideo, getActiveVideo: gAV } = getObjects(videos, navs);
 
     // All subnavs
-    const bright: HTMLInputElement = navs.querySelector('.navigations__bright');
-    const contrast: HTMLInputElement = navs.querySelector('.navigations__contrast');
-    const allCamsBtn: HTMLDivElement = navs.querySelector('.all-cams');
+    const bright: HTMLInputElement = navs.querySelector<HTMLInputElement>('.navigations__bright');
+    const contrast: HTMLInputElement = navs.querySelector<HTMLInputElement>('.navigations__contrast');
+    const allCamsBtn: HTMLDivElement = navs.querySelector<HTMLDivElement>('.all-cams');
 
     bright.addEventListener('change', function() {
         // video_active

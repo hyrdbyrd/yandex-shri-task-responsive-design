@@ -1,13 +1,12 @@
 import { analysAudio } from './audio';
 import './videos.sss';
-// import { interface } from 'tcomb';
 
 interface IGetObjects {
     getActiveVideo(): HTMLVideoElement;
     initVideo(video: HTMLVideoElement, url: string, audioCtx: AudioContext): void;
 }
 
-export default function getObjects(videos, navs): IGetObjects {
+export default function getObjects(videos: HTMLVideoElement, navs: HTMLElement): IGetObjects {
     const ctx: CanvasRenderingContext2D = (document.createElement('canvas')).getContext('2d');
     const brightnessLvlNode: HTMLDivElement = document.querySelector('.navigations__brigtness');
 
@@ -16,24 +15,24 @@ export default function getObjects(videos, navs): IGetObjects {
     const mediaSource = new Map();
 
     function getActiveVideo(): HTMLVideoElement {
-        return videos.querySelector('.video_active');
+        return videos.querySelector<HTMLVideoElement>('.video_active');
     }
 
-    function initVideo(video, url, audioCtx): void {
+    function initVideo(video: HTMLVideoElement, url: string, audioCtx: AudioContext): void {
         if (!video) return;
 
         function onCanPlay(): void {
             video.play().catch();
         }
 
-        function onClickVideo(event) {
+        function onClickVideo(event: Event) {
             event.preventDefault();
 
             // Check the brightness
             ctx.drawImage(video, 0, 0, 1, 1);
-            const summ = (ctx.getImageData(0, 0, 1, 1).data.reduce((prev, cur) => prev + cur) - 255) / 3;
+            const summ: number = (ctx.getImageData(0, 0, 1, 1).data.reduce((prev, cur) => prev + cur) - 255) / 3;
 
-            let brightnessLvl;
+            let brightnessLvl: string;
             if (summ > 200) {
                 brightnessLvl = 'Очень ярко';
             } else if (summ > 150) {
@@ -51,7 +50,7 @@ export default function getObjects(videos, navs): IGetObjects {
                 video.muted = false;
             }
 
-            if (this.classList.contains('video_active')) return;
+            if (video.classList.contains('video_active')) return;
 
             video.classList.add('video_active');
             navs.classList.add('navigations_active');
