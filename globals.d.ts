@@ -14,7 +14,7 @@ declare interface Document {
 
 declare interface Window {
     DocumentTouch: Document;
-    AudioContext: any;
+    AudioContext: typeof AudioContext;
 }
 
 declare interface CSSStyleDeclaration {

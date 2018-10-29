@@ -1,4 +1,4 @@
-import { Router, Request, Response, NextFunction, RequestParamHandler } from 'express';
+import { Router, Request, Response, NextFunction } from 'express';
 
 declare interface IEvents {
     type: string;
@@ -12,7 +12,7 @@ import { readFile, readFileSync } from 'fs';
 import { resolve } from 'path';
 
 // All correct types
-const config = JSON.parse(readFileSync(resolve(__dirname, './statuses.json')).toString());
+const config: IEvents = JSON.parse(readFileSync(resolve(__dirname, './statuses.json')).toString());
 
 function sendEvents(req: Request, res: Response, next: NextFunction) {
     readFile(resolve(__dirname, './../events.json'), (err: Error, data: Buffer) => {
