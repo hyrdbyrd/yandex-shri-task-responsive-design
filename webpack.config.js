@@ -6,10 +6,11 @@ const SRC_PATH = path.join(__dirname, 'src');
 module.exports = {
     entry: {
         bundle: path.join(SRC_PATH, 'index.ts'),
-        media: path.join(SRC_PATH, 'scripts/media.ts')
+        media: path.join(SRC_PATH, 'scripts/media.ts'),
+        react: path.join(SRC_PATH, 'components/Page.tsx')
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
     },
     output: {
         path: DIST_PATH,
@@ -19,14 +20,10 @@ module.exports = {
         rules: [
             {
                 exclude: /node_modules/,
-                test: /\.(js|ts)$/,
+                test: /\.(js|ts)x?$/,
                 use: [
-                    // 'tslint-loader',
                     {
-                        loader: 'ts-loader',
-                        options: {
-                            onlyCompileBundledFiles: true
-                        }
+                        loader: 'awesome-typescript-loader',
                     }
                 ]
             },

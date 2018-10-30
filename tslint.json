@@ -14,5 +14,5 @@
         "ordered-imports": false,
         "curly": false,
         "no-unused-expression": false
-    },
+    }
 }

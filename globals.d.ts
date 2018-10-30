@@ -15,6 +15,7 @@ declare interface Document {
 declare interface Window {
     DocumentTouch: Document;
     AudioContext: typeof AudioContext;
+    webkitAudioContext: typeof AudioContext;
 }
 
 declare interface CSSStyleDeclaration {
@@ -28,5 +29,3 @@ declare interface IEvents {
 declare interface IStatuses {
     events: IEvents[];
 }
-
-declare const Hls: any;

@@ -1,6 +1,8 @@
 import { analysAudio } from './audio';
 import './videos.sss';
 
+import * as Hls from 'hls.js';
+
 interface IGetObjects {
     getActiveVideo(): HTMLVideoElement;
     initVideo(video: HTMLVideoElement, url: string, audioCtx: AudioContext): void;

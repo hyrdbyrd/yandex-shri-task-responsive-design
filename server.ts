@@ -26,6 +26,7 @@ app
     .use(cors())
     .use('/cams', express.static('./streams'), cors())
     .get('/video', (req, res) => { res.render('video'); })
+    .get('/react', (req: Request, res: Response) => { res.render('react'); })
     .use((req: Request, res: Response, next: NextFunction) => {
         const error = {
             message: 'Ошибка :(',

@@ -1,0 +1,29 @@
+.buttons
+    color: #000000
+    display: grid
+    grid-gap: 18px
+    grid-template-columns: repeat(auto-fit, 132px)
+    grid-auto-rows: 54px
+    font-size: calc(0.26vw + 1rem)
+
+.button
+    border-radius: 8px
+    height: 54px
+    width: 132px
+    display: flex
+    justify-content: center
+    align-items: center
+
+.button_type_confirm
+    background: #ffd93e
+
+.button_type_close
+    background: #e5e5e5
+
+@media (max-width: 991px)
+    .button
+        height: 44px
+
+@media (max-width: 370px)
+    .buttons
+        justify-content: center
