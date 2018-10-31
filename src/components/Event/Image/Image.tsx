@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import './Image.sss';
-
 export function Image() {
     return <div className="box">
         <div className="box-image-wrapper" style={{ backgroundImage: 'url(assets/cam@x3.png)' }} touch-action='none'>

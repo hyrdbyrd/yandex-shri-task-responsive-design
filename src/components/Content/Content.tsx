@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import './Content.sss';
-
 export function Content(props: { children: any, title: string }) {
     const { children, title } = props;
 

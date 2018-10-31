@@ -2,10 +2,6 @@ import * as React from 'react';
 
 // Import menu-parts
 import { MenuHeader, MenuFooter } from './../Menu/Menu';
-// Import stylesheet
-import './Header.sss';
-
-const body = document.body;
 
 export class Header extends React.Component<{}, { isOpen: boolean }> {
     state = {
@@ -14,8 +10,8 @@ export class Header extends React.Component<{}, { isOpen: boolean }> {
 
     // Burger-toggler
     private onClickMenu() {
-        this.setState((state) => ({ isOpen: !state.isOpen }));
-        body.classList.toggle('no-overflow');
+        // this.setState((state) => ({ isOpen: !state.isOpen }));
+        // body.classList.toggle('no-overflow');
     }
 
     render() {

@@ -5,8 +5,6 @@ import { Temperature } from './Temperature/Temperature';
 import { Buttons } from './Buttons/Buttons';
 import { Image } from './Image/Image';
 
-import './Event.sss';
-
 import { IEvent, IEventData } from './Event.d';
 
 export class EventDataBlock extends React.Component<{obj: IEventData, type: string}> {

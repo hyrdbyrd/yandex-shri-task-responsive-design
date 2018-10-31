@@ -2,7 +2,6 @@ import * as React from 'react';
 
 // Get Menu-part
 import { MenuFooter } from './../Menu/Menu';
-import './Footer.sss';
 
 // Static block
 export function Footer() {

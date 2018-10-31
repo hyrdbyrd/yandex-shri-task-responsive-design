@@ -1,3 +1,5 @@
+/// <reference path="./../../../globals.d.ts" />
+
 const checkDiv = document.createElement('div');
 if (
     typeof checkDiv.style.webkitLineClamp === 'undefined' &&

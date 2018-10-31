@@ -5,10 +5,10 @@ const SRC_PATH = path.join(__dirname, 'src');
 
 module.exports = {
     entry: {
-        bundle: path.join(SRC_PATH, 'index.ts'),
-        media: path.join(SRC_PATH, 'scripts/media.ts'),
-        react: path.join(SRC_PATH, 'components/Page.tsx')
+        // react: path.join(SRC_PATH, '/components/Pages/Events.tsx'),
+        server: path.join(SRC_PATH, 'server.tsx')
     },
+    target: 'node',
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
     },
