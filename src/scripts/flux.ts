@@ -21,12 +21,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
                 if (data.scripts) {
                     data.scripts.forEach((src: string) => {
-                        if (!body.querySelector(`script[src="${src}"]`)) {
-                            const scriptTag = document.createElement('script');
-                            scriptTag.src = src;
-                            scriptTag.crossOrigin = 'crossorigin';
-                            body.appendChild(scriptTag);
-                        }
+                        const script = body.querySelector(`script[src="${src}"]`)
+                        script && body.removeChild(script);
+
+                        const scriptTag = document.createElement('script');
+                        scriptTag.src = src;
+                        scriptTag.crossOrigin = 'crossorigin';
+                        body.appendChild(scriptTag);
                     });
                 }
 
