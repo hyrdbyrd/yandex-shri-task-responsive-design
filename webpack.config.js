@@ -6,7 +6,8 @@ const SRC_PATH = path.join(__dirname, 'src');
 module.exports = {
     entry: {
         bundle: path.join(SRC_PATH, 'index.ts'),
-        media: path.join(SRC_PATH, 'scripts/media.ts')
+        media: path.join(SRC_PATH, 'scripts/media.ts'),
+        flux: path.join(SRC_PATH, 'scripts/flux.ts')
     },
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]

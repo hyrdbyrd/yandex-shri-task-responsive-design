@@ -4,13 +4,9 @@ html
     meta(http-equiv="Pragma" content="no-cache")
     meta(http-equiv="Expires" content="-1")
     base(href=`${origin}`)
-    script(src='bundle.js')
     script(src="https://code.jquery.com/pep/0.4.3/pep.js")
-    include components/head
+    include ../head
     body
-    include inter
-    .main
-        include components/header
-        .content-block.section
-            block content-block
-        include components/footer
+        include ../../inter
+        .main
+    script(src="flux.js" defer)

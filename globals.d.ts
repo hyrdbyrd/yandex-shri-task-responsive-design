@@ -12,9 +12,16 @@ declare interface Document {
     exitPointerLock(): void
 }
 
+declare interface IFluxData {
+    html: string;
+    styleUrl?: string;
+    scriptUrl?: string;
+}
+
 declare interface Window {
     DocumentTouch: Document;
     AudioContext: typeof AudioContext;
+    globalFluxStorage?: IFluxData[] | undefined;
 }
 
 declare interface CSSStyleDeclaration {
