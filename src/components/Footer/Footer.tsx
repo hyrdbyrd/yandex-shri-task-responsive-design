@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './Footer.sss';
+
 // Get Menu-part
 import { MenuFooter } from './../Menu/Menu';
 

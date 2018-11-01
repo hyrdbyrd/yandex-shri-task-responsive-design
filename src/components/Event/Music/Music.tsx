@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IDataMusic } from './../Event.d';
 
-// import './Music.sss';
+import './Music.sss';
 
 export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
     constructor(props: { obj: IDataMusic }) {
@@ -14,27 +14,27 @@ export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
     }
 
     onVolumeChange(event: Event) {
-        // const target: HTMLElement | any = event.target;
+        const target: HTMLElement | any = event.target;
 
-        // const val: number = target.value;
+        const val: number = target.value;
 
-        // this.setState((state) => ({
-        //     volume: val,
-        //     track: state.track
-        // }))
+        this.setState((state) => ({
+            volume: val,
+            track: state.track
+        }))
     }
 
     onTrackPosChange(event: Event) {
-        // const target: HTMLElement | any = event.target;
-        // const val: string = target.value;
+        const target: HTMLElement | any = event.target;
+        const val: string = target.value;
 
-        // this.setState((state) => ({
-        //     volume: state.volume,
-        //     track: {
-        //         name: state.track.name,
-        //         length: val
-        //     }
-        // }));
+        this.setState((state) => ({
+            volume: state.volume,
+            track: {
+                name: state.track.name,
+                length: val
+            }
+        }));
     }
 
     render() {

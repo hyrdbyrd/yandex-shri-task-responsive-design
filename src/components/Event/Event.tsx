@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './Event.sss';
+
 import { Music } from './Music/Music';
 import { Temperature } from './Temperature/Temperature';
 import { Buttons } from './Buttons/Buttons';

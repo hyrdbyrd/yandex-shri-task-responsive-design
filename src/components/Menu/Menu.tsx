@@ -1,5 +1,6 @@
 import * as React from 'react';
-// Import stylesheet
+
+import '../Navigation/Navigation.sss';
 
 // Menu-part - Header
 export function MenuHeader() {

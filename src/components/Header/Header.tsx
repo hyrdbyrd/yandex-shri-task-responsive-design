@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './Header.sss';
+
 // Import menu-parts
 import { MenuHeader, MenuFooter } from './../Menu/Menu';
 
@@ -10,8 +12,8 @@ export class Header extends React.Component<{}, { isOpen: boolean }> {
 
     // Burger-toggler
     private onClickMenu() {
-        // this.setState((state) => ({ isOpen: !state.isOpen }));
-        // body.classList.toggle('no-overflow');
+        this.setState((state) => ({ isOpen: !state.isOpen }));
+        document.body.classList.toggle('no-overflow');
     }
 
     render() {

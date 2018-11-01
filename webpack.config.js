@@ -1,66 +1,111 @@
 const path = require('path');
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const DIST_PATH = path.join(__dirname, 'dist');
 const SRC_PATH = path.join(__dirname, 'src');
 
-module.exports = {
-    entry: {
-        // react: path.join(SRC_PATH, '/components/Pages/Events.tsx'),
-        server: path.join(SRC_PATH, 'server.tsx')
-    },
-    target: 'node',
-    resolve: {
-        extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
-    },
+const POSTCSS = {
+    loader: 'postcss-loader',
+    options: {
+        ident: 'postcss',
+        parser: 'sugarss',
+        plugins: loader => [
+            require('postcss-import')({ root: loader.resourcePath }),
+            require('autoprefixer')({
+                stage: 2,
+                browsers: ['ie >= 10', 'last 2 version']
+            }),
+            require('precss'),
+            require('postcss-assets')({
+                basePath: DIST_PATH,
+                loadPaths: ['assets/']
+            }),
+            require('postcss-preset-env')({
+                stage: 2,
+                browsers: ['ie >= 10', 'last 2 version']
+            })
+        ]
+    }
+};
+
+const browserConfig = {
+    entry: path.join(SRC_PATH, 'client/index.tsx'),
+    resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] },
     output: {
         path: DIST_PATH,
-        filename: '[name].js'
+        filename: 'bundle.js'
     },
     module: {
         rules: [
             {
+                test: /\.(svg|gif|jpe?g|png)$/,
+                loader: 'file-loader',
+                options: {
+                    name: path.join(DIST_PATH, '/assets/[name].[ext]'),
+                    publicPath: url => url.replace(/dist/, '')
+                }
+            },
+            {
+                test: /\.(js|ts)x?$/,
+                exclude: /node_modules/,
+                use: [
+                    'awesome-typescript-loader'
+                ]
+            },
+            {
+                test: /\.(s|c)ss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    POSTCSS
+                ]
+            }
+        ]
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            chunkFilename: 'css/[id].css',
+            filename: 'css/[name].css'
+        })
+    ]
+}
+
+const serverConfig = {
+    entry: path.join(SRC_PATH, 'server/server.tsx'),
+    target: 'node',
+    resolve: { extensions: [".ts", ".tsx", ".js", ".jsx", ".json"] },
+    output: {
+        path: path.resolve(__dirname, '.'),
+        filename: 'server.js'
+    },
+    module: {
+        rules: [
+            {
+                test: /\.(svg|gif|jpe?g|png)$/,
+                loader: 'file-loader',
+                options: {
+                    name: path.join(DIST_PATH, '/assets/[name].[ext]'),
+                    publicPath: url => url.replace(/dist/, ''),
+                    emit: false
+                }
+            },
+            {
                 exclude: /node_modules/,
                 test: /\.(js|ts)x?$/,
                 use: [
-                    {
-                        loader: 'awesome-typescript-loader',
-                    }
+                    'awesome-typescript-loader'
                 ]
             },
             {
                 test: /\.sss$/,
                 use: [
-                    'style-loader',
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            ident: 'postcss',
-                            parser: 'sugarss',
-                            plugins: loader => [
-                                require('postcss-import')({ root: loader.resourcePath }),
-                                require('autoprefixer')({
-                                    stage: 2,
-                                    browsers: ['ie >= 10', 'last 2 version']
-                                }),
-                                require('precss'),
-                                require('postcss-assets')({
-                                    basePath: DIST_PATH,
-                                    loadPaths: ['assets/']
-                                }),
-                                require('postcss-preset-env')({
-                                    stage: 2,
-                                    browsers: ['ie >= 10', 'last 2 version']
-                                })
-                            ]
-                        }
-                    }
+                    'css-loader/locals',
+                    POSTCSS
                 ]
-            },
-            {
-                test: /\.(jpe?g|gif|png|woff|ttf|wav|mp3|mp4)$/,
-                loader: 'file-loader'
             }
         ],
     }
 };
+
+module.exports = [browserConfig, serverConfig];
