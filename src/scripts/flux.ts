@@ -12,17 +12,32 @@ window.addEventListener('DOMContentLoaded', () => {
         // Get view
         await fetch(`flux${href}`)
             .then((data) => data.json())
-            .then((data) => {
+            .then(async (data) => {
+                const h = data.html;
+                data.html = h.slice(h.indexOf('<div class="main">') + '<div class="main">'.length, h.indexOf('</div></html>'));
+
                 // Set html
-                main.innerHTML = data.html;
+                main.innerHTML = await data.html;
+
                 if (data.scripts) {
                     data.scripts.forEach((src: string) => {
-                        const scriptTag = document.createElement('script');
-                        scriptTag.src = src;
-
-                        body.appendChild(scriptTag);
-                    })
+                        if (!body.querySelector(`script[src="${src}"]`)) {
+                            const scriptTag = document.createElement('script');
+                            scriptTag.src = src;
+                            scriptTag.crossOrigin = 'crossorigin';
+                            body.appendChild(scriptTag);
+                        }
+                    });
                 }
+
+                document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((element) => {
+                    element.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        const href = element.getAttribute('href');
+                        href && storage.dispatch(href);
+                    });
+                });
+
                 html = data;
             });
 
@@ -30,12 +45,4 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     storage.dispatch('/events');
-    document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((element) => {
-        element.addEventListener('click', (event) => {
-            event.preventDefault();
-            const href = element.getAttribute('href');
-            href && storage.dispatch(href);
-        });
-    });
-
 });

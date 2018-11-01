@@ -4,11 +4,9 @@ const isTouchCapable = 'ontouchstart' in window ||
     navigator.maxTouchPoints > 0 ||
     navigator.msMaxTouchPoints > 0;
 
-window.addEventListener('DOMContentLoaded', () => {
-    const eventsBlock: HTMLDivElement | null = document.body.querySelector('.events');
+const eventsBlock: HTMLDivElement | null = document.body.querySelector('.events');
 
-    if (!eventsBlock) return;
-
+if (eventsBlock) {
     // Set all crosses and slides to visible state.
     // Set visibility for nav-boxes.
     eventsBlock
@@ -48,4 +46,4 @@ window.addEventListener('DOMContentLoaded', () => {
                     );
             }
         });
-});
+}
