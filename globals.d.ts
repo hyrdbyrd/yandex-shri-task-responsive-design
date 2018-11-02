@@ -14,6 +14,7 @@ declare interface Document {
 
 declare interface Window {
     DocumentTouch: Document;
+    Video(array: string[]): void;
     AudioContext: typeof AudioContext;
     webkitAudioContext: typeof AudioContext;
 }

@@ -1,6 +1,4 @@
-import { analysAudio } from './audio';
-import './videos.sss';
-
+import { analysAudio } from './Audio';
 import * as Hls from 'hls.js';
 
 interface IGetObjects {

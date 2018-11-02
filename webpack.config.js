@@ -30,11 +30,14 @@ const POSTCSS = {
 };
 
 const browserConfig = {
-    entry: path.join(SRC_PATH, 'client/index.tsx'),
+    entry: {
+        media: path.join(SRC_PATH, 'components/Video/Media.ts'),
+        bundle: path.join(SRC_PATH, 'client/index.tsx'),
+    },
     resolve: { extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'] },
     output: {
         path: DIST_PATH,
-        filename: 'bundle.js'
+        filename: '[name].js'
     },
     module: {
         rules: [

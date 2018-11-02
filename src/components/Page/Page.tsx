@@ -10,7 +10,7 @@ export default class Page extends React.Component<{ title: string }> {
     render() {
         return <div className='main'>
         <Header />
-        <Content title={this.props.title}>
+        <Content title={this.props.title || '404 - page not found'}>
             { this.props.children }
         </Content>
         <Footer />

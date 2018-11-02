@@ -1,4 +1,4 @@
-import getObjects from './media/video';
+import getObjects from './Video';
 
 // Set all vars, without DOM
 const { port, hostname } = document.location;
@@ -70,6 +70,11 @@ window.addEventListener('DOMContentLoaded', () => {
     // All paths to streams
     ['sosed', 'dog', 'cat', 'hall']
         .forEach((path, id) => {
+            console.log(`http://localhost:9191/master?url=${
+                encodeURIComponent(
+                    `${protocol}://${hostname}:${port}/cams/${path}/master.m3u8`
+                )
+            }`);
             initVideo(
                 document.querySelector(`.video-${id + 1}`),
                 // Create url by path

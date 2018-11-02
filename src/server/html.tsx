@@ -3,7 +3,7 @@ export function toHtml({ block, title }: { block: string, title?: string }): str
         <!doctype html>
         <html>
             <head>
-                <link rel="stylesheet" href="css/main.css">
+                <link rel="stylesheet" href="css/bundle.css">
                 <script src="bundle.js" defer></script>
                 <title>${title || 'Yandex Дом'}</title>
                 <meta charset="utf-8">
