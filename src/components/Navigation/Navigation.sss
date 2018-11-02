@@ -1,0 +1,27 @@
+.navigation
+    display: flex
+    flex-direction: column
+    overflow: hidden
+
+.navigation-list
+    padding: 0
+    margin: 0
+    display: flex
+    flex-wrap: wrap
+    flex-direction: row
+
+.navigation-list__item
+    display: flex
+    flex-direction: column
+    list-style: none
+
+@media (max-width: 1099px)
+    .navigation
+        width: fill
+        overflow-y: hidden
+        overflow-x: auto
+        padding-bottom: 5px
+    .navigation-list
+        height: min-content
+        flex-direction: row
+        flex-wrap: nowrap
