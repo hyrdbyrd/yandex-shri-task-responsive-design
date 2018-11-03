@@ -4,8 +4,8 @@ import './Page@desktop.sss';
 
 import { Registry, withRegistry } from '@bem-react/di';
 
-import { Header } from '../../Header/Header@desktop';
-import { Footer } from '../../Footer/Footer@desktop';
+import { Header } from '../../Header/desktop/Header@desktop';
+import { Footer } from '../../Footer/desktop/Footer@desktop';
 import { Content } from '../../Content/Content';
 import '../../Content/Content@desktop.sss'
 

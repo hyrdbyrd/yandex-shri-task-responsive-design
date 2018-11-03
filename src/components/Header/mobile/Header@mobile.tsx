@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 // BEM-imports
 import { cn } from '@bem-react/classname';
 
-import { Header as HeaderCommon } from '../Header/Header';
+import { Header as HeaderCommon } from '../Header';
 import './Header@mobile.sss';
 
 // Import menu-parts
-import { MenuHeader, MenuFooter } from './../Menu/Menu';
+import { MenuHeader, MenuFooter } from '../../Menu/Menu';
 import { Registry, withRegistry } from '@bem-react/di';
 
 export class Body extends React.Component<{}, { isOpen: boolean }> {
@@ -42,4 +42,6 @@ export class Body extends React.Component<{}, { isOpen: boolean }> {
 }
 
 const HeaderRegistry = new Registry({ id: cn('Header')() });
+HeaderRegistry.set('Body', Body);
+
 export const Header = withRegistry(HeaderRegistry)(HeaderCommon);

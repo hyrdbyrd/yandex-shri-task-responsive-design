@@ -4,8 +4,8 @@ import './Page@mobile.sss';
 
 import { Registry, withRegistry } from '@bem-react/di';
 
-import { Header } from '../../Header/Header@mobile';
-import { Footer } from '../../Footer/Footer@mobile';
+import { Header } from '../../Header/mobile/Header@mobile';
+import { Footer } from '../../Footer/mobile/Footer@mobile';
 import { Content } from '../../Content/Content';
 import '../../Content/Content@mobile.sss';
 

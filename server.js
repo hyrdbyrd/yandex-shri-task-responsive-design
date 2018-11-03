@@ -2298,7 +2298,7 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst index_1 = __webpack_require__(/*! ../components/Page/index */ \"./src/components/Page/index.tsx\");\nconst Page = index_1.Page.desktop();\nconst routes_1 = __webpack_require__(/*! ./routes */ \"./src/client/routes.ts\");\nfunction App(props) {\n    return React.createElement(Page, { title: props.title || 'Yandex house' },\n        React.createElement(react_router_dom_1.Switch, null, routes_1.default.map((route, i) => React.createElement(react_router_dom_1.Route, Object.assign({ key: i }, route)))));\n}\nexports.default = App;\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst index_1 = __webpack_require__(/*! ../components/Page/index */ \"./src/components/Page/index.tsx\");\nconst routes_1 = __webpack_require__(/*! ./routes */ \"./src/client/routes.ts\");\nfunction App(props) {\n    const Page = index_1.Page[props.platform || 'desktop']();\n    return React.createElement(Page, { title: props.title || 'Yandex house' },\n        React.createElement(react_router_dom_1.Switch, null, routes_1.default.map((route, i) => React.createElement(react_router_dom_1.Route, Object.assign({ key: i }, route)))));\n}\nexports.default = App;\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
 
 /***/ }),
 
@@ -2486,52 +2486,6 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 /***/ }),
 
-/***/ "./src/components/Footer/Footer@desktop.sss":
-/*!**************************************************!*\
-  !*** ./src/components/Footer/Footer@desktop.sss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Footer/Footer@desktop.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/Footer@desktop.tsx":
-/*!**************************************************!*\
-  !*** ./src/components/Footer/Footer@desktop.tsx ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer@desktop.sss */ \"./src/components/Footer/Footer@desktop.sss\");\n// Get Menu-part\nconst Menu_1 = __webpack_require__(/*! ./../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Footer_1 = __webpack_require__(/*! ./Footer */ \"./src/components/Footer/Footer.tsx\");\nconst FooterRegistry = new di_1.Registry({ id: classname_1.cn('Footer')() });\nFooterRegistry.set('Body', Body);\n// Static block\nfunction Body() {\n    return (React.createElement(\"footer\", { className: 'footer section media-desktop' },\n        React.createElement(\"div\", { className: 'footer-container container' },\n            React.createElement(Menu_1.MenuFooter, null),\n            React.createElement(\"nav\", { className: 'navigation navigation_footer' },\n                React.createElement(\"div\", { className: 'copyright' }, \"\\u00A9 2001-2017 \\u041E\\u041E\\u041E \\u00AB\\u042F\\u043D\\u0434\\u0435\\u043A\\u0441\\u00BB\")))));\n}\nexports.Footer = di_1.withRegistry(FooterRegistry)(Footer_1.Footer);\n\n\n//# sourceURL=webpack:///./src/components/Footer/Footer@desktop.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/Footer@mobile.sss":
-/*!*************************************************!*\
-  !*** ./src/components/Footer/Footer@mobile.sss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Footer/Footer@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/Footer@mobile.tsx":
-/*!*************************************************!*\
-  !*** ./src/components/Footer/Footer@mobile.tsx ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer@mobile.sss */ \"./src/components/Footer/Footer@mobile.sss\");\n// Get Menu-part\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Footer_1 = __webpack_require__(/*! ./Footer */ \"./src/components/Footer/Footer.tsx\");\nconst FooterRegistry = new di_1.Registry({ id: classname_1.cn('Footer')() });\nFooterRegistry.set('Body', Body);\n// Static block\nfunction Body() {\n    return (React.createElement(\"footer\", { className: 'media-desktop' }));\n}\nexports.Footer = di_1.withRegistry(FooterRegistry)(Footer_1.Footer);\n\n\n//# sourceURL=webpack:///./src/components/Footer/Footer@mobile.tsx?");
-
-/***/ }),
-
 /***/ "./src/components/Footer/Footer@simple.sss":
 /*!*************************************************!*\
   !*** ./src/components/Footer/Footer@simple.sss ***!
@@ -2540,6 +2494,52 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports) {
 
 eval("\n\n//# sourceURL=webpack:///./src/components/Footer/Footer@simple.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Footer/desktop/Footer@desktop.sss":
+/*!**********************************************************!*\
+  !*** ./src/components/Footer/desktop/Footer@desktop.sss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Footer/desktop/Footer@desktop.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Footer/desktop/Footer@desktop.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/Footer/desktop/Footer@desktop.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer@desktop.sss */ \"./src/components/Footer/desktop/Footer@desktop.sss\");\n// Get Menu-part\nconst Menu_1 = __webpack_require__(/*! ../../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Footer_1 = __webpack_require__(/*! ../Footer */ \"./src/components/Footer/Footer.tsx\");\nconst FooterRegistry = new di_1.Registry({ id: classname_1.cn('Footer')() });\nFooterRegistry.set('Body', Body);\n// Static block\nfunction Body() {\n    return (React.createElement(\"footer\", { className: 'footer section media-desktop' },\n        React.createElement(\"div\", { className: 'footer-container container' },\n            React.createElement(Menu_1.MenuFooter, null),\n            React.createElement(\"nav\", { className: 'navigation navigation_footer' },\n                React.createElement(\"div\", { className: 'copyright' }, \"\\u00A9 2001-2017 \\u041E\\u041E\\u041E \\u00AB\\u042F\\u043D\\u0434\\u0435\\u043A\\u0441\\u00BB\")))));\n}\nexports.Footer = di_1.withRegistry(FooterRegistry)(Footer_1.Footer);\n\n\n//# sourceURL=webpack:///./src/components/Footer/desktop/Footer@desktop.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Footer/mobile/Footer@mobile.sss":
+/*!********************************************************!*\
+  !*** ./src/components/Footer/mobile/Footer@mobile.sss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Footer/mobile/Footer@mobile.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Footer/mobile/Footer@mobile.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/Footer/mobile/Footer@mobile.tsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer@mobile.sss */ \"./src/components/Footer/mobile/Footer@mobile.sss\");\n// Get Menu-part\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Footer_1 = __webpack_require__(/*! ../Footer */ \"./src/components/Footer/Footer.tsx\");\nconst FooterRegistry = new di_1.Registry({ id: classname_1.cn('Footer')() });\nFooterRegistry.set('Body', Body);\n// Static block\nfunction Body() {\n    return (React.createElement(\"footer\", { className: 'media-desktop' }));\n}\nexports.Footer = di_1.withRegistry(FooterRegistry)(Footer_1.Footer);\n\n\n//# sourceURL=webpack:///./src/components/Footer/mobile/Footer@mobile.tsx?");
 
 /***/ }),
 
@@ -2555,52 +2555,6 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// Rea
 
 /***/ }),
 
-/***/ "./src/components/Header/Header@desktop.sss":
-/*!**************************************************!*\
-  !*** ./src/components/Header/Header@desktop.sss ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Header/Header@desktop.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Header/Header@desktop.tsx":
-/*!**************************************************!*\
-  !*** ./src/components/Header/Header@desktop.tsx ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst Header_1 = __webpack_require__(/*! ./Header */ \"./src/components/Header/Header.tsx\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\n__webpack_require__(/*! ./Header@desktop.sss */ \"./src/components/Header/Header@desktop.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ./../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst cnHeader = classname_1.cn('Header');\nclass Body extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: 'container header__container' },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: 'header__logo', src: 'assets/logo.svg' })),\n            React.createElement(\"nav\", { className: `navigation navigation_header` },\n                React.createElement(\"div\", { className: 'navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null)))));\n    }\n}\nconst HeaderRegistry = new di_1.Registry({ id: cnHeader() });\nHeaderRegistry.set('Body', Body);\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/Header/Header@desktop.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Header/Header@mobile.sss":
-/*!*************************************************!*\
-  !*** ./src/components/Header/Header@mobile.sss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Header/Header@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Header/Header@mobile.tsx":
-/*!*************************************************!*\
-  !*** ./src/components/Header/Header@mobile.tsx ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst Header_1 = __webpack_require__(/*! ../Header/Header */ \"./src/components/Header/Header.tsx\");\n__webpack_require__(/*! ./Header@mobile.sss */ \"./src/components/Header/Header@mobile.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ./../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Body extends React.Component {\n    constructor() {\n        super(...arguments);\n        this.state = {\n            isOpen: false\n        };\n    }\n    // Burger-toggler\n    onClickMenu() {\n        this.setState((state) => ({ isOpen: !state.isOpen }));\n        document.body.classList.toggle('no-overflow');\n    }\n    render() {\n        return (React.createElement(\"div\", { className: 'container header__container' },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: 'header__logo', src: 'assets/logo.svg' })),\n            React.createElement(\"img\", { className: 'media-mobile burger', src: 'assets/i_burger.svg', onClick: this.onClickMenu.bind(this) }),\n            React.createElement(\"nav\", { className: `navigation navigation_header ${this.state.isOpen ? 'navigation_header_active' : ''}` },\n                React.createElement(\"div\", { className: 'navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null),\n                    React.createElement(Menu_1.MenuFooter, null)))));\n    }\n}\nexports.Body = Body;\nconst HeaderRegistry = new di_1.Registry({ id: classname_1.cn('Header')() });\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/Header/Header@mobile.tsx?");
-
-/***/ }),
-
 /***/ "./src/components/Header/Header@simple.sss":
 /*!*************************************************!*\
   !*** ./src/components/Header/Header@simple.sss ***!
@@ -2612,6 +2566,52 @@ eval("\n\n//# sourceURL=webpack:///./src/components/Header/Header@simple.sss?");
 
 /***/ }),
 
+/***/ "./src/components/Header/desktop/Header@desktop.sss":
+/*!**********************************************************!*\
+  !*** ./src/components/Header/desktop/Header@desktop.sss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Header/desktop/Header@desktop.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Header/desktop/Header@desktop.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/Header/desktop/Header@desktop.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst Header_1 = __webpack_require__(/*! ../Header */ \"./src/components/Header/Header.tsx\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\n__webpack_require__(/*! ./Header@desktop.sss */ \"./src/components/Header/desktop/Header@desktop.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ../../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst cnHeader = classname_1.cn('Header');\nclass Body extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: 'container header__container' },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: 'header__logo', src: 'assets/logo.svg' })),\n            React.createElement(\"nav\", { className: `navigation navigation_header` },\n                React.createElement(\"div\", { className: 'navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null)))));\n    }\n}\nconst HeaderRegistry = new di_1.Registry({ id: cnHeader() });\nHeaderRegistry.set('Body', Body);\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/Header/desktop/Header@desktop.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Header/mobile/Header@mobile.sss":
+/*!********************************************************!*\
+  !*** ./src/components/Header/mobile/Header@mobile.sss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Header/mobile/Header@mobile.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Header/mobile/Header@mobile.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/Header/mobile/Header@mobile.tsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst Header_1 = __webpack_require__(/*! ../Header */ \"./src/components/Header/Header.tsx\");\n__webpack_require__(/*! ./Header@mobile.sss */ \"./src/components/Header/mobile/Header@mobile.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ../../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Body extends React.Component {\n    constructor() {\n        super(...arguments);\n        this.state = {\n            isOpen: false\n        };\n    }\n    // Burger-toggler\n    onClickMenu() {\n        this.setState((state) => ({ isOpen: !state.isOpen }));\n        document.body.classList.toggle('no-overflow');\n    }\n    render() {\n        return (React.createElement(\"div\", { className: 'container header__container' },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: 'header__logo', src: 'assets/logo.svg' })),\n            React.createElement(\"img\", { className: 'media-mobile burger', src: 'assets/i_burger.svg', onClick: this.onClickMenu.bind(this) }),\n            React.createElement(\"nav\", { className: `navigation navigation_header ${this.state.isOpen ? 'navigation_header_active' : ''}` },\n                React.createElement(\"div\", { className: 'navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null),\n                    React.createElement(Menu_1.MenuFooter, null)))));\n    }\n}\nexports.Body = Body;\nconst HeaderRegistry = new di_1.Registry({ id: classname_1.cn('Header')() });\nHeaderRegistry.set('Body', Body);\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/Header/mobile/Header@mobile.tsx?");
+
+/***/ }),
+
 /***/ "./src/components/Menu/Menu.tsx":
 /*!**************************************!*\
   !*** ./src/components/Menu/Menu.tsx ***!
@@ -2620,18 +2620,18 @@ eval("\n\n//# sourceURL=webpack:///./src/components/Header/Header@simple.sss?");
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n__webpack_require__(/*! ../Navigation/Navigation.sss */ \"./src/components/Navigation/Navigation.sss\");\n// Menu-part - Header\nfunction MenuHeader() {\n    return (React.createElement(\"ul\", { className: 'navigation-list navigation-list_footer' },\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(react_router_dom_1.Link, { className: 'link', to: '/' }, \"\\u0421\\u0432\\u043E\\u0434\\u043A\\u0430\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0423\\u0441\\u0442\\u0440\\u043E\\u0439\\u0441\\u0442\\u0432\\u0430\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0421\\u0446\\u0435\\u043D\\u0430\\u0440\\u0438\\u0438\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(react_router_dom_1.Link, { className: 'link', to: { pathname: '/videos' } }, \"\\u0412\\u0438\\u0434\\u0435\\u043E\\u043D\\u0430\\u0431\\u043B\\u044E\\u0434\\u0435\\u043D\\u0438\\u0435\"))));\n}\nexports.MenuHeader = MenuHeader;\n;\n// Menu-part - Footer\nfunction MenuFooter() {\n    return (React.createElement(\"ul\", { className: 'navigation-list navigation-list_footer' },\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u041F\\u043E\\u043C\\u043E\\u0449\\u044C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u041E\\u0431\\u0440\\u0430\\u0442\\u043D\\u0430\\u044F \\u0441\\u0432\\u044F\\u0437\\u044C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0420\\u0430\\u0437\\u0440\\u0430\\u0431\\u043E\\u0442\\u0447\\u0438\\u043A\\u0430\\u043C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0423\\u0441\\u043B\\u043E\\u0432\\u0438\\u044F \\u0438\\u0441\\u043F\\u043E\\u043B\\u044C\\u0437\\u043E\\u0432\\u0430\\u043D\\u0438\\u044F\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link', href: 'assets/license.pdf' }, \"\\u0410\\u0432\\u0442\\u043E\\u0440\\u0441\\u043A\\u0438\\u0435 \\u043F\\u0440\\u0430\\u0432\\u0430\"))));\n}\nexports.MenuFooter = MenuFooter;\n\n\n//# sourceURL=webpack:///./src/components/Menu/Menu.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n__webpack_require__(/*! ../Navigation/Navigation@simple.sss */ \"./src/components/Navigation/Navigation@simple.sss\");\n// Menu-part - Header\nfunction MenuHeader() {\n    return (React.createElement(\"ul\", { className: 'navigation-list navigation-list_footer' },\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(react_router_dom_1.Link, { className: 'link', to: '/' }, \"\\u0421\\u0432\\u043E\\u0434\\u043A\\u0430\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0423\\u0441\\u0442\\u0440\\u043E\\u0439\\u0441\\u0442\\u0432\\u0430\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0421\\u0446\\u0435\\u043D\\u0430\\u0440\\u0438\\u0438\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(react_router_dom_1.Link, { className: 'link', to: { pathname: '/videos' } }, \"\\u0412\\u0438\\u0434\\u0435\\u043E\\u043D\\u0430\\u0431\\u043B\\u044E\\u0434\\u0435\\u043D\\u0438\\u0435\"))));\n}\nexports.MenuHeader = MenuHeader;\n;\n// Menu-part - Footer\nfunction MenuFooter() {\n    return (React.createElement(\"ul\", { className: 'navigation-list navigation-list_footer' },\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u041F\\u043E\\u043C\\u043E\\u0449\\u044C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u041E\\u0431\\u0440\\u0430\\u0442\\u043D\\u0430\\u044F \\u0441\\u0432\\u044F\\u0437\\u044C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0420\\u0430\\u0437\\u0440\\u0430\\u0431\\u043E\\u0442\\u0447\\u0438\\u043A\\u0430\\u043C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0423\\u0441\\u043B\\u043E\\u0432\\u0438\\u044F \\u0438\\u0441\\u043F\\u043E\\u043B\\u044C\\u0437\\u043E\\u0432\\u0430\\u043D\\u0438\\u044F\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link', href: 'assets/license.pdf' }, \"\\u0410\\u0432\\u0442\\u043E\\u0440\\u0441\\u043A\\u0438\\u0435 \\u043F\\u0440\\u0430\\u0432\\u0430\"))));\n}\nexports.MenuFooter = MenuFooter;\n\n\n//# sourceURL=webpack:///./src/components/Menu/Menu.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Navigation/Navigation.sss":
-/*!**************************************************!*\
-  !*** ./src/components/Navigation/Navigation.sss ***!
-  \**************************************************/
+/***/ "./src/components/Navigation/Navigation@simple.sss":
+/*!*********************************************************!*\
+  !*** ./src/components/Navigation/Navigation@simple.sss ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Navigation/Navigation.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/Navigation/Navigation@simple.sss?");
 
 /***/ }),
 
@@ -2677,7 +2677,7 @@ eval("\n\n//# sourceURL=webpack:///./src/components/Page/desktop/Page@desktop.ss
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../Page */ \"./src/components/Page/Page.tsx\");\n__webpack_require__(/*! ./Page@desktop.sss */ \"./src/components/Page/desktop/Page@desktop.sss\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Header_desktop_1 = __webpack_require__(/*! ../../Header/Header@desktop */ \"./src/components/Header/Header@desktop.tsx\");\nconst Footer_desktop_1 = __webpack_require__(/*! ../../Footer/Footer@desktop */ \"./src/components/Footer/Footer@desktop.tsx\");\nconst Content_1 = __webpack_require__(/*! ../../Content/Content */ \"./src/components/Content/Content.tsx\");\n__webpack_require__(/*! ../../Content/Content@desktop.sss */ \"./src/components/Content/Content@desktop.sss\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_desktop_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_desktop_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/Page/desktop/Page@desktop.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../Page */ \"./src/components/Page/Page.tsx\");\n__webpack_require__(/*! ./Page@desktop.sss */ \"./src/components/Page/desktop/Page@desktop.sss\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Header_desktop_1 = __webpack_require__(/*! ../../Header/desktop/Header@desktop */ \"./src/components/Header/desktop/Header@desktop.tsx\");\nconst Footer_desktop_1 = __webpack_require__(/*! ../../Footer/desktop/Footer@desktop */ \"./src/components/Footer/desktop/Footer@desktop.tsx\");\nconst Content_1 = __webpack_require__(/*! ../../Content/Content */ \"./src/components/Content/Content.tsx\");\n__webpack_require__(/*! ../../Content/Content@desktop.sss */ \"./src/components/Content/Content@desktop.sss\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_desktop_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_desktop_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/Page/desktop/Page@desktop.tsx?");
 
 /***/ }),
 
@@ -2712,7 +2712,7 @@ eval("\n\n//# sourceURL=webpack:///./src/components/Page/mobile/Page@mobile.sss?
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../Page */ \"./src/components/Page/Page.tsx\");\n__webpack_require__(/*! ./Page@mobile.sss */ \"./src/components/Page/mobile/Page@mobile.sss\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Header_mobile_1 = __webpack_require__(/*! ../../Header/Header@mobile */ \"./src/components/Header/Header@mobile.tsx\");\nconst Footer_mobile_1 = __webpack_require__(/*! ../../Footer/Footer@mobile */ \"./src/components/Footer/Footer@mobile.tsx\");\nconst Content_1 = __webpack_require__(/*! ../../Content/Content */ \"./src/components/Content/Content.tsx\");\n__webpack_require__(/*! ../../Content/Content@mobile.sss */ \"./src/components/Content/Content@mobile.sss\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_mobile_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_mobile_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/Page/mobile/Page@mobile.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../Page */ \"./src/components/Page/Page.tsx\");\n__webpack_require__(/*! ./Page@mobile.sss */ \"./src/components/Page/mobile/Page@mobile.sss\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Header_mobile_1 = __webpack_require__(/*! ../../Header/mobile/Header@mobile */ \"./src/components/Header/mobile/Header@mobile.tsx\");\nconst Footer_mobile_1 = __webpack_require__(/*! ../../Footer/mobile/Footer@mobile */ \"./src/components/Footer/mobile/Footer@mobile.tsx\");\nconst Content_1 = __webpack_require__(/*! ../../Content/Content */ \"./src/components/Content/Content.tsx\");\n__webpack_require__(/*! ../../Content/Content@mobile.sss */ \"./src/components/Content/Content@mobile.sss\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_mobile_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_mobile_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/Page/mobile/Page@mobile.tsx?");
 
 /***/ }),
 
@@ -2806,7 +2806,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfunction toHtml({ block, title, bundleName }) {\n    return `\n        <!doctype html>\n        <html>\n            <head>\n                <script src=\"${bundleName || 'bundle'}.js\" defer></script>\n                <title>${title || 'Yandex Дом'}</title>\n                <meta charset=\"utf-8\">\n            </head>\n            <body>\n                <div class=\"app\">${block}</div>\n            </body>\n        </html>\n    `;\n}\nexports.toHtml = toHtml;\n\n\n//# sourceURL=webpack:///./src/server/html.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfunction toHtml({ block, title, bundleName, platform }) {\n    return `\n        <!doctype html>\n        <html>\n            <head>\n                <script defer>window.PLATFORM = '${platform || 'desktop'}';</script>\n                <script src=\"${bundleName || 'bundle'}.js\" defer></script>\n                <title>${title || 'Yandex Дом'}</title>\n                <meta charset=\"utf-8\">\n            </head>\n            <body>\n                <div class=\"app\">${block}</div>\n            </body>\n        </html>\n    `;\n}\nexports.toHtml = toHtml;\n\n\n//# sourceURL=webpack:///./src/server/html.tsx?");
 
 /***/ }),
 
@@ -2818,7 +2818,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfuncti
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nconst cors = __webpack_require__(/*! cors */ \"./node_modules/cors/lib/index.js\");\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst server_1 = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.js\");\nconst path_1 = __webpack_require__(/*! path */ \"path\");\nconst html_1 = __webpack_require__(/*! ./html */ \"./src/server/html.tsx\");\nconst App_1 = __webpack_require__(/*! ./../client/App */ \"./src/client/App.tsx\");\nconst PORT = 3000;\nconst app = express();\napp\n    .use('/cams', cors(), express.static(path_1.resolve('./streams')))\n    .use(express.static(path_1.resolve('./dist')))\n    .get('*', (req, res) => {\n    const context = {};\n    const block = server_1.renderToString(React.createElement(react_router_dom_1.StaticRouter, { location: req.url, context: context },\n        React.createElement(App_1.default, null)));\n    res.send(html_1.toHtml({ block, title: 'Yandex Дом' }));\n})\n    .use((error, req, res, next) => {\n    res.send(`${error.message}\\n${error.stack}`);\n});\napp.listen(PORT, () => { console.log(`Server is listening ${PORT} port`); });\n\n\n//# sourceURL=webpack:///./src/server/server.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nconst cors = __webpack_require__(/*! cors */ \"./node_modules/cors/lib/index.js\");\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst server_1 = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.js\");\nconst path_1 = __webpack_require__(/*! path */ \"path\");\nconst html_1 = __webpack_require__(/*! ./html */ \"./src/server/html.tsx\");\nconst App_1 = __webpack_require__(/*! ./../client/App */ \"./src/client/App.tsx\");\nconst PORT = 3000;\nconst app = express();\napp\n    .use('/cams', cors(), express.static(path_1.resolve('./streams')))\n    .use(express.static(path_1.resolve('./dist')))\n    .get('*', (req, res) => {\n    let platform = 'desktop';\n    if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent']) || true) {\n        platform = 'mobile';\n    }\n    const context = {};\n    const block = server_1.renderToString(React.createElement(react_router_dom_1.StaticRouter, { location: req.url, context: context },\n        React.createElement(App_1.default, { platform: platform })));\n    res.send(html_1.toHtml({ block, title: 'Yandex Дом', platform }));\n})\n    .use((error, req, res, next) => {\n    res.send(`${error.message}\\n${error.stack}`);\n});\napp.listen(PORT, () => { console.log(`Server is listening ${PORT} port`); });\n\n\n//# sourceURL=webpack:///./src/server/server.tsx?");
 
 /***/ }),
 

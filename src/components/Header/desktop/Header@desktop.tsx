@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Header as HeaderCommon } from './Header';
+import { Header as HeaderCommon } from '../Header';
 
 // BEM-imports
 import { cn } from '@bem-react/classname';
@@ -10,7 +10,7 @@ import { cn } from '@bem-react/classname';
 import './Header@desktop.sss';
 
 // Import menu-parts
-import { MenuHeader } from './../Menu/Menu';
+import { MenuHeader } from '../../Menu/Menu';
 import { Registry, withRegistry } from '@bem-react/di';
 
 
