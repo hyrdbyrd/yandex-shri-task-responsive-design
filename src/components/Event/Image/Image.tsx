@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import './Image.sss';
+import './Image@simple.sss';
 
 export function Image() {
     return <div className="box">

@@ -1,0 +1,35 @@
+.header
+    position: fixed
+    display: flex
+    align-items: center
+    box-sizing: border-box
+    height: 64px
+    &::after
+        display: none
+
+.header__container
+    padding: 0
+    justify-content: space-between
+
+.navigation_header
+    .navigation-list
+        flex-direction: column
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100vw
+    height: 100vh
+    position: fixed
+    transition: all .2s linear
+    left: 200vw
+    top: 0
+    background: rgba(51, 51, 51, .5)
+
+.navigation_header_active
+    z-index: 1000
+    left: 0
+
+.navigation_header-wrapper
+    background: #fff
+    padding: 20px
+    border-radius: 20px

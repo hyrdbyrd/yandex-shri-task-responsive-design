@@ -1,15 +1,15 @@
 import getObjects from './Video';
 
-// Set all vars, without DOM
-const { port, hostname } = document.location;
-let { protocol } = document.location;
-protocol = protocol.slice(0, protocol.length - 1);
+export default function mediaInit() {
+    // Set all vars, without DOM
+    const { port, hostname } = document.location;
+    let { protocol } = document.location;
+    protocol = protocol.slice(0, protocol.length - 1);
 
-// AudioContext
-// window.AudioContext = window.AudioContext || window.webkitAudioContext;
-const audioCtx: AudioContext = new AudioContext();
+    // AudioContext
+    // window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    const audioCtx: AudioContext = new AudioContext();
 
-window.addEventListener('DOMContentLoaded', () => {
     // Canvas for analyser
     const canvas: HTMLCanvasElement = document.querySelector<HTMLCanvasElement>('.analyser');
 
@@ -70,11 +70,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // All paths to streams
     ['sosed', 'dog', 'cat', 'hall']
         .forEach((path, id) => {
-            console.log(`http://localhost:9191/master?url=${
-                encodeURIComponent(
-                    `${protocol}://${hostname}:${port}/cams/${path}/master.m3u8`
-                )
-            }`);
             initVideo(
                 document.querySelector(`.video-${id + 1}`),
                 // Create url by path
@@ -86,4 +81,5 @@ window.addEventListener('DOMContentLoaded', () => {
                 audioCtx
             );
         });
-});
+
+}

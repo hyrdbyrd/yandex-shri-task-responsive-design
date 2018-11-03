@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import './Event.sss';
+import './Event@simple.sss';
 
 import { Music } from './Music/Music';
 import { Temperature } from './Temperature/Temperature';

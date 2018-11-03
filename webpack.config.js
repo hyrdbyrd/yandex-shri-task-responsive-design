@@ -1,7 +1,5 @@
 const path = require('path');
 
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
 const DIST_PATH = path.join(__dirname, 'dist');
 const SRC_PATH = path.join(__dirname, 'src');
 
@@ -59,19 +57,13 @@ const browserConfig = {
             {
                 test: /\.(s|c)ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    'style-loader',
                     'css-loader',
                     POSTCSS
                 ]
             }
         ]
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            chunkFilename: 'css/[id].css',
-            filename: 'css/[name].css'
-        })
-    ]
+    }
 }
 
 const serverConfig = {

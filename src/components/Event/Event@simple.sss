@@ -1,0 +1,130 @@
+.graph
+    width: 100%
+    border-radius: 20px
+
+.events
+    display: grid
+    grid-auto-rows: min-content
+    grid-auto-flow: dense
+    justify-content: space-between
+    grid-gap: 20px
+    width: 100%
+
+.event
+    display: flex
+    flex-direction: column
+    overflow: hidden
+    width: 100%
+    height: 100%
+    transition: all .2s linear
+    border-radius: 20px
+    box-sizing: border-box
+    &:hover
+        box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50)
+        .empty
+            display: flex
+
+// darkGray color = #f3f3f3, rgba(243, 243, 243, 1)
+.event_type_info
+    background: #fafafa
+    &:hover
+        background: #f3f3f3
+    .event__nav
+        background: rgba(243, 243, 243, .9999)
+        box-shadow: 0 0 40px 20px rgba(243, 243, 243, .9999)
+
+// red color = #db5341, rgba(219, 83, 65, 1)
+.event_type_critical
+    background: #db5341
+    .event__content
+        background: #fafafa
+        border-radius: 20px
+    .event__header
+        color: #fff
+    .event__nav
+        background: #db5341
+        box-shadow: 0 0 20px 20px #db5341
+    .slide
+        box-shadow: 0 0 5px 5px rgba(219, 83, 65, .5)
+        background: rgba(219, 83, 65, .5)
+
+.empty
+    display: none
+    justify-content: flex-end
+    float: right
+    clear: both
+    height: 0
+    overflow: visible
+
+.event__nav
+    z-index: 1
+    position: relative
+    $s: 18px
+    width: $s
+    height: $s
+    right: 20px
+
+.cross
+    top: 20px
+
+.slide
+    bottom: 40px
+    border-radius: 100%
+
+.event__header
+    display: grid
+    grid-template-columns: repeat(9, 1fr) 16px
+    grid-auto-rows: min-content
+    grid-gap: 20px 0
+    padding: 20px
+
+.event-intro
+    grid-column: span 10
+    display: flex
+    align-items: center
+    justify-content: flex-start
+
+.event__icon
+    $s: 52px
+    width: $s
+    height: $s
+    margin-right: 20px
+
+.event__title
+    width: 100%
+    display: -webkit-box
+    -webkit-line-clamp: 2
+    -webkit-box-orient: vertical
+    -o-ellipsis-lastline: 2
+    overflow-y: hidden
+    text-overflow: ellipsis
+
+.event-desc
+    font-weight: 100
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+    grid-column: span 10
+
+.event__source
+    margin-right: 20px
+
+.event__content
+    display: flex
+    flex-direction: column
+    justify-items: stretch
+    align-content: space-between
+    box-sizing: border-box
+    height: 100%
+
+.event__description
+    padding: 20px
+    font-weight: 500
+
+.event__data
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    padding: 20px
+    padding-top: 0

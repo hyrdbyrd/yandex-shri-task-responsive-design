@@ -11,9 +11,6 @@ import { resolve } from 'path';
 
 import { toHtml } from './html';
 
-import EventPage from './../components/Pages/Events';
-import StatusPage from './../components/Pages/Status';
-
 import App from './../client/App';
 
 const PORT: number = 3000;
@@ -22,23 +19,18 @@ const app: Application = express();
 app
     .use('/cams', cors(), express.static(resolve('./streams')))
     .use(express.static(resolve('./dist')))
-    .get('/events', (req: Request, res: Response) => {
-        res.send(toHtml({ block: renderToString(<EventPage />)}));
-    })
-    .get('*', (req: Request, res: Response, next: NextFunction) => {
+    .get('*', (req: Request, res: Response) => {
+        const context = {};
         const block = renderToString(
-            <StaticRouter location={req.url}>
+            <StaticRouter location={req.url} context={context}>
                 <App />
             </StaticRouter>
         );
 
         res.send(toHtml({ block, title: 'Yandex Дом' }));
     })
-    .use((req: Request, res: Response, next: NextFunction) => {
-        next(new Error('404 - page not found'));
-    })
     .use((error: Error, req: Request, res: Response, next: NextFunction) => {
-        res.send(toHtml({ block: renderToString(<StatusPage status={error.message} />), title: error.message }))
+        res.send(`${error.message}\n${error.stack}`);
     });
 
 app.listen(PORT, () => { console.log(`Server is listening ${PORT} port`) });

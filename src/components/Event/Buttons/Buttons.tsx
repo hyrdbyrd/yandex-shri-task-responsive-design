@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IDataButtons } from './../Event.d';
 
-import './Buttons.sss';
+import './Buttons@simple.sss';
 
 export function Buttons(props: { obj: IDataButtons }) {
     const { obj: data } = props;

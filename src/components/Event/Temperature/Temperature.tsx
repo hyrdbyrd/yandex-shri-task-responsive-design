@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IDataTemperature } from './../Event.d';
 
-import './Temperature.sss';
+import './Temperature@simple.sss';
 
 export function Temperature(props: { obj: IDataTemperature }) {
     const { obj: data } = props;

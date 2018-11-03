@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 
 import '../Navigation/Navigation.sss';
 
@@ -7,9 +8,9 @@ export function MenuHeader() {
     return (
         <ul className='navigation-list navigation-list_footer'>
             <li className='navigation-list__item navigation-list__item_footer'>
-                <a className='link'>
+                <Link className='link' to='/'>
                     Сводка
-                </a>
+                </Link>
             </li>
             <li className='navigation-list__item navigation-list__item_footer'>
                 <a className='link'>
@@ -22,9 +23,9 @@ export function MenuHeader() {
                 </a>
             </li>
             <li className='navigation-list__item navigation-list__item_footer'>
-                <a className='link' href='/video'>
+                <Link className='link' to={{ pathname: '/videos' }}>
                     Видеонаблюдение
-                </a>
+                </Link>
             </li>
         </ul>
     )

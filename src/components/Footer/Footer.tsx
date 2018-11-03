@@ -1,22 +1,22 @@
 import * as React from 'react';
 
-import './Footer.sss';
+import './Footer@simple.sss';
 
 // Get Menu-part
-import { MenuFooter } from './../Menu/Menu';
+import { cn } from '@bem-react/classname';
+import { RegistryConsumer } from '@bem-react/di';
+
+const BodyCN = cn('Body');
+const FooterCN = cn('Footer');
 
 // Static block
 export function Footer() {
     return (
-        <footer className='footer section media-desktop'>
-            <div className='footer-container container'>
-                <MenuFooter />
-                <nav className='navigation navigation_footer'>
-                    <div className='copyright'>
-                        &copy; 2001-2017 ООО «Яндекс»
-                    </div>
-                </nav>
-            </div>
-        </footer>
-    )
+        <RegistryConsumer>
+            { regs => {
+                const Footer = regs[FooterCN()].get(BodyCN());
+                return <Footer />;
+            } }
+        </RegistryConsumer>
+    );
 }

@@ -1,16 +1,18 @@
 import * as React from 'react';
 
-import './Content.sss';
+import './Content@simple.sss';
 
-export function Content(props: { children: any, title: string }) {
-    const { children, title } = props;
+export class Content extends React.Component<{ children?: React.ReactChildren, title?: string }> {
+    render() {
+        const { children, title } = this.props;
 
-    return <section className="content section">
-        <div className="container content__container">
-            <div className="content__title">
-                { title }
+        return <section className="content section">
+            <div className="container content__container">
+                <div className="content__title">
+                    { title || 'Yandex Дом' }
+                </div>
+                { children }
             </div>
-            { children }
-        </div>
-    </section>;
+        </section>;
+    }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IDataMusic } from './../Event.d';
 
-import './Music.sss';
+import './Music@simple.sss';
 
 export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
     constructor(props: { obj: IDataMusic }) {

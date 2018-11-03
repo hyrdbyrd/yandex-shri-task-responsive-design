@@ -1,19 +1,27 @@
 import * as React from 'react';
-import './Page.sss';
+import './Page@simple.sss';
 
 // Components
-import { Header } from '../Header/Header';
-import { Content } from '../Content/Content';
-import { Footer } from '../Footer/Footer';
+import { RegistryConsumer } from '@bem-react/di';
 
-export default class Page extends React.Component<{ title: string }> {
+export class Page extends React.Component<{ title?: string }> {
     render() {
-        return <div className='main'>
-        <Header />
-        <Content title={this.props.title || '404 - page not found'}>
-            { this.props.children }
-        </Content>
-        <Footer />
-    </div>;
+        return <RegistryConsumer>
+                { regs => {
+                    const Page = regs['Page'];
+
+                    const Header = Page.get('Header');
+                    const Content: any = Page.get('Content');
+                    const Footer = Page.get('Footer');
+
+                    return <div className='main'>
+                        <Header />
+                        <Content title={ this.props.title || 'Yandex Дом' }>
+                            { this.props.children }
+                        </Content>
+                        <Footer />
+                    </div>;
+                } }
+            </RegistryConsumer>;
     }
 }
