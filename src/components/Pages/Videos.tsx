@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import '../Video/Video.sss';
+import '../Video/Video@simple.sss';
 import mediaInit from '../Video/Media';
 
 export default class VideoPage extends React.Component<any, any> {

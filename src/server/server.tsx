@@ -12,6 +12,7 @@ import { resolve } from 'path';
 import { toHtml } from './html';
 
 import App from './../client/App';
+import { StaticRouterContext } from 'react-router';
 
 const PORT: number = 8000;
 const app: Application = express();
@@ -25,7 +26,7 @@ app
             platform = 'mobile';
         }
 
-        const context = {};
+        const context = { platform } as StaticRouterContext;
 
         const block = renderToString(
             <StaticRouter location={req.url} context={context}>

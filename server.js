@@ -2298,7 +2298,7 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst index_1 = __webpack_require__(/*! ../components/Page/index */ \"./src/components/Page/index.tsx\");\nconst routes_1 = __webpack_require__(/*! ./routes */ \"./src/client/routes.ts\");\nfunction App(props) {\n    const Page = index_1.Page[props.platform || 'desktop']();\n    return React.createElement(Page, { title: props.title || 'Yandex house' },\n        React.createElement(react_router_dom_1.Switch, null, routes_1.default.map((route, i) => React.createElement(react_router_dom_1.Route, Object.assign({ key: i }, route)))));\n}\nexports.default = App;\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst index_1 = __webpack_require__(/*! ../components/Page/index */ \"./src/components/Page/index.tsx\");\nconst routes_1 = __webpack_require__(/*! ./routes */ \"./src/client/routes.ts\");\nfunction App(props) {\n    const platform = props.platform || 'desktop';\n    const Page = index_1.Page[platform]();\n    return React.createElement(Page, { title: props.title || 'Yandex house' },\n        React.createElement(react_router_dom_1.Switch, null, routes_1.default.map((route, i) => React.createElement(react_router_dom_1.Route, Object.assign({ key: i, platform: platform }, route)))));\n}\nexports.default = App;\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
 
 /***/ }),
 
@@ -2371,6 +2371,28 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 /***/ }),
 
+/***/ "./src/components/Event/Buttons/Buttons@desktop.sss":
+/*!**********************************************************!*\
+  !*** ./src/components/Event/Buttons/Buttons@desktop.sss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Event/Buttons/Buttons@desktop.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Event/Buttons/Buttons@mobile.sss":
+/*!*********************************************************!*\
+  !*** ./src/components/Event/Buttons/Buttons@mobile.sss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Event/Buttons/Buttons@mobile.sss?");
+
+/***/ }),
+
 /***/ "./src/components/Event/Buttons/Buttons@simple.sss":
 /*!*********************************************************!*\
   !*** ./src/components/Event/Buttons/Buttons@simple.sss ***!
@@ -2390,7 +2412,7 @@ eval("\n\n//# sourceURL=webpack:///./src/components/Event/Buttons/Buttons@simple
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Event@simple.sss */ \"./src/components/Event/Event@simple.sss\");\nconst Music_1 = __webpack_require__(/*! ./Music/Music */ \"./src/components/Event/Music/Music.tsx\");\nconst Temperature_1 = __webpack_require__(/*! ./Temperature/Temperature */ \"./src/components/Event/Temperature/Temperature.tsx\");\nconst Buttons_1 = __webpack_require__(/*! ./Buttons/Buttons */ \"./src/components/Event/Buttons/Buttons.tsx\");\nconst Image_1 = __webpack_require__(/*! ./Image/Image */ \"./src/components/Event/Image/Image.tsx\");\nclass EventDataBlock extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const { obj: data, type } = this.props;\n        let res = React.createElement(\"div\", null);\n        if (type === 'stats') {\n            res = React.createElement(\"img\", { src: 'assets/Richdata.svg' });\n        }\n        else if (type === 'thermal') {\n            res = React.createElement(Temperature_1.Temperature, { obj: data });\n        }\n        else if (type === 'music') {\n            res = React.createElement(Music_1.Music, { obj: data });\n        }\n        else if (type === 'fridge') {\n            res = React.createElement(Buttons_1.Buttons, { obj: data });\n        }\n        else if (type === 'cam') {\n            res = React.createElement(Image_1.Image, null);\n        }\n        return res;\n    }\n}\nexports.EventDataBlock = EventDataBlock;\nclass Event extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const { obj: event } = this.props;\n        const isCritical = event.type === 'critical';\n        const postfix = isCritical ? '-white' : '';\n        const eventDescBlock = event.description ? React.createElement(\"div\", { className: \"event__description\" }, event.description) : null;\n        const eventDataBlock = event.data ? React.createElement(\"div\", { className: \"event__data\" },\n            React.createElement(EventDataBlock, { obj: event.data, type: event.icon })) : null;\n        return (React.createElement(\"div\", { className: `event event_size_${event.size} event_type_${event.type}` },\n            React.createElement(\"div\", { className: 'empty empty_cross' },\n                React.createElement(\"img\", { className: 'event__nav cross', src: `assets/cross${postfix}.svg` })),\n            React.createElement(\"header\", { className: 'event__header' },\n                React.createElement(\"div\", { className: 'event-intro' },\n                    React.createElement(\"img\", { className: 'event__icon', src: `assets/${event.icon + postfix}.svg` }),\n                    React.createElement(\"div\", { className: 'event__title', \"data-title\": event.title }, event.title)),\n                React.createElement(\"div\", { className: \"event-desc\" },\n                    React.createElement(\"div\", { className: \"event__source\" }, event.source),\n                    React.createElement(\"div\", { className: \"event__time\" }, event.time))),\n            (event.description || event.data) &&\n                React.createElement(\"div\", { className: \"event__content\" },\n                    eventDescBlock,\n                    eventDataBlock),\n            React.createElement(\"div\", { className: 'empty empty_slide' },\n                React.createElement(\"img\", { className: 'event__nav slide', src: `assets/next${postfix}.svg` }))));\n    }\n}\nexports.Event = Event;\n\n\n//# sourceURL=webpack:///./src/components/Event/Event.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Event@simple.sss */ \"./src/components/Event/Event@simple.sss\");\nconst Music_1 = __webpack_require__(/*! ./Music/Music */ \"./src/components/Event/Music/Music.tsx\");\nconst Temperature_1 = __webpack_require__(/*! ./Temperature/Temperature */ \"./src/components/Event/Temperature/Temperature.tsx\");\nconst Buttons_1 = __webpack_require__(/*! ./Buttons/Buttons */ \"./src/components/Event/Buttons/Buttons.tsx\");\nconst Image_1 = __webpack_require__(/*! ./Image/Image */ \"./src/components/Event/Image/Image.tsx\");\nclass EventDataBlock extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const { obj: data, type, platform: platf, staticContext } = this.props;\n        let res = React.createElement(\"div\", null);\n        if (type === 'stats') {\n            res = React.createElement(\"img\", { src: 'assets/Richdata.svg' });\n        }\n        else if (type === 'thermal') {\n            res = React.createElement(Temperature_1.Temperature, { obj: data });\n        }\n        else if (type === 'music') {\n            res = React.createElement(Music_1.Music, { obj: data });\n        }\n        else if (type === 'fridge') {\n            res = React.createElement(Buttons_1.Buttons, { obj: data });\n        }\n        else if (type === 'cam') {\n            res = React.createElement(Image_1.Image, null);\n        }\n        return res;\n    }\n}\nexports.EventDataBlock = EventDataBlock;\nclass Event extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const { obj: event } = this.props;\n        const isCritical = event.type === 'critical';\n        const postfix = isCritical ? '-white' : '';\n        const eventDescBlock = event.description ? React.createElement(\"div\", { className: \"event__description\" }, event.description) : null;\n        const eventDataBlock = event.data ? React.createElement(\"div\", { className: \"event__data\" },\n            React.createElement(EventDataBlock, { obj: event.data, type: event.icon })) : null;\n        return (React.createElement(\"div\", { className: `event event_size_${event.size} event_type_${event.type}` },\n            React.createElement(\"div\", { className: 'empty empty_cross' },\n                React.createElement(\"img\", { className: 'event__nav cross', src: `assets/cross${postfix}.svg` })),\n            React.createElement(\"header\", { className: 'event__header' },\n                React.createElement(\"div\", { className: 'event-intro' },\n                    React.createElement(\"img\", { className: 'event__icon', src: `assets/${event.icon + postfix}.svg` }),\n                    React.createElement(\"div\", { className: 'event__title', \"data-title\": event.title }, event.title)),\n                React.createElement(\"div\", { className: \"event-desc\" },\n                    React.createElement(\"div\", { className: \"event__source\" }, event.source),\n                    React.createElement(\"div\", { className: \"event__time\" }, event.time))),\n            (event.description || event.data) &&\n                React.createElement(\"div\", { className: \"event__content\" },\n                    eventDescBlock,\n                    eventDataBlock),\n            React.createElement(\"div\", { className: 'empty empty_slide' },\n                React.createElement(\"img\", { className: 'event__nav slide', src: `assets/next${postfix}.svg` }))));\n    }\n}\nexports.Event = Event;\n\n\n//# sourceURL=webpack:///./src/components/Event/Event.tsx?");
 
 /***/ }),
 
@@ -2463,6 +2485,28 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 /***/ }),
 
+/***/ "./src/components/Event/Temperature/Temperature@desktop.sss":
+/*!******************************************************************!*\
+  !*** ./src/components/Event/Temperature/Temperature@desktop.sss ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Event/Temperature/Temperature@desktop.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Event/Temperature/Temperature@mobile.sss":
+/*!*****************************************************************!*\
+  !*** ./src/components/Event/Temperature/Temperature@mobile.sss ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Event/Temperature/Temperature@mobile.sss?");
+
+/***/ }),
+
 /***/ "./src/components/Event/Temperature/Temperature@simple.sss":
 /*!*****************************************************************!*\
   !*** ./src/components/Event/Temperature/Temperature@simple.sss ***!
@@ -2471,6 +2515,64 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports) {
 
 eval("\n\n//# sourceURL=webpack:///./src/components/Event/Temperature/Temperature@simple.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Event/desktop/Event@desktop.sss":
+/*!********************************************************!*\
+  !*** ./src/components/Event/desktop/Event@desktop.sss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Event/desktop/Event@desktop.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Event/desktop/Event@desktop.tsx":
+/*!********************************************************!*\
+  !*** ./src/components/Event/desktop/Event@desktop.tsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Event_1 = __webpack_require__(/*! ../Event */ \"./src/components/Event/Event.tsx\");\n__webpack_require__(/*! ./Event@desktop.sss */ \"./src/components/Event/desktop/Event@desktop.sss\");\n__webpack_require__(/*! ../Temperature/Temperature@desktop.sss */ \"./src/components/Event/Temperature/Temperature@desktop.sss\");\n__webpack_require__(/*! ../Buttons/Buttons@desktop.sss */ \"./src/components/Event/Buttons/Buttons@desktop.sss\");\nexports.Event = Event_1.Event;\n\n\n//# sourceURL=webpack:///./src/components/Event/desktop/Event@desktop.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Event/index.tsx":
+/*!****************************************!*\
+  !*** ./src/components/Event/index.tsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Event = {\n    desktop: () => __webpack_require__(/*! ./desktop/Event@desktop */ \"./src/components/Event/desktop/Event@desktop.tsx\").Event,\n    mobile: () => __webpack_require__(/*! ./mobile/Event@mobile */ \"./src/components/Event/mobile/Event@mobile.tsx\").Event\n};\n\n\n//# sourceURL=webpack:///./src/components/Event/index.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/Event/mobile/Event@mobile.sss":
+/*!******************************************************!*\
+  !*** ./src/components/Event/mobile/Event@mobile.sss ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Event/mobile/Event@mobile.sss?");
+
+/***/ }),
+
+/***/ "./src/components/Event/mobile/Event@mobile.tsx":
+/*!******************************************************!*\
+  !*** ./src/components/Event/mobile/Event@mobile.tsx ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Event_1 = __webpack_require__(/*! ../Event */ \"./src/components/Event/Event.tsx\");\n__webpack_require__(/*! ./Event@mobile.sss */ \"./src/components/Event/mobile/Event@mobile.sss\");\n__webpack_require__(/*! ../Temperature/Temperature@mobile.sss */ \"./src/components/Event/Temperature/Temperature@mobile.sss\");\n__webpack_require__(/*! ../Buttons/Buttons@mobile.sss */ \"./src/components/Event/Buttons/Buttons@mobile.sss\");\nconsole.log('MOBILE!');\nexports.Event = Event_1.Event;\n\n\n//# sourceURL=webpack:///./src/components/Event/mobile/Event@mobile.tsx?");
 
 /***/ }),
 
@@ -2724,7 +2826,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst DB = __webpack_require__(/*! ./events.json */ \"./src/components/Pages/events.json\");\n// Options\nconst events = DB.events;\nconst Event_1 = __webpack_require__(/*! ./../Event/Event */ \"./src/components/Event/Event.tsx\");\nfunction EventPage(props) {\n    return React.createElement(\"div\", { className: 'events' }, events && events.map((obj, i) => React.createElement(Event_1.Event, { key: i, obj: obj })));\n}\nexports.default = EventPage;\n\n\n//# sourceURL=webpack:///./src/components/Pages/Events.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst DB = __webpack_require__(/*! ./events.json */ \"./src/components/Pages/events.json\");\n// Options\nconst events = DB.events;\nconst index_1 = __webpack_require__(/*! ../Event/index */ \"./src/components/Event/index.tsx\");\nfunction EventPage(props) {\n    if (props.staticContext) {\n        const Event = index_1.Event[props.staticContext.platform]();\n        return React.createElement(\"div\", { className: 'events' }, events && events.map((obj, i) => React.createElement(Event, { key: i, obj: obj })));\n    }\n    else {\n        const Event = index_1.Event[window.PLATFORM]();\n        return React.createElement(\"div\", { className: 'events' }, events && events.map((obj, i) => React.createElement(Event, { key: i, obj: obj })));\n    }\n}\nexports.default = EventPage;\n\n\n//# sourceURL=webpack:///./src/components/Pages/Events.tsx?");
 
 /***/ }),
 
@@ -2736,7 +2838,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ../Video/Video.sss */ \"./src/components/Video/Video.sss\");\nconst Media_1 = __webpack_require__(/*! ../Video/Media */ \"./src/components/Video/Media.ts\");\nclass VideoPage extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    componentDidMount() {\n        Media_1.default();\n    }\n    render() {\n        return React.createElement(\"div\", { className: 'videos' },\n            React.createElement(\"div\", { className: 'videos-navigations' },\n                React.createElement(\"div\", { className: 'sub-nav' },\n                    React.createElement(\"p\", { className: 'sub-nav__title' }, \"\\u042F\\u0440\\u043A\\u043E\\u0441\\u0442\\u044C\"),\n                    React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'sub-nav__elem navigations__bright' }),\n                    React.createElement(\"p\", { className: 'sub-nav__title' }, \"\\u041A\\u043E\\u043D\\u0442\\u0440\\u0430\\u0441\\u0442\\u043D\\u043E\\u0441\\u0442\\u044C\"),\n                    React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'sub-nav__elem navigations__contrast' }),\n                    React.createElement(\"p\", { className: \"sub-nav__title\" }, \"\\u0423\\u0440\\u043E\\u0432\\u0435\\u043D\\u044C \\u043E\\u0441\\u0432\\u0435\\u0449\\u0435\\u043D\\u043D\\u043E\\u0441\\u0442\\u0438\"),\n                    React.createElement(\"p\", { className: \"sub-nav__elem navigations__brigtness\" })),\n                React.createElement(\"div\", { className: 'all-cams' }, \"\\u0412\\u0441\\u0435 \\u0432\\u0438\\u0434\\u0435\\u043E\"),\n                React.createElement(\"canvas\", { className: 'analyser' })),\n            React.createElement(\"video\", { className: 'video-1 video', autoPlay: true, muted: true }),\n            React.createElement(\"video\", { className: 'video-2 video', autoPlay: true, muted: true }),\n            React.createElement(\"video\", { className: 'video-3 video', autoPlay: true, muted: true }),\n            React.createElement(\"video\", { className: 'video-4 video', autoPlay: true, muted: true }));\n    }\n}\nexports.default = VideoPage;\n\n\n//# sourceURL=webpack:///./src/components/Pages/Videos.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ../Video/Video@simple.sss */ \"./src/components/Video/Video@simple.sss\");\nconst Media_1 = __webpack_require__(/*! ../Video/Media */ \"./src/components/Video/Media.ts\");\nclass VideoPage extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    componentDidMount() {\n        Media_1.default();\n    }\n    render() {\n        return React.createElement(\"div\", { className: 'videos' },\n            React.createElement(\"div\", { className: 'videos-navigations' },\n                React.createElement(\"div\", { className: 'sub-nav' },\n                    React.createElement(\"p\", { className: 'sub-nav__title' }, \"\\u042F\\u0440\\u043A\\u043E\\u0441\\u0442\\u044C\"),\n                    React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'sub-nav__elem navigations__bright' }),\n                    React.createElement(\"p\", { className: 'sub-nav__title' }, \"\\u041A\\u043E\\u043D\\u0442\\u0440\\u0430\\u0441\\u0442\\u043D\\u043E\\u0441\\u0442\\u044C\"),\n                    React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'sub-nav__elem navigations__contrast' }),\n                    React.createElement(\"p\", { className: \"sub-nav__title\" }, \"\\u0423\\u0440\\u043E\\u0432\\u0435\\u043D\\u044C \\u043E\\u0441\\u0432\\u0435\\u0449\\u0435\\u043D\\u043D\\u043E\\u0441\\u0442\\u0438\"),\n                    React.createElement(\"p\", { className: \"sub-nav__elem navigations__brigtness\" })),\n                React.createElement(\"div\", { className: 'all-cams' }, \"\\u0412\\u0441\\u0435 \\u0432\\u0438\\u0434\\u0435\\u043E\"),\n                React.createElement(\"canvas\", { className: 'analyser' })),\n            React.createElement(\"video\", { className: 'video-1 video', autoPlay: true, muted: true }),\n            React.createElement(\"video\", { className: 'video-2 video', autoPlay: true, muted: true }),\n            React.createElement(\"video\", { className: 'video-3 video', autoPlay: true, muted: true }),\n            React.createElement(\"video\", { className: 'video-4 video', autoPlay: true, muted: true }));\n    }\n}\nexports.default = VideoPage;\n\n\n//# sourceURL=webpack:///./src/components/Pages/Videos.tsx?");
 
 /***/ }),
 
@@ -2775,17 +2877,6 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst 
 
 /***/ }),
 
-/***/ "./src/components/Video/Video.sss":
-/*!****************************************!*\
-  !*** ./src/components/Video/Video.sss ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Video/Video.sss?");
-
-/***/ }),
-
 /***/ "./src/components/Video/Video.ts":
 /*!***************************************!*\
   !*** ./src/components/Video/Video.ts ***!
@@ -2795,6 +2886,17 @@ eval("\n\n//# sourceURL=webpack:///./src/components/Video/Video.sss?");
 
 "use strict";
 eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Audio_1 = __webpack_require__(/*! ./Audio */ \"./src/components/Video/Audio.ts\");\nconst Hls = __webpack_require__(/*! hls.js */ \"./node_modules/hls.js/dist/hls.js\");\nfunction getObjects(videos, navs) {\n    const ctx = (document.createElement('canvas')).getContext('2d');\n    const brightnessLvlNode = document.querySelector('.navigations__brigtness');\n    // Storage, with AudioContext.createMediaElement(element)\n    // and analysers for this media\n    const mediaSource = new Map();\n    function getActiveVideo() {\n        return videos.querySelector('.video_active');\n    }\n    function initVideo(video, url, audioCtx) {\n        if (!video)\n            return;\n        function onCanPlay() {\n            video.play().catch();\n        }\n        function onClickVideo(event) {\n            event.preventDefault();\n            // Check the brightness\n            ctx.drawImage(video, 0, 0, 1, 1);\n            const summ = (ctx.getImageData(0, 0, 1, 1).data.reduce((prev, cur) => prev + cur) - 255) / 3;\n            let brightnessLvl;\n            if (summ > 200) {\n                brightnessLvl = 'Очень ярко';\n            }\n            else if (summ > 150) {\n                brightnessLvl = 'Ярко';\n            }\n            else if (summ > 100) {\n                brightnessLvl = 'Тускло';\n            }\n            else {\n                brightnessLvl = 'Темно';\n            }\n            // Add text for brightess\n            brightnessLvlNode.innerText = brightnessLvl;\n            if (video.muted) {\n                video.muted = false;\n            }\n            if (video.classList.contains('video_active'))\n                return;\n            video.classList.add('video_active');\n            navs.classList.add('navigations_active');\n            const { offsetTop: top, offsetLeft: left } = video;\n            video.style.transform = `translate(${-left}px, ${-top}px)`;\n            if (mediaSource.get(video)) {\n                const { source, analyser } = mediaSource.get(video);\n                Audio_1.analysAudio(audioCtx, video, source, analyser);\n            }\n            else {\n                mediaSource.set(video, Audio_1.analysAudio(audioCtx, video));\n            }\n        }\n        if (Hls.isSupported()) {\n            const hls = new Hls();\n            hls.loadSource(url);\n            hls.attachMedia(video);\n            hls.on(Hls.Events.MANIFEST_PARSED, onCanPlay);\n        }\n        else if (video.canPlayType('application/vnd.apple.mpegurl')) {\n            video.src = url;\n            video.addEventListener('loadedmetadata', onCanPlay);\n        }\n        video.addEventListener('ended', onCanPlay);\n        video.addEventListener('click', onClickVideo);\n    }\n    return { getActiveVideo, initVideo };\n}\nexports.default = getObjects;\n\n\n//# sourceURL=webpack:///./src/components/Video/Video.ts?");
+
+/***/ }),
+
+/***/ "./src/components/Video/Video@simple.sss":
+/*!***********************************************!*\
+  !*** ./src/components/Video/Video@simple.sss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/Video/Video@simple.sss?");
 
 /***/ }),
 
@@ -2818,7 +2920,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfuncti
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nconst cors = __webpack_require__(/*! cors */ \"./node_modules/cors/lib/index.js\");\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst server_1 = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.js\");\nconst path_1 = __webpack_require__(/*! path */ \"path\");\nconst html_1 = __webpack_require__(/*! ./html */ \"./src/server/html.tsx\");\nconst App_1 = __webpack_require__(/*! ./../client/App */ \"./src/client/App.tsx\");\nconst PORT = 8000;\nconst app = express();\napp\n    .use('/cams', cors(), express.static(path_1.resolve('./streams')))\n    .use(express.static(path_1.resolve('./dist')))\n    .get('*', (req, res) => {\n    let platform = 'desktop';\n    if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent'])) {\n        platform = 'mobile';\n    }\n    const context = {};\n    const block = server_1.renderToString(React.createElement(react_router_dom_1.StaticRouter, { location: req.url, context: context },\n        React.createElement(App_1.default, { platform: platform })));\n    res.send(html_1.toHtml({ block, title: 'Yandex Дом', platform }));\n})\n    .use((error, req, res, next) => {\n    res.send(`${error.message}\\n${error.stack}`);\n});\napp.listen(PORT, () => { console.log(`Server is listening ${PORT} port`); });\n\n\n//# sourceURL=webpack:///./src/server/server.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nconst cors = __webpack_require__(/*! cors */ \"./node_modules/cors/lib/index.js\");\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst server_1 = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.js\");\nconst path_1 = __webpack_require__(/*! path */ \"path\");\nconst html_1 = __webpack_require__(/*! ./html */ \"./src/server/html.tsx\");\nconst App_1 = __webpack_require__(/*! ./../client/App */ \"./src/client/App.tsx\");\nconst PORT = 8000;\nconst app = express();\napp\n    .use('/cams', cors(), express.static(path_1.resolve('./streams')))\n    .use(express.static(path_1.resolve('./dist')))\n    .get('*', (req, res) => {\n    let platform = 'desktop';\n    if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent'])) {\n        platform = 'mobile';\n    }\n    const context = { platform };\n    const block = server_1.renderToString(React.createElement(react_router_dom_1.StaticRouter, { location: req.url, context: context },\n        React.createElement(App_1.default, { platform: platform })));\n    res.send(html_1.toHtml({ block, title: 'Yandex Дом', platform }));\n})\n    .use((error, req, res, next) => {\n    res.send(`${error.message}\\n${error.stack}`);\n});\napp.listen(PORT, () => { console.log(`Server is listening ${PORT} port`); });\n\n\n//# sourceURL=webpack:///./src/server/server.tsx?");
 
 /***/ }),
 

@@ -6,10 +6,12 @@ import { Page as PageCommon } from '../components/Page/index';
 import routes from './routes';
 
 export default function App(props?: { title?: string, platform?: 'desktop' | 'mobile' }) {
-    const Page = PageCommon[props.platform || 'desktop']();
+    const platform = props.platform || 'desktop';
+    const Page = PageCommon[platform]();
+
     return <Page title={ props.title || 'Yandex house' }>
         <Switch>
-            { routes.map((route, i) => <Route key={i} {...route} /> ) }
+            { routes.map((route, i) => <Route key={i} platform={platform} {...route} /> ) }
         </Switch>
     </Page>
 }

@@ -9,13 +9,20 @@ import { Image } from './Image/Image';
 
 import { IEvent, IEventData } from './Event.d';
 
-export class EventDataBlock extends React.Component<{obj: IEventData, type: string}> {
-    constructor(props: {obj: IEventData, type: string}) {
+type EventDataProps = {
+    obj: IEventData,
+    type: string,
+    platform?: 'desktop' | 'mobile',
+    staticContext?: any
+}
+
+export class EventDataBlock extends React.Component<EventDataProps> {
+    constructor(props: EventDataProps) {
         super(props);
     }
 
     render() {
-        const { obj: data, type } = this.props;
+        const { obj: data, type, platform: platf, staticContext } = this.props;
         let res = <div></div>;
 
         if (type === 'stats') {

@@ -6,12 +6,20 @@ import * as DB from './events.json';
 
 // Options
 const events: IEvent[] = DB.events;
+import { Event as EventPlatfs } from '../Event/index';
 
-import { Event } from './../Event/Event';
+type EventPageProps = { staticContext: { platform: 'desktop' | 'mobile' } };
 
-export default function EventPage(props?: { platform?: 'desktop' | 'mobile' }) {
-
-    return <div className='events'>
-        { events && events.map((obj: IEvent, i: number) => <Event key={i} obj={obj} />) }
-    </div>;
+export default function EventPage(props?: EventPageProps) {
+    if (props.staticContext) {
+        const Event = EventPlatfs[props.staticContext.platform]();
+        return <div className='events'>
+            { events && events.map((obj: IEvent, i: number) => <Event key={i} obj={obj} />) }
+        </div>;
+    } else {
+        const Event = EventPlatfs[window.PLATFORM]();
+        return <div className='events'>
+            { events && events.map((obj: IEvent, i: number) => <Event key={i} obj={obj} />) }
+        </div>;
+    }
 }
