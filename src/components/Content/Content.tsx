@@ -2,7 +2,12 @@ import * as React from 'react';
 
 import './Content@simple.sss';
 
-export class Content extends React.Component<{ children?: React.ReactChildren, title?: string }> {
+export interface IContentProps {
+    children?: React.ReactChildren;
+    title?: string;
+}
+
+export class Content extends React.Component<IContentProps> {
     render() {
         const { children, title } = this.props;
 

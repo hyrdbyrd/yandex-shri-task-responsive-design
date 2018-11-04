@@ -13,7 +13,7 @@ import { toHtml } from './html';
 
 import App from './../client/App';
 
-const PORT: number = 3000;
+const PORT: number = 8000;
 const app: Application = express();
 
 app
@@ -21,7 +21,7 @@ app
     .use(express.static(resolve('./dist')))
     .get('*', (req: Request, res: Response) => {
         let platform: 'desktop' | 'mobile' = 'desktop';
-        if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent']) || true) {
+        if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent'])) {
             platform = 'mobile';
         }
 

@@ -17,7 +17,6 @@ declare interface Window {
     Video(array: string[]): void;
     AudioContext: typeof AudioContext;
     webkitAudioContext: typeof AudioContext;
-    PLATFORM: 'mobile' | 'desktop';
 }
 
 declare interface CSSStyleDeclaration {

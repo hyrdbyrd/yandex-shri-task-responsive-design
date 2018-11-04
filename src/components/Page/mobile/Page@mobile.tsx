@@ -5,9 +5,9 @@ import './Page@mobile.sss';
 import { Registry, withRegistry } from '@bem-react/di';
 
 import { Header } from '../../Header/mobile/Header@mobile';
-import { Footer } from '../../Footer/mobile/Footer@mobile';
 import { Content } from '../../Content/Content';
 import '../../Content/Content@mobile.sss';
+import { Footer } from '../../Footer/mobile/Footer@mobile';
 
 const PageRegistry = new Registry({ id: 'Page' });
 

@@ -1,13 +1,13 @@
 import { Page as PageCommon } from '../Page';
 
-import './Page@desktop.sss';
 
 import { Registry, withRegistry } from '@bem-react/di';
 
+import './Page@desktop.sss';
 import { Header } from '../../Header/desktop/Header@desktop';
-import { Footer } from '../../Footer/desktop/Footer@desktop';
-import { Content } from '../../Content/Content';
 import '../../Content/Content@desktop.sss'
+import { Content } from '../../Content/Content';
+import { Footer } from '../../Footer/desktop/Footer@desktop';
 
 const PageRegistry = new Registry({ id: 'Page' });
 

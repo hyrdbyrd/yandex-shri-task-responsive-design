@@ -1,10 +1,19 @@
 import { platform } from 'os';
 
-export function toHtml({ block, title, bundleName, platform }: { block: string, title?: string, bundleName?: string, platform?: 'desktop' | 'mobile' }): string {
+type toHtmlFuncArgs = {
+    block: string,
+    title?: string,
+    bundleName?: string,
+    platform?: 'desktop' | 'mobile',
+    origin?: string
+};
+
+export function toHtml({ block, title, bundleName, platform, origin }: toHtmlFuncArgs): string {
     return `
         <!doctype html>
         <html>
             <head>
+                <base href="${ origin || '/' }">
                 <script defer>window.PLATFORM = '${platform || 'desktop'}';</script>
                 <script src="${bundleName || 'bundle'}.js" defer></script>
                 <title>${title || 'Yandex Дом'}</title>

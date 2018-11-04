@@ -3,11 +3,12 @@ import { hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
-/// <reference path='Platform.d.ts' />
+interface IWindow extends Window { PLATFORM: 'desktop' | 'mobile'; }
+const WINDOW = window as IWindow;
 
 hydrate(
     <BrowserRouter>
-        <App platform={ window.PLATFORM } />
+        <App platform={ WINDOW.PLATFORM } />
     </BrowserRouter>,
     document.querySelector('.app')
 );
