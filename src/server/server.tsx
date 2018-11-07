@@ -31,7 +31,7 @@ app
 
         const block = renderToString(
             <StaticRouter location={req.url} context={context}>
-                <App platform={platform} title={title} />
+                <App platform={platform} />
             </StaticRouter>
         );
 
