@@ -4,12 +4,12 @@ import VideoPage from '../components/Pages/Videos';
 const routes = [
     {
         path: '/events',
-        component: EventPage,
+        component: EventPage as any,
         exact: true
     },
     {
         path: '/videos',
-        component: VideoPage,
+        component: VideoPage as any,
         exact: true
     }
 ];

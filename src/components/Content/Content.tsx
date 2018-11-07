@@ -4,18 +4,14 @@ import './Content@simple.sss';
 
 export interface IContentProps {
     children?: React.ReactChildren;
-    title?: string;
 }
 
 export class Content extends React.Component<IContentProps> {
     render() {
-        const { children, title } = this.props;
+        const { children } = this.props;
 
         return <section className="content section">
             <div className="container content__container">
-                <div className="content__title">
-                    { title || 'Yandex Дом' }
-                </div>
                 { children }
             </div>
         </section>;

@@ -13,41 +13,44 @@ export default class VideoPage extends React.Component<any, any> {
     }
 
     render() {
-        return <div className='videos'>
-            <div className='videos-navigations'>
-                <div className='sub-nav'>
-                    <p className='sub-nav__title'>
-                        Яркость
-                    </p>
-                    <input
-                        type='range'
-                        min='50'
-                        max='150'
-                        className='sub-nav__elem navigations__bright'
-                    />
-                    <p className='sub-nav__title'>
-                        Контрастность
-                    </p>
-                    <input
-                        type='range'
-                        min='50'
-                        max='150'
-                        className='sub-nav__elem navigations__contrast'
-                    />
-                    <p className="sub-nav__title">
-                        Уровень освещенности
-                    </p>
-                    <p className="sub-nav__elem navigations__brigtness"></p>
+        return [
+            <div className='content__title' key={1}>Камеры</div>,
+            <div className='videos' key={2}>
+                <div className='videos-navigations'>
+                    <div className='sub-nav'>
+                        <p className='sub-nav__title'>
+                            Яркость
+                        </p>
+                        <input
+                            type='range'
+                            min='50'
+                            max='150'
+                            className='sub-nav__elem navigations__bright'
+                        />
+                        <p className='sub-nav__title'>
+                            Контрастность
+                        </p>
+                        <input
+                            type='range'
+                            min='50'
+                            max='150'
+                            className='sub-nav__elem navigations__contrast'
+                        />
+                        <p className="sub-nav__title">
+                            Уровень освещенности
+                        </p>
+                        <p className="sub-nav__elem navigations__brigtness"></p>
+                    </div>
+                    <div className='all-cams'>
+                        Все видео
+                    </div>
+                    <canvas className='analyser'></canvas>
                 </div>
-                <div className='all-cams'>
-                    Все видео
-                </div>
-                <canvas className='analyser'></canvas>
+                <video className='video-1 video' autoPlay={true} muted={true}></video>
+                <video className='video-2 video' autoPlay={true} muted={true}></video>
+                <video className='video-3 video' autoPlay={true} muted={true}></video>
+                <video className='video-4 video' autoPlay={true} muted={true}></video>
             </div>
-            <video className='video-1 video' autoPlay={true} muted={true}></video>
-            <video className='video-2 video' autoPlay={true} muted={true}></video>
-            <video className='video-3 video' autoPlay={true} muted={true}></video>
-            <video className='video-4 video' autoPlay={true} muted={true}></video>
-        </div>
+    ];
     }
 }

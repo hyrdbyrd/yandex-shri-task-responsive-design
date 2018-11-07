@@ -26,15 +26,16 @@ app
             platform = 'mobile';
         }
 
-        const context = { platform } as StaticRouterContext;
+        const title = req.url;
+        const context = { platform, title } as StaticRouterContext;
 
         const block = renderToString(
             <StaticRouter location={req.url} context={context}>
-                <App platform={platform} />
+                <App platform={platform} title={title} />
             </StaticRouter>
         );
 
-        res.send(toHtml({ block, title: 'Yandex Дом', platform }));
+        res.send(toHtml({ block, platform }));
     })
     .use((error: Error, req: Request, res: Response, next: NextFunction) => {
         res.send(`${error.message}\n${error.stack}`);

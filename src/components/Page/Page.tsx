@@ -17,7 +17,7 @@ export class Page extends React.Component<IContentProps> {
 
                     return <div className='main'>
                         <Header />
-                        <Content title={ this.props.title || 'Yandex Дом' }>
+                        <Content>
                             { this.props.children }
                         </Content>
                         <Footer />
