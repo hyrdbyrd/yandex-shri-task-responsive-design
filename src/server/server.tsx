@@ -11,9 +11,6 @@ import { resolve } from 'path';
 
 import { toHtml } from './html';
 
-import App from './../client/App';
-import { StaticRouterContext } from 'react-router';
-
 const PORT: number = 8000;
 const app: Application = express();
 
@@ -22,20 +19,21 @@ app
     .use(express.static(resolve('./dist')))
     .get('*', (req: Request, res: Response) => {
         let platform: 'desktop' | 'mobile' = 'desktop';
+        let bundleName = 'bundle@desktop.js';
         if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent'])) {
             platform = 'mobile';
+            bundleName = 'bundle@mobile.js';
         }
 
-        const title = req.url;
-        const context = { platform, title } as StaticRouterContext;
+        const App = require(`../components/${platform}/App`).App;
 
         const block = renderToString(
-            <StaticRouter location={req.url} context={context}>
-                <App platform={platform} />
+            <StaticRouter location={req.url} context={{}}>
+                <App />
             </StaticRouter>
         );
 
-        res.send(toHtml({ block, platform }));
+        res.send(toHtml({ block, platform, bundleName }));
     })
     .use((error: Error, req: Request, res: Response, next: NextFunction) => {
         res.send(`${error.message}\n${error.stack}`);

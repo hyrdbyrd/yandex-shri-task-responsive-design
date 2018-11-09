@@ -2290,613 +2290,853 @@ eval("module.exports = function(module) {\n\tif (!module.webpackPolyfill) {\n\t\
 
 /***/ }),
 
-/***/ "./src/client/App.tsx":
-/*!****************************!*\
-  !*** ./src/client/App.tsx ***!
-  \****************************/
+/***/ "./src/components sync recursive ^\\.\\/.*\\/App$":
+/*!*******************************************!*\
+  !*** ./src/components sync ^\.\/.*\/App$ ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./desktop/App\": \"./src/components/desktop/App.tsx\",\n\t\"./mobile/App\": \"./src/components/mobile/App.tsx\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tvar id = map[req];\n\tif(!(id + 1)) { // check for number or string\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn id;\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/components sync recursive ^\\\\.\\\\/.*\\\\/App$\";\n\n//# sourceURL=webpack:///./src/components_sync_^\\.\\/.*\\/App$?");
+
+/***/ }),
+
+/***/ "./src/components/common/Content/Content.sss":
+/*!***************************************************!*\
+  !*** ./src/components/common/Content/Content.sss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Content/Content.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Content/Content.tsx":
+/*!***************************************************!*\
+  !*** ./src/components/common/Content/Content.tsx ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst index_1 = __webpack_require__(/*! ../components/Page/index */ \"./src/components/Page/index.tsx\");\nconst routes_1 = __webpack_require__(/*! ./routes */ \"./src/client/routes.ts\");\nfunction App(props) {\n    const platform = props.platform || 'desktop';\n    const Page = index_1.Page[platform]();\n    return React.createElement(Page, null,\n        React.createElement(react_router_dom_1.Switch, null, routes_1.default.map((route, i) => React.createElement(react_router_dom_1.Route, Object.assign({ key: i, platform: platform }, route)))));\n}\nexports.default = App;\n\n\n//# sourceURL=webpack:///./src/client/App.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Content.sss */ \"./src/components/common/Content/Content.sss\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nclass Content extends React.Component {\n    render() {\n        const { children } = this.props;\n        const cnContent = classname_1.cn('Content');\n        return React.createElement(\"section\", { className: classname_1.classnames('Section', cnContent()) },\n            React.createElement(\"div\", { className: classname_1.classnames('Container', cnContent('Container')) }, children));\n    }\n}\nexports.Content = Content;\n\n\n//# sourceURL=webpack:///./src/components/common/Content/Content.tsx?");
 
 /***/ }),
 
-/***/ "./src/client/routes.ts":
-/*!******************************!*\
-  !*** ./src/client/routes.ts ***!
-  \******************************/
+/***/ "./src/components/common/Event/Data/Buttons/Buttons.sss":
+/*!**************************************************************!*\
+  !*** ./src/components/common/Event/Data/Buttons/Buttons.sss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Buttons/Buttons.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Data/Buttons/Buttons.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/common/Event/Data/Buttons/Buttons.tsx ***!
+  \**************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Events_1 = __webpack_require__(/*! ../components/Pages/Events */ \"./src/components/Pages/Events.tsx\");\nconst Videos_1 = __webpack_require__(/*! ../components/Pages/Videos */ \"./src/components/Pages/Videos.tsx\");\nconst routes = [\n    {\n        path: '/events',\n        component: Events_1.default,\n        exact: true\n    },\n    {\n        path: '/videos',\n        component: Videos_1.default,\n        exact: true\n    }\n];\nexports.default = routes;\n\n\n//# sourceURL=webpack:///./src/client/routes.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Buttons.sss */ \"./src/components/common/Event/Data/Buttons/Buttons.sss\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nfunction Buttons(props) {\n    const { obj: data } = props;\n    const cnButton = classname_1.cn('Button');\n    return React.createElement(\"div\", { className: 'Buttons' },\n        React.createElement(\"div\", { className: cnButton({ type: 'confirm' }) }, data.buttons[0]),\n        React.createElement(\"div\", { className: cnButton({ type: 'close' }) }, data.buttons[1]));\n}\nexports.Buttons = Buttons;\n\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Buttons/Buttons.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Content/Content.tsx":
-/*!********************************************!*\
-  !*** ./src/components/Content/Content.tsx ***!
-  \********************************************/
+/***/ "./src/components/common/Event/Data/Data.tsx":
+/*!***************************************************!*\
+  !*** ./src/components/common/Event/Data/Data.tsx ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Content@simple.sss */ \"./src/components/Content/Content@simple.sss\");\nclass Content extends React.Component {\n    render() {\n        const { children } = this.props;\n        return React.createElement(\"section\", { className: \"content section\" },\n            React.createElement(\"div\", { className: \"container content__container\" }, children));\n    }\n}\nexports.Content = Content;\n\n\n//# sourceURL=webpack:///./src/components/Content/Content.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass EventDataBlock extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const { obj: data, type } = this.props;\n        let res = React.createElement(\"div\", null);\n        return React.createElement(di_1.RegistryConsumer, null, regs => {\n            const EventReg = regs['Data'];\n            const Stats = EventReg.get('Stats');\n            const Temperature = EventReg.get('Temperature');\n            const Music = EventReg.get('Music');\n            const Buttons = EventReg.get('Buttons');\n            const Image = EventReg.get('Image');\n            if (type === 'stats') {\n                return React.createElement(Stats, null);\n            }\n            else if (type === 'thermal') {\n                return React.createElement(Temperature, { obj: data });\n            }\n            else if (type === 'music') {\n                return React.createElement(Music, { obj: data });\n            }\n            else if (type === 'fridge') {\n                return React.createElement(Buttons, { obj: data });\n            }\n            else if (type === 'cam') {\n                return React.createElement(Image, null);\n            }\n            else {\n                return React.createElement(\"div\", null);\n            }\n        });\n    }\n}\nexports.EventDataBlock = EventDataBlock;\n\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Data.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Content/Content@desktop.sss":
+/***/ "./src/components/common/Event/Data/Image/Image.sss":
+/*!**********************************************************!*\
+  !*** ./src/components/common/Event/Data/Image/Image.sss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Image/Image.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Data/Image/Image.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/common/Event/Data/Image/Image.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Image.sss */ \"./src/components/common/Event/Data/Image/Image.sss\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nfunction Image() {\n    const cnImage = classname_1.cn('Box');\n    return React.createElement(\"div\", { className: cnImage() },\n        React.createElement(\"div\", { className: cnImage() + 'ImageWrapper', style: { backgroundImage: 'url(assets/cam@x3.png)' }, \"touch-action\": 'none' },\n            React.createElement(\"img\", { src: \"assets/cam@x3.png\", className: cnImage('Image') })));\n}\nexports.Image = Image;\n\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Image/Image.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Data/Music/Music.sss":
+/*!**********************************************************!*\
+  !*** ./src/components/common/Event/Data/Music/Music.sss ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Music/Music.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Data/Music/Music.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/common/Event/Data/Music/Music.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Music.sss */ \"./src/components/common/Event/Data/Music/Music.sss\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nclass Music extends React.Component {\n    constructor(props) {\n        super(props);\n        this.state = {\n            volume: props.obj.volume,\n            track: props.obj.track\n        };\n    }\n    onVolumeChange(event) {\n        const target = event.target;\n        const val = target.value;\n        this.setState((state) => ({\n            volume: val,\n            track: state.track\n        }));\n    }\n    onTrackPosChange(event) {\n        const target = event.target;\n        const val = target.value;\n        this.setState((state) => ({\n            volume: state.volume,\n            track: {\n                name: state.track.name,\n                length: val\n            }\n        }));\n    }\n    render() {\n        const data = this.props.obj;\n        const { state } = this;\n        const time = data.track.length.split(':');\n        const len = +time[0] * 60 + +time[1];\n        const cnMusic = classname_1.cn('Music');\n        const cnTrack = classname_1.cn('Track');\n        const cnVolume = classname_1.cn('Volume');\n        return React.createElement(\"div\", { className: cnMusic() },\n            React.createElement(\"img\", { src: data.albumcover, className: cnMusic('Albumcover'), alt: 'albumcover' }),\n            React.createElement(\"header\", { className: cnMusic() + 'Haeder' },\n                React.createElement(\"div\", { className: cnMusic('Description') }, `${data.artist} - ${data.track.name}`.trim()),\n                React.createElement(\"div\", { className: cnTrack() },\n                    React.createElement(\"input\", { className: cnMusic(cnTrack()), type: 'range', min: '0', max: len, step: '1', value: state.track.length, onChange: this.onTrackPosChange.bind(this) }),\n                    React.createElement(\"div\", { className: cnTrack('Value') }, data.track.length))),\n            React.createElement(\"div\", { className: cnMusic() + 'Nav' },\n                React.createElement(\"img\", { src: \"assets/Prev.svg\", className: cnMusic('Prev') }),\n                React.createElement(\"img\", { src: \"assets/Prev.svg\", className: cnMusic('Next'), style: { transform: 'rotate(180deg)' } }),\n                React.createElement(\"div\", { className: cnVolume() },\n                    React.createElement(\"input\", { type: \"range\", onChange: this.onVolumeChange.bind(this), className: cnMusic(cnVolume()), min: \"0\", max: \"100\", step: \"1\", value: state.volume }),\n                    React.createElement(\"div\", { className: cnVolume('Value') }, `${state.volume}%`))));\n    }\n}\nexports.Music = Music;\n\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Music/Music.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Data/Stats/Stats.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/common/Event/Data/Stats/Stats.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nfunction Stats() {\n    return React.createElement(\"img\", { src: 'assets/Richdata.svg' });\n}\nexports.Stats = Stats;\n\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Stats/Stats.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Data/Temperature/Temperature.sss":
+/*!**********************************************************************!*\
+  !*** ./src/components/common/Event/Data/Temperature/Temperature.sss ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Temperature/Temperature.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Data/Temperature/Temperature.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/components/common/Event/Data/Temperature/Temperature.tsx ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Temperature.sss */ \"./src/components/common/Event/Data/Temperature/Temperature.sss\");\nfunction Temperature(props) {\n    const { obj: data } = props;\n    return React.createElement(\"div\", { className: 'state' },\n        React.createElement(\"div\", { className: 'temperature' },\n            \"\\u0422\\u0435\\u043C\\u043F\\u0435\\u0440\\u0430\\u0442\\u0443\\u0440\\u0430:\",\n            React.createElement(\"b\", null, ` ${data.temperature} C`)),\n        React.createElement(\"div\", { className: 'humidity' },\n            \"\\u0412\\u043B\\u0430\\u0436\\u043D\\u043E\\u0441\\u0442\\u044C:\",\n            React.createElement(\"b\", null, ` ${data.humidity}%`)));\n}\nexports.Temperature = Temperature;\n\n\n//# sourceURL=webpack:///./src/components/common/Event/Data/Temperature/Temperature.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Event.sss":
+/*!***********************************************!*\
+  !*** ./src/components/common/Event/Event.sss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Event/Event.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Event/Event.tsx":
+/*!***********************************************!*\
+  !*** ./src/components/common/Event/Event.tsx ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Event.sss */ \"./src/components/common/Event/Event.sss\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Event extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        return React.createElement(di_1.RegistryConsumer, null, regs => {\n            const { props: event } = this;\n            const cnBlock = classname_1.cn(event.className);\n            const cnEmpty = classname_1.cn('Empty');\n            const isCritical = event.type === 'critical';\n            const postfix = isCritical ? '-white' : '';\n            const EventDataBlock = regs['Event'].get('EventDataBlock');\n            const eventDescBlock = event.description ? React.createElement(\"div\", { className: cnBlock('Description') }, event.description) : null;\n            const eventDataBlock = event.data ? React.createElement(\"div\", { className: cnBlock('Data') },\n                React.createElement(EventDataBlock, { obj: event.data, type: event.icon })) : null;\n            return React.createElement(\"div\", { className: cnBlock({ type: event.type, size: event.size }) },\n                React.createElement(\"div\", { className: cnEmpty({ cross: true }) },\n                    React.createElement(\"img\", { className: cnBlock('Nav', ['Cross']), src: `assets/cross${postfix}.svg` })),\n                React.createElement(\"header\", { className: cnBlock('Header') },\n                    React.createElement(\"div\", { className: cnBlock() + 'Intro' },\n                        React.createElement(\"img\", { className: cnBlock('Icon'), src: `assets/${event.icon + postfix}.svg` }),\n                        React.createElement(\"div\", { className: cnBlock('Title'), \"data-title\": event.title }, event.title)),\n                    React.createElement(\"div\", { className: cnBlock() + 'Desc' },\n                        React.createElement(\"div\", { className: cnBlock('Source') }, event.source),\n                        React.createElement(\"div\", { className: cnBlock('Time') }, event.time))),\n                (event.description || event.data) &&\n                    React.createElement(\"div\", { className: cnBlock('Content') },\n                        eventDescBlock,\n                        eventDataBlock),\n                React.createElement(\"div\", { className: cnEmpty({ slide: true }) },\n                    React.createElement(\"img\", { className: cnBlock('Nav', ['Slide']), src: `assets/next${postfix}.svg` })));\n        });\n    }\n}\nexports.Event = Event;\n\n\n//# sourceURL=webpack:///./src/components/common/Event/Event.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Footer/Footer.sss":
+/*!*************************************************!*\
+  !*** ./src/components/common/Footer/Footer.sss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Footer/Footer.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Footer/Footer.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/common/Footer/Footer.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer.sss */ \"./src/components/common/Footer/Footer.sss\");\n// Get Menu-part\nconst Menu_1 = __webpack_require__(/*! ../../common/Menu/Menu */ \"./src/components/common/Menu/Menu.tsx\");\n// Static block\nfunction Footer() {\n    return (React.createElement(\"footer\", { className: 'Footer Section MediaDesktop' },\n        React.createElement(\"div\", { className: 'FooterContainer Container' },\n            React.createElement(Menu_1.MenuFooter, null),\n            React.createElement(\"nav\", { className: 'Navigation Navigation_footer' },\n                React.createElement(\"div\", { className: 'Copyright' }, \"\\u00A9 2001-2017 \\u041E\\u041E\\u041E \\u00AB\\u042F\\u043D\\u0434\\u0435\\u043A\\u0441\\u00BB\")))));\n}\nexports.Footer = Footer;\n\n\n//# sourceURL=webpack:///./src/components/common/Footer/Footer.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Header/Header.sss":
+/*!*************************************************!*\
+  !*** ./src/components/common/Header/Header.sss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Header/Header.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Header/Header.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/common/Header/Header.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\n__webpack_require__(/*! ./Header.sss */ \"./src/components/common/Header/Header.sss\");\n// Import menu-parts\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Header extends React.Component {\n    render() {\n        const cnHeader = classname_1.cn('Header');\n        return (React.createElement(\"header\", { className: classname_1.classnames(cnHeader(), 'Section') },\n            React.createElement(di_1.RegistryConsumer, null, regs => {\n                const Body = regs[cnHeader()].get(classname_1.cn('Body')());\n                return React.createElement(Body, null);\n            })));\n    }\n}\nexports.Header = Header;\n\n\n//# sourceURL=webpack:///./src/components/common/Header/Header.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Menu/Menu.tsx":
+/*!*********************************************!*\
+  !*** ./src/components/common/Menu/Menu.tsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n__webpack_require__(/*! ./Navigation.sss */ \"./src/components/common/Menu/Navigation.sss\");\n// Menu-part - Header\nfunction MenuHeader() {\n    return (React.createElement(\"ul\", { className: 'NavigationList NavigationList_header' },\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_header' },\n            React.createElement(react_router_dom_1.Link, { className: 'Link', to: '/' }, \"\\u0421\\u0432\\u043E\\u0434\\u043A\\u0430\")),\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_header' },\n            React.createElement(\"a\", { className: 'Link' }, \"\\u0423\\u0441\\u0442\\u0440\\u043E\\u0439\\u0441\\u0442\\u0432\\u0430\")),\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_header' },\n            React.createElement(\"a\", { className: 'Link' }, \"\\u0421\\u0446\\u0435\\u043D\\u0430\\u0440\\u0438\\u0438\")),\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_header' },\n            React.createElement(react_router_dom_1.Link, { className: 'Link', to: { pathname: '/videos' } }, \"\\u0412\\u0438\\u0434\\u0435\\u043E\\u043D\\u0430\\u0431\\u043B\\u044E\\u0434\\u0435\\u043D\\u0438\\u0435\"))));\n}\nexports.MenuHeader = MenuHeader;\n;\n// Menu-part - Footer\nfunction MenuFooter() {\n    return (React.createElement(\"ul\", { className: 'NavigationList NavigationList_footer' },\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_footer' },\n            React.createElement(\"a\", { className: 'Link' }, \"\\u041F\\u043E\\u043C\\u043E\\u0449\\u044C\")),\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_footer' },\n            React.createElement(\"a\", { className: 'Link' }, \"\\u041E\\u0431\\u0440\\u0430\\u0442\\u043D\\u0430\\u044F \\u0441\\u0432\\u044F\\u0437\\u044C\")),\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_footer' },\n            React.createElement(\"a\", { className: 'Link' }, \"\\u0420\\u0430\\u0437\\u0440\\u0430\\u0431\\u043E\\u0442\\u0447\\u0438\\u043A\\u0430\\u043C\")),\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_footer' },\n            React.createElement(\"a\", { className: 'Link' }, \"\\u0423\\u0441\\u043B\\u043E\\u0432\\u0438\\u044F \\u0438\\u0441\\u043F\\u043E\\u043B\\u044C\\u0437\\u043E\\u0432\\u0430\\u043D\\u0438\\u044F\")),\n        React.createElement(\"li\", { className: 'NavigationList-Item NavigationList-Item_footer' },\n            React.createElement(\"a\", { className: 'Link', href: 'assets/license.pdf' }, \"\\u0410\\u0432\\u0442\\u043E\\u0440\\u0441\\u043A\\u0438\\u0435 \\u043F\\u0440\\u0430\\u0432\\u0430\"))));\n}\nexports.MenuFooter = MenuFooter;\n\n\n//# sourceURL=webpack:///./src/components/common/Menu/Menu.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Menu/Navigation.sss":
+/*!***************************************************!*\
+  !*** ./src/components/common/Menu/Navigation.sss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Menu/Navigation.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Page/Page.sss":
+/*!*********************************************!*\
+  !*** ./src/components/common/Page/Page.sss ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Page/Page.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Page/Page.tsx":
+/*!*********************************************!*\
+  !*** ./src/components/common/Page/Page.tsx ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Page.sss */ \"./src/components/common/Page/Page.sss\");\n// Components\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Page extends React.Component {\n    render() {\n        return React.createElement(di_1.RegistryConsumer, null, regs => {\n            const Page = regs['Page'];\n            const Header = Page.get('Header');\n            const Content = Page.get('Content');\n            const Footer = Page.get('Footer');\n            return React.createElement(\"div\", { className: 'Main' },\n                React.createElement(Header, null),\n                React.createElement(Content, null, this.props.children),\n                React.createElement(Footer, null));\n        });\n    }\n}\nexports.Page = Page;\n\n\n//# sourceURL=webpack:///./src/components/common/Page/Page.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Pages/Events.tsx":
+/*!************************************************!*\
+  !*** ./src/components/common/Pages/Events.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst DB = __webpack_require__(/*! ./events.json */ \"./src/components/common/Pages/events.json\");\n// Options\nconst events = DB.events;\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nfunction EventPage() {\n    return (React.createElement(React.Fragment, null,\n        React.createElement(\"div\", { className: 'Content-Title' }, \"\\u041B\\u0435\\u043D\\u0442\\u0430 \\u0441\\u043E\\u0431\\u044B\\u0442\\u0438\\u0439\"),\n        React.createElement(\"div\", { className: 'Events' }, events && (React.createElement(di_1.RegistryConsumer, null, regs => {\n            const Event = regs['Page'].get('Event');\n            return events.map((obj, i) => React.createElement(Event, Object.assign({ className: 'Event', key: i }, obj)));\n        })))));\n}\nexports.EventPage = EventPage;\n\n\n//# sourceURL=webpack:///./src/components/common/Pages/Events.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Pages/Videos.tsx":
+/*!************************************************!*\
+  !*** ./src/components/common/Pages/Videos.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ../Video/Video.sss */ \"./src/components/common/Video/Video.sss\");\nconst Media_1 = __webpack_require__(/*! ../Video/Media */ \"./src/components/common/Video/Media.ts\");\nclass VideoPage extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    componentDidMount() {\n        Media_1.default();\n    }\n    render() {\n        return React.createElement(React.Fragment, null,\n            React.createElement(\"div\", { className: 'Content-Title' }, \"\\u041A\\u0430\\u043C\\u0435\\u0440\\u044B\"),\n            \",\",\n            React.createElement(\"div\", { className: 'Videos' },\n                React.createElement(\"div\", { className: 'VideosNavigations' },\n                    React.createElement(\"div\", { className: 'SubNav' },\n                        React.createElement(\"p\", { className: 'SubNav-Title' }, \"\\u042F\\u0440\\u043A\\u043E\\u0441\\u0442\\u044C\"),\n                        React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'SubNav-Elem Navigations-Bright' }),\n                        React.createElement(\"p\", { className: 'SubNav-Title' }, \"\\u041A\\u043E\\u043D\\u0442\\u0440\\u0430\\u0441\\u0442\\u043D\\u043E\\u0441\\u0442\\u044C\"),\n                        React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'SubNav-Elem Navigations-Contrast' }),\n                        React.createElement(\"p\", { className: \"SubNav-Title\" }, \"\\u0423\\u0440\\u043E\\u0432\\u0435\\u043D\\u044C \\u043E\\u0441\\u0432\\u0435\\u0449\\u0435\\u043D\\u043D\\u043E\\u0441\\u0442\\u0438\"),\n                        React.createElement(\"p\", { className: \"SubNav-Elem Navigations-Brigtness\" })),\n                    React.createElement(\"div\", { className: 'AllCams' }, \"\\u0412\\u0441\\u0435 \\u0432\\u0438\\u0434\\u0435\\u043E\"),\n                    React.createElement(\"canvas\", { className: 'Analyser' })),\n                React.createElement(\"video\", { className: 'video-1 Video', autoPlay: true, muted: true }),\n                React.createElement(\"video\", { className: 'video-2 Video', autoPlay: true, muted: true }),\n                React.createElement(\"video\", { className: 'video-3 Video', autoPlay: true, muted: true }),\n                React.createElement(\"video\", { className: 'video-4 Video', autoPlay: true, muted: true })));\n    }\n}\nexports.VideoPage = VideoPage;\n\n\n//# sourceURL=webpack:///./src/components/common/Pages/Videos.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/common/Pages/events.json":
+/*!*************************************************!*\
+  !*** ./src/components/common/Pages/events.json ***!
+  \*************************************************/
+/*! exports provided: events, default */
+/***/ (function(module) {
+
+eval("module.exports = {\"events\":[{\"type\":\"info\",\"title\":\"Еженедельный отчет по расходам ресурсов\",\"source\":\"Сенсоры потребления\",\"time\":\"19:00, Сегодня\",\"description\":\"Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем неделей ранее.\",\"icon\":\"stats\",\"data\":{\"type\":\"graph\",\"values\":[{\"electricity\":[[\"1536883200\",115],[\"1536969600\",117],[\"1537056000\",117.2],[\"1537142400\",118],[\"1537228800\",120],[\"1537315200\",123],[\"1537401600\",129]]},{\"water\":[[\"1536883200\",40],[\"1536969600\",40.2],[\"1537056000\",40.5],[\"1537142400\",41],[\"1537228800\",41.4],[\"1537315200\",41.9],[\"1537401600\",42.6]]},{\"gas\":[[\"1536883200\",13],[\"1536969600\",13.2],[\"1537056000\",13.5],[\"1537142400\",13.7],[\"1537228800\",14],[\"1537315200\",14.2],[\"1537401600\",14.5]]}]},\"size\":\"l\"},{\"type\":\"info\",\"title\":\"Дверь открыта\",\"source\":\"Сенсор входной двери\",\"time\":\"18:50, Сегодня\",\"description\":null,\"icon\":\"key\",\"size\":\"s\"},{\"type\":\"info\",\"title\":\"Уборка закончена\",\"source\":\"Пылесос\",\"time\":\"18:45, Сегодня\",\"description\":null,\"icon\":\"robot-cleaner\",\"size\":\"s\"},{\"type\":\"info\",\"title\":\"Новый пользователь\",\"source\":\"Роутер\",\"time\":\"18:45, Сегодня\",\"description\":null,\"icon\":\"router\",\"size\":\"s\"},{\"type\":\"info\",\"title\":\"Изменен климатический режим\",\"source\":\"Сенсор микроклимата\",\"time\":\"18:30, Сегодня\",\"description\":\"Установлен климатический режим «Фиджи»\",\"icon\":\"thermal\",\"size\":\"m\",\"data\":{\"temperature\":24,\"humidity\":80}},{\"type\":\"critical\",\"title\":\"Невозможно включить кондиционер\",\"source\":\"Кондиционер\",\"time\":\"18:21, Сегодня\",\"description\":\"В комнате открыто окно, закройте его и повторите попытку\",\"icon\":\"ac\",\"size\":\"m\"},{\"type\":\"info\",\"title\":\"Музыка включена\",\"source\":\"Яндекс.Станция\",\"time\":\"18:16, Сегодня\",\"description\":\"Сейчас проигрывается:\",\"icon\":\"music\",\"size\":\"m\",\"data\":{\"albumcover\":\"https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/m1000x1000\",\"artist\":\"Florence & The Machine\",\"track\":{\"name\":\"Big God\",\"length\":\"4:31\"},\"volume\":80}},{\"type\":\"info\",\"title\":\"Заканчивается молоко\",\"source\":\"Холодильник\",\"time\":\"17:23, Сегодня\",\"description\":\"Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список покупок?\",\"icon\":\"fridge\",\"size\":\"m\",\"data\":{\"buttons\":[\"Да\",\"Нет\"]}},{\"type\":\"info\",\"title\":\"Зарядка завершена\",\"source\":\"Оконный сенсор\",\"time\":\"16:22, Сегодня\",\"description\":\"Ура! Устройство «Оконный сенсор» снова в строю!\",\"icon\":\"battery\",\"size\":\"s\"},{\"type\":\"critical\",\"title\":\"Пылесос застрял\",\"source\":\"Сенсор движения\",\"time\":\"16:21, Сегодня\",\"description\":\"Робопылесос не смог сменить свое местоположение в течение последних 3 минут. Похоже, ему нужна помощь.\",\"icon\":\"cam\",\"data\":{\"image\":\"get_it_from_mocks_:3.jpg\"},\"size\":\"l\"},{\"type\":\"info\",\"title\":\"Вода вскипела\",\"source\":\"Чайник\",\"time\":\"16:20, Сегодня\",\"description\":null,\"icon\":\"kettle\",\"size\":\"s\"}]};\n\n//# sourceURL=webpack:///./src/components/common/Pages/events.json?");
+
+/***/ }),
+
+/***/ "./src/components/common/Video/Audio.ts":
+/*!**********************************************!*\
+  !*** ./src/components/common/Video/Audio.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfunction analysAudio(audioCtx, element, source, analyser) {\n    // If we not get that source\n    if (!source || !analyser) {\n        source = audioCtx.createMediaElementSource(element);\n        // Set analyser\n        analyser = audioCtx.createAnalyser();\n        analyser.fftSize = 256;\n        source.connect(analyser);\n        analyser.connect(audioCtx.destination);\n    }\n    visual(analyser, document.querySelector('.Analyser'));\n    return { source, analyser };\n}\nexports.analysAudio = analysAudio;\nfunction visual(analyser, canvas) {\n    canvas = canvas || document.querySelector('.Analyser');\n    const ctx = canvas.getContext('2d');\n    // Equals Math.floor(window[`inner${dimension}`])\n    canvas.width = Math.floor(window.innerWidth);\n    canvas.height = Math.floor(window.innerHeight);\n    function render() {\n        // Get all decBels for this media\n        const dataList = new Uint8Array(analyser.frequencyBinCount);\n        analyser.getByteFrequencyData(dataList);\n        // metrika\n        const m = {\n            fr: {\n                width: Math.floor(canvas.width / dataList.length * 2.5)\n            },\n            height: canvas.height,\n            width: canvas.width\n        };\n        ctx.clearRect(0, 0, m.width, m.height);\n        dataList.forEach((height, x) => {\n            // Create effect, of linear-gradient from red to blue, and to green\n            // 25 - prefer 255, but without 5 :)\n            const r = height + (25 * (x / dataList.length));\n            // 250 - not full green, but near 255\n            const g = 250 * (x / dataList.length);\n            // For dark blue behind green and red\n            const b = 50;\n            ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;\n            ctx.fillRect(x * m.fr.width, m.height - height, m.fr.width, height);\n        });\n        requestAnimationFrame(render);\n    }\n    render();\n}\nexports.visual = visual;\n\n\n//# sourceURL=webpack:///./src/components/common/Video/Audio.ts?");
+
+/***/ }),
+
+/***/ "./src/components/common/Video/Media.ts":
+/*!**********************************************!*\
+  !*** ./src/components/common/Video/Media.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Video_1 = __webpack_require__(/*! ./Video */ \"./src/components/common/Video/Video.ts\");\nfunction mediaInit() {\n    // Set all vars, without DOM\n    const { port, hostname } = document.location;\n    let { protocol } = document.location;\n    protocol = protocol.slice(0, protocol.length - 1);\n    // AudioContext\n    // window.AudioContext = window.AudioContext || window.webkitAudioContext;\n    const audioCtx = new AudioContext();\n    // Canvas for analyser\n    const canvas = document.querySelector('.Analyser');\n    window.addEventListener('resize', () => {\n        canvas.width = Math.floor(window.innerWidth);\n        canvas.height = Math.floor(window.innerHeight);\n    });\n    // All elems, whose must switch class\n    const videos = document.body.querySelector('.Videos');\n    const navs = videos.querySelector('.VideosNavigations');\n    const { initVideo, getActiveVideo: gAV } = Video_1.default(videos, navs);\n    // All subnavs\n    const bright = navs.querySelector('.Navigations-Bright');\n    const contrast = navs.querySelector('.Navigations-Contrast');\n    const allCamsBtn = navs.querySelector('.AllCams');\n    bright.addEventListener('change', function () {\n        // video_active\n        // Cr-ed for not call that func at yet\n        const vA = gAV();\n        if (!vA)\n            return;\n        vA.style.filter = vA.style.filter.replace(/brightness\\([\\s\\S]*\\)/ig, '') + `brightness(${this.value}%)`;\n    });\n    contrast.addEventListener('change', function () {\n        // video_active\n        // Cr-ed for not call that func at yet\n        const vA = gAV();\n        if (!vA)\n            return;\n        vA.style.filter = vA.style.filter.replace(/contrast\\([\\s\\S]*\\)/ig, '') + `contrast(${this.value}%)`;\n    });\n    allCamsBtn.addEventListener('click', () => {\n        // video_active\n        // Cr-ed for not call that func at yet\n        const vA = gAV();\n        if (!vA)\n            return;\n        // Clear state\n        vA.classList.remove('Video_active');\n        // Switch off the audio\n        vA.muted = true;\n        // Clear the filter\n        vA.style.filter = '';\n        bright.value = '100';\n        contrast.value = '100';\n        // Clear state\n        navs.classList.remove('Navigations_active');\n        // Clear translate\n        vA.style.transform = '';\n    });\n    const Vids = document.querySelectorAll('.Video');\n    // All paths to streams\n    ['sosed', 'dog', 'cat', 'hall']\n        .forEach((path, id) => {\n        initVideo(Vids[id], \n        // Create url by path\n        `http://localhost:9191/master?url=${encodeURIComponent(`${protocol}://${hostname}:${port}/cams/${path}/master.m3u8`)}`, audioCtx);\n    });\n}\nexports.default = mediaInit;\n\n\n//# sourceURL=webpack:///./src/components/common/Video/Media.ts?");
+
+/***/ }),
+
+/***/ "./src/components/common/Video/Video.sss":
+/*!***********************************************!*\
+  !*** ./src/components/common/Video/Video.sss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/common/Video/Video.sss?");
+
+/***/ }),
+
+/***/ "./src/components/common/Video/Video.ts":
+/*!**********************************************!*\
+  !*** ./src/components/common/Video/Video.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Audio_1 = __webpack_require__(/*! ./Audio */ \"./src/components/common/Video/Audio.ts\");\nconst Hls = __webpack_require__(/*! hls.js */ \"./node_modules/hls.js/dist/hls.js\");\nfunction getObjects(videos, navs) {\n    const ctx = (document.createElement('canvas')).getContext('2d');\n    const brightnessLvlNode = document.querySelector('.Navigations-Brigtness');\n    // Storage, with AudioContext.createMediaElement(element)\n    // and analysers for this media\n    const mediaSource = new Map();\n    function getActiveVideo() {\n        return videos.querySelector('.Video_active');\n    }\n    function initVideo(video, url, audioCtx) {\n        if (!video)\n            return;\n        function onCanPlay() {\n            video.play().catch();\n        }\n        function onClickVideo(event) {\n            event.preventDefault();\n            // Check the brightness\n            ctx.drawImage(video, 0, 0, 1, 1);\n            const summ = (ctx.getImageData(0, 0, 1, 1).data.reduce((prev, cur) => prev + cur) - 255) / 3;\n            let brightnessLvl;\n            if (summ > 200) {\n                brightnessLvl = 'Очень ярко';\n            }\n            else if (summ > 150) {\n                brightnessLvl = 'Ярко';\n            }\n            else if (summ > 100) {\n                brightnessLvl = 'Тускло';\n            }\n            else {\n                brightnessLvl = 'Темно';\n            }\n            // Add text for brightess\n            brightnessLvlNode.innerText = brightnessLvl;\n            if (video.muted) {\n                video.muted = false;\n            }\n            if (video.classList.contains('Bideo_active'))\n                return;\n            video.classList.add('Video_active');\n            navs.classList.add('Navigations_active');\n            const { offsetTop: top, offsetLeft: left } = video;\n            video.style.transform = `translate(${-left}px, ${-top}px)`;\n            if (mediaSource.get(video)) {\n                const { source, analyser } = mediaSource.get(video);\n                Audio_1.analysAudio(audioCtx, video, source, analyser);\n            }\n            else {\n                mediaSource.set(video, Audio_1.analysAudio(audioCtx, video));\n            }\n        }\n        if (Hls.isSupported()) {\n            const hls = new Hls();\n            hls.loadSource(url);\n            hls.attachMedia(video);\n            hls.on(Hls.Events.MANIFEST_PARSED, onCanPlay);\n        }\n        else if (video.canPlayType('application/vnd.apple.mpegurl')) {\n            video.src = url;\n            video.addEventListener('loadedmetadata', onCanPlay);\n        }\n        video.addEventListener('ended', onCanPlay);\n        video.addEventListener('click', onClickVideo);\n    }\n    return { getActiveVideo, initVideo };\n}\nexports.default = getObjects;\n\n\n//# sourceURL=webpack:///./src/components/common/Video/Video.ts?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/App.tsx":
+/*!****************************************!*\
+  !*** ./src/components/desktop/App.tsx ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst Page_1 = __webpack_require__(/*! ./Page/Page */ \"./src/components/desktop/Page/Page.tsx\");\nconst routes_1 = __webpack_require__(/*! ./routes */ \"./src/components/desktop/routes.ts\");\nfunction App() {\n    return React.createElement(Page_1.Page, null,\n        React.createElement(react_router_dom_1.Switch, null, routes_1.default.map((route, i) => React.createElement(react_router_dom_1.Route, Object.assign({ key: i }, route)))));\n}\nexports.App = App;\n\n\n//# sourceURL=webpack:///./src/components/desktop/App.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Content/Content.sss":
 /*!****************************************************!*\
-  !*** ./src/components/Content/Content@desktop.sss ***!
+  !*** ./src/components/desktop/Content/Content.sss ***!
   \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Content/Content@desktop.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/desktop/Content/Content.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Content/Content@mobile.sss":
-/*!***************************************************!*\
-  !*** ./src/components/Content/Content@mobile.sss ***!
-  \***************************************************/
+/***/ "./src/components/desktop/Content/Content.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/desktop/Content/Content.tsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Content_1 = __webpack_require__(/*! ../../common/Content/Content */ \"./src/components/common/Content/Content.tsx\");\n__webpack_require__(/*! ./Content.sss */ \"./src/components/desktop/Content/Content.sss\");\nexports.Content = Content_1.Content;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Content/Content.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Data/Buttons/Buttons.sss":
+/*!***************************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Buttons/Buttons.sss ***!
+  \***************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Content/Content@mobile.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Buttons/Buttons.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Content/Content@simple.sss":
-/*!***************************************************!*\
-  !*** ./src/components/Content/Content@simple.sss ***!
-  \***************************************************/
+/***/ "./src/components/desktop/Event/Data/Buttons/Buttons.tsx":
+/*!***************************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Buttons/Buttons.tsx ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Buttons_1 = __webpack_require__(/*! ../../../../common/Event/Data/Buttons/Buttons */ \"./src/components/common/Event/Data/Buttons/Buttons.tsx\");\n__webpack_require__(/*! ./Buttons.sss */ \"./src/components/desktop/Event/Data/Buttons/Buttons.sss\");\nexports.Buttons = Buttons_1.Buttons;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Buttons/Buttons.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Data/Data.tsx":
+/*!****************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Data.tsx ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Data_1 = __webpack_require__(/*! ../../../common/Event/Data/Data */ \"./src/components/common/Event/Data/Data.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst DataReg = new di_1.Registry({ id: 'Data' });\nDataReg.set('Buttons', __webpack_require__(/*! ./Buttons/Buttons */ \"./src/components/desktop/Event/Data/Buttons/Buttons.tsx\").Buttons);\nDataReg.set('Temperature', __webpack_require__(/*! ./Temperature/Temperature */ \"./src/components/desktop/Event/Data/Temperature/Temperature.tsx\").Temperature);\nDataReg.set('Stats', __webpack_require__(/*! ./Stats/Stats */ \"./src/components/desktop/Event/Data/Stats/Stats.tsx\").Stats);\nDataReg.set('Music', __webpack_require__(/*! ./Music/Music */ \"./src/components/desktop/Event/Data/Music/Music.tsx\").Music);\nDataReg.set('Image', __webpack_require__(/*! ./Image/Image */ \"./src/components/desktop/Event/Data/Image/Image.tsx\").Image);\nexports.EventDataBlock = di_1.withRegistry(DataReg)(Data_1.EventDataBlock);\n\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Data.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Data/Image/Image.tsx":
+/*!***********************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Image/Image.tsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Image_1 = __webpack_require__(/*! ../../../../common/Event/Data/Image/Image */ \"./src/components/common/Event/Data/Image/Image.tsx\");\nexports.Image = Image_1.Image;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Image/Image.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Data/Music/Music.tsx":
+/*!***********************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Music/Music.tsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Music_1 = __webpack_require__(/*! ../../../../common/Event/Data/Music/Music */ \"./src/components/common/Event/Data/Music/Music.tsx\");\nexports.Music = Music_1.Music;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Music/Music.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Data/Stats/Stats.tsx":
+/*!***********************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Stats/Stats.tsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Stats_1 = __webpack_require__(/*! ../../../../common/Event/Data/Stats/Stats */ \"./src/components/common/Event/Data/Stats/Stats.tsx\");\nexports.Stats = Stats_1.Stats;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Stats/Stats.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Data/Temperature/Temperature.sss":
+/*!***********************************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Temperature/Temperature.sss ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Content/Content@simple.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Temperature/Temperature.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Event/Buttons/Buttons.tsx":
+/***/ "./src/components/desktop/Event/Data/Temperature/Temperature.tsx":
+/*!***********************************************************************!*\
+  !*** ./src/components/desktop/Event/Data/Temperature/Temperature.tsx ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Temperature_1 = __webpack_require__(/*! ../../../../common/Event/Data/Temperature/Temperature */ \"./src/components/common/Event/Data/Temperature/Temperature.tsx\");\n__webpack_require__(/*! ./Temperature.sss */ \"./src/components/desktop/Event/Data/Temperature/Temperature.sss\");\nexports.Temperature = Temperature_1.Temperature;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Data/Temperature/Temperature.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Event.sss":
+/*!************************************************!*\
+  !*** ./src/components/desktop/Event/Event.sss ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Event.sss?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Event/Event.tsx":
+/*!************************************************!*\
+  !*** ./src/components/desktop/Event/Event.tsx ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Event_1 = __webpack_require__(/*! ../../common/Event/Event */ \"./src/components/common/Event/Event.tsx\");\n__webpack_require__(/*! ./Event.sss */ \"./src/components/desktop/Event/Event.sss\");\nconst Data_1 = __webpack_require__(/*! ./Data/Data */ \"./src/components/desktop/Event/Data/Data.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst EventReg = new di_1.Registry({ id: 'Event' });\nEventReg.set('EventDataBlock', Data_1.EventDataBlock);\nexports.Event = di_1.withRegistry(EventReg)(Event_1.Event);\n\n\n//# sourceURL=webpack:///./src/components/desktop/Event/Event.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Footer/Footer.sss":
 /*!**************************************************!*\
-  !*** ./src/components/Event/Buttons/Buttons.tsx ***!
+  !*** ./src/components/desktop/Footer/Footer.sss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/desktop/Footer/Footer.sss?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Footer/Footer.tsx":
+/*!**************************************************!*\
+  !*** ./src/components/desktop/Footer/Footer.tsx ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Buttons@simple.sss */ \"./src/components/Event/Buttons/Buttons@simple.sss\");\nfunction Buttons(props) {\n    const { obj: data } = props;\n    return React.createElement(\"div\", { className: \"buttons\" },\n        React.createElement(\"div\", { className: \"button button_type_confirm\" }, data.buttons[0]),\n        React.createElement(\"div\", { className: \"button button_type_close\" }, data.buttons[1]));\n}\nexports.Buttons = Buttons;\n\n\n//# sourceURL=webpack:///./src/components/Event/Buttons/Buttons.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ../../common/Footer/Footer.sss */ \"./src/components/common/Footer/Footer.sss\");\n__webpack_require__(/*! ./Footer.sss */ \"./src/components/desktop/Footer/Footer.sss\");\n// Get Menu-part\nconst Menu_1 = __webpack_require__(/*! ../../common/Menu/Menu */ \"./src/components/common/Menu/Menu.tsx\");\n// Static block\nfunction Footer() {\n    return (React.createElement(\"footer\", { className: 'Footer Section MediaDesktop' },\n        React.createElement(\"div\", { className: 'FooterContainer Container' },\n            React.createElement(Menu_1.MenuFooter, null),\n            React.createElement(\"nav\", { className: 'Navigation Navigation_footer' },\n                React.createElement(\"div\", { className: 'Copyright' }, \"\\u00A9 2001-2017 \\u041E\\u041E\\u041E \\u00AB\\u042F\\u043D\\u0434\\u0435\\u043A\\u0441\\u00BB\")))));\n}\nexports.Footer = Footer;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Footer/Footer.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Event/Buttons/Buttons@desktop.sss":
-/*!**********************************************************!*\
-  !*** ./src/components/Event/Buttons/Buttons@desktop.sss ***!
-  \**********************************************************/
+/***/ "./src/components/desktop/Header/Header.sss":
+/*!**************************************************!*\
+  !*** ./src/components/desktop/Header/Header.sss ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Buttons/Buttons@desktop.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/desktop/Header/Header.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Event/Buttons/Buttons@mobile.sss":
-/*!*********************************************************!*\
-  !*** ./src/components/Event/Buttons/Buttons@mobile.sss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Buttons/Buttons@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Buttons/Buttons@simple.sss":
-/*!*********************************************************!*\
-  !*** ./src/components/Event/Buttons/Buttons@simple.sss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Buttons/Buttons@simple.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Event.tsx":
-/*!****************************************!*\
-  !*** ./src/components/Event/Event.tsx ***!
-  \****************************************/
+/***/ "./src/components/desktop/Header/Header.tsx":
+/*!**************************************************!*\
+  !*** ./src/components/desktop/Header/Header.tsx ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Event@simple.sss */ \"./src/components/Event/Event@simple.sss\");\nconst Music_1 = __webpack_require__(/*! ./Music/Music */ \"./src/components/Event/Music/Music.tsx\");\nconst Temperature_1 = __webpack_require__(/*! ./Temperature/Temperature */ \"./src/components/Event/Temperature/Temperature.tsx\");\nconst Buttons_1 = __webpack_require__(/*! ./Buttons/Buttons */ \"./src/components/Event/Buttons/Buttons.tsx\");\nconst Image_1 = __webpack_require__(/*! ./Image/Image */ \"./src/components/Event/Image/Image.tsx\");\nclass EventDataBlock extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const { obj: data, type, platform: platf, staticContext } = this.props;\n        let res = React.createElement(\"div\", null);\n        if (type === 'stats') {\n            res = React.createElement(\"img\", { src: 'assets/Richdata.svg' });\n        }\n        else if (type === 'thermal') {\n            res = React.createElement(Temperature_1.Temperature, { obj: data });\n        }\n        else if (type === 'music') {\n            res = React.createElement(Music_1.Music, { obj: data });\n        }\n        else if (type === 'fridge') {\n            res = React.createElement(Buttons_1.Buttons, { obj: data });\n        }\n        else if (type === 'cam') {\n            res = React.createElement(Image_1.Image, null);\n        }\n        return res;\n    }\n}\nexports.EventDataBlock = EventDataBlock;\nclass Event extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    render() {\n        const { obj: event } = this.props;\n        const isCritical = event.type === 'critical';\n        const postfix = isCritical ? '-white' : '';\n        const eventDescBlock = event.description ? React.createElement(\"div\", { className: \"event__description\" }, event.description) : null;\n        const eventDataBlock = event.data ? React.createElement(\"div\", { className: \"event__data\" },\n            React.createElement(EventDataBlock, { obj: event.data, type: event.icon })) : null;\n        return (React.createElement(\"div\", { className: `event event_size_${event.size} event_type_${event.type}` },\n            React.createElement(\"div\", { className: 'empty empty_cross' },\n                React.createElement(\"img\", { className: 'event__nav cross', src: `assets/cross${postfix}.svg` })),\n            React.createElement(\"header\", { className: 'event__header' },\n                React.createElement(\"div\", { className: 'event-intro' },\n                    React.createElement(\"img\", { className: 'event__icon', src: `assets/${event.icon + postfix}.svg` }),\n                    React.createElement(\"div\", { className: 'event__title', \"data-title\": event.title }, event.title)),\n                React.createElement(\"div\", { className: \"event-desc\" },\n                    React.createElement(\"div\", { className: \"event__source\" }, event.source),\n                    React.createElement(\"div\", { className: \"event__time\" }, event.time))),\n            (event.description || event.data) &&\n                React.createElement(\"div\", { className: \"event__content\" },\n                    eventDescBlock,\n                    eventDataBlock),\n            React.createElement(\"div\", { className: 'empty empty_slide' },\n                React.createElement(\"img\", { className: 'event__nav slide', src: `assets/next${postfix}.svg` }))));\n    }\n}\nexports.Event = Event;\n\n\n//# sourceURL=webpack:///./src/components/Event/Event.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst Header_1 = __webpack_require__(/*! ../../common/Header/Header */ \"./src/components/common/Header/Header.tsx\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\n__webpack_require__(/*! ./Header.sss */ \"./src/components/desktop/Header/Header.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ../../common/Menu/Menu */ \"./src/components/common/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst cnHeader = classname_1.cn('Header');\nclass Body extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: classname_1.classnames('Container', cnHeader('Container')) },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: cnHeader('Logo'), src: 'assets/logo.svg' })),\n            React.createElement(\"nav\", { className: `Navigation Navigation_header` },\n                React.createElement(\"div\", { className: 'Navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null)))));\n    }\n}\nconst HeaderRegistry = new di_1.Registry({ id: cnHeader() });\nHeaderRegistry.set('Body', Body);\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/desktop/Header/Header.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Event/Event@simple.sss":
+/***/ "./src/components/desktop/Page/Page.sss":
+/*!**********************************************!*\
+  !*** ./src/components/desktop/Page/Page.sss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/desktop/Page/Page.sss?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Page/Page.tsx":
+/*!**********************************************!*\
+  !*** ./src/components/desktop/Page/Page.tsx ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../../common/Page/Page */ \"./src/components/common/Page/Page.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\n__webpack_require__(/*! ./Page.sss */ \"./src/components/desktop/Page/Page.sss\");\nconst Header_1 = __webpack_require__(/*! ../Header/Header */ \"./src/components/desktop/Header/Header.tsx\");\nconst Content_1 = __webpack_require__(/*! ../Content/Content */ \"./src/components/desktop/Content/Content.tsx\");\nconst Footer_1 = __webpack_require__(/*! ../Footer/Footer */ \"./src/components/desktop/Footer/Footer.tsx\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/desktop/Page/Page.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Pages/Events.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/desktop/Pages/Events.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Events_1 = __webpack_require__(/*! ../../common/Pages/Events */ \"./src/components/common/Pages/Events.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Event_1 = __webpack_require__(/*! ../Event/Event */ \"./src/components/desktop/Event/Event.tsx\");\nconst PageReg = new di_1.Registry({ id: 'Page' });\nPageReg.set('Event', Event_1.Event);\nexports.EventPage = di_1.withRegistry(PageReg)(Events_1.EventPage);\n\n\n//# sourceURL=webpack:///./src/components/desktop/Pages/Events.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/Pages/Videos.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/desktop/Pages/Videos.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Videos_1 = __webpack_require__(/*! ../../common/Pages/Videos */ \"./src/components/common/Pages/Videos.tsx\");\nexports.VideoPage = Videos_1.VideoPage;\n\n\n//# sourceURL=webpack:///./src/components/desktop/Pages/Videos.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/desktop/routes.ts":
+/*!******************************************!*\
+  !*** ./src/components/desktop/routes.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Events_1 = __webpack_require__(/*! ./Pages/Events */ \"./src/components/desktop/Pages/Events.tsx\");\nconst Videos_1 = __webpack_require__(/*! ./Pages/Videos */ \"./src/components/desktop/Pages/Videos.tsx\");\nconst routes = [\n    {\n        path: '/events',\n        component: Events_1.EventPage,\n        exact: true\n    },\n    {\n        path: '/videos',\n        component: Videos_1.VideoPage,\n        exact: true\n    }\n];\nexports.default = routes;\n\n\n//# sourceURL=webpack:///./src/components/desktop/routes.ts?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/App.tsx":
+/*!***************************************!*\
+  !*** ./src/components/mobile/App.tsx ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst Page_1 = __webpack_require__(/*! ./Page/Page */ \"./src/components/mobile/Page/Page.tsx\");\nconst routes_1 = __webpack_require__(/*! ./routes */ \"./src/components/mobile/routes.ts\");\nfunction App() {\n    return React.createElement(Page_1.Page, null,\n        React.createElement(react_router_dom_1.Switch, null, routes_1.default.map((route, i) => React.createElement(react_router_dom_1.Route, Object.assign({ key: i }, route)))));\n}\nexports.App = App;\n\n\n//# sourceURL=webpack:///./src/components/mobile/App.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Content/Content.tsx":
+/*!***************************************************!*\
+  !*** ./src/components/mobile/Content/Content.tsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Content_1 = __webpack_require__(/*! ../../common/Content/Content */ \"./src/components/common/Content/Content.tsx\");\n__webpack_require__(/*! ./Content */ \"./src/components/mobile/Content/Content.tsx\");\nexports.Content = Content_1.Content;\n\n\n//# sourceURL=webpack:///./src/components/mobile/Content/Content.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Buttons/Buttons.sss":
+/*!**************************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Buttons/Buttons.sss ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Buttons/Buttons.sss?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Buttons/Buttons.tsx":
+/*!**************************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Buttons/Buttons.tsx ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Buttons_1 = __webpack_require__(/*! ../../../../common/Event/Data/Buttons/Buttons */ \"./src/components/common/Event/Data/Buttons/Buttons.tsx\");\n__webpack_require__(/*! ./Buttons.sss */ \"./src/components/mobile/Event/Data/Buttons/Buttons.sss\");\nexports.Buttons = Buttons_1.Buttons;\n\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Buttons/Buttons.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Data.tsx":
+/*!***************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Data.tsx ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Data_1 = __webpack_require__(/*! ../../../common/Event/Data/Data */ \"./src/components/common/Event/Data/Data.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst DataReg = new di_1.Registry({ id: 'Data' });\nDataReg.set('Buttons', __webpack_require__(/*! ./Buttons/Buttons */ \"./src/components/mobile/Event/Data/Buttons/Buttons.tsx\").Buttons);\nDataReg.set('Temperature', __webpack_require__(/*! ./Temperature/Temperature */ \"./src/components/mobile/Event/Data/Temperature/Temperature.tsx\").Temperature);\nDataReg.set('Stats', __webpack_require__(/*! ./Stats/Stats */ \"./src/components/mobile/Event/Data/Stats/Stats.tsx\").Stats);\nDataReg.set('Music', __webpack_require__(/*! ./Music/Music */ \"./src/components/mobile/Event/Data/Music/Music.tsx\").Music);\nDataReg.set('Image', __webpack_require__(/*! ./Image/Image */ \"./src/components/mobile/Event/Data/Image/Image.tsx\").Image);\nexports.EventDataBlock = di_1.withRegistry(DataReg)(Data_1.EventDataBlock);\n\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Data.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Image/Image.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Image/Image.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Image_1 = __webpack_require__(/*! ../../../../common/Event/Data/Image/Image */ \"./src/components/common/Event/Data/Image/Image.tsx\");\nexports.Image = Image_1.Image;\n\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Image/Image.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Music/Music.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Music/Music.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Music_1 = __webpack_require__(/*! ../../../../common/Event/Data/Music/Music */ \"./src/components/common/Event/Data/Music/Music.tsx\");\nexports.Music = Music_1.Music;\n\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Music/Music.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Stats/Stats.tsx":
+/*!**********************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Stats/Stats.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Stats_1 = __webpack_require__(/*! ../../../../common/Event/Data/Stats/Stats */ \"./src/components/common/Event/Data/Stats/Stats.tsx\");\nexports.Stats = Stats_1.Stats;\n\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Stats/Stats.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Temperature/Temperature.sss":
+/*!**********************************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Temperature/Temperature.sss ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Temperature/Temperature.sss?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Data/Temperature/Temperature.tsx":
+/*!**********************************************************************!*\
+  !*** ./src/components/mobile/Event/Data/Temperature/Temperature.tsx ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Temperature_1 = __webpack_require__(/*! ../../../../common/Event/Data/Temperature/Temperature */ \"./src/components/common/Event/Data/Temperature/Temperature.tsx\");\n__webpack_require__(/*! ./Temperature.sss */ \"./src/components/mobile/Event/Data/Temperature/Temperature.sss\");\nexports.Temperature = Temperature_1.Temperature;\n\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Data/Temperature/Temperature.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Event/Event.sss":
 /*!***********************************************!*\
-  !*** ./src/components/Event/Event@simple.sss ***!
+  !*** ./src/components/mobile/Event/Event.sss ***!
   \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Event@simple.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Event.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Event/Image/Image.tsx":
-/*!**********************************************!*\
-  !*** ./src/components/Event/Image/Image.tsx ***!
-  \**********************************************/
+/***/ "./src/components/mobile/Event/Event.tsx":
+/*!***********************************************!*\
+  !*** ./src/components/mobile/Event/Event.tsx ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Image@simple.sss */ \"./src/components/Event/Image/Image@simple.sss\");\nfunction Image() {\n    return React.createElement(\"div\", { className: \"box\" },\n        React.createElement(\"div\", { className: \"box-image-wrapper\", style: { backgroundImage: 'url(assets/cam@x3.png)' }, \"touch-action\": 'none' },\n            React.createElement(\"img\", { src: \"assets/cam@x3.png\", className: \"box__image\" })),\n        React.createElement(\"div\", { className: \"box-options\" },\n            React.createElement(\"div\", { className: \"options__zoom\" }, \"\\u041F\\u0440\\u0438\\u0431\\u043B\\u0438\\u0436\\u0435\\u043D\\u0438\\u0435: 100%\"),\n            React.createElement(\"div\", { className: \"options__brightness\" }, \"\\u042F\\u0440\\u043A\\u043E\\u0441\\u0442\\u044C: 100%\"),\n            React.createElement(\"div\", { className: \"options__rotate\" }, \"\\u041F\\u043E\\u0432\\u043E\\u0440\\u043E\\u0442: 0\\u00B0\")));\n}\nexports.Image = Image;\n\n\n//# sourceURL=webpack:///./src/components/Event/Image/Image.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Event_1 = __webpack_require__(/*! ../../common/Event/Event */ \"./src/components/common/Event/Event.tsx\");\n__webpack_require__(/*! ./Event.sss */ \"./src/components/mobile/Event/Event.sss\");\nconst Data_1 = __webpack_require__(/*! ./Data/Data */ \"./src/components/mobile/Event/Data/Data.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst EventReg = new di_1.Registry({ id: 'Event' });\nEventReg.set('EventDataBlock', Data_1.EventDataBlock);\nexports.Event = di_1.withRegistry(EventReg)(Event_1.Event);\n\n\n//# sourceURL=webpack:///./src/components/mobile/Event/Event.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Event/Image/Image@simple.sss":
-/*!*****************************************************!*\
-  !*** ./src/components/Event/Image/Image@simple.sss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Image/Image@simple.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Music/Music.tsx":
-/*!**********************************************!*\
-  !*** ./src/components/Event/Music/Music.tsx ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Music@simple.sss */ \"./src/components/Event/Music/Music@simple.sss\");\nclass Music extends React.Component {\n    constructor(props) {\n        super(props);\n        this.state = {\n            volume: props.obj.volume,\n            track: props.obj.track\n        };\n    }\n    onVolumeChange(event) {\n        const target = event.target;\n        const val = target.value;\n        this.setState((state) => ({\n            volume: val,\n            track: state.track\n        }));\n    }\n    onTrackPosChange(event) {\n        const target = event.target;\n        const val = target.value;\n        this.setState((state) => ({\n            volume: state.volume,\n            track: {\n                name: state.track.name,\n                length: val\n            }\n        }));\n    }\n    render() {\n        const data = this.props.obj;\n        const { state } = this;\n        const time = data.track.length.split(':');\n        const len = +time[0] * 60 + +time[1];\n        return React.createElement(\"div\", { className: 'music' },\n            React.createElement(\"img\", { src: data.albumcover, className: 'music__albumcover', alt: 'albumcover' }),\n            React.createElement(\"header\", { className: 'music-header' },\n                React.createElement(\"div\", { className: 'music__description' }, `${data.artist} - ${data.track.name}`.trim()),\n                React.createElement(\"div\", { className: 'track' },\n                    React.createElement(\"input\", { className: 'music__track', type: 'range', min: '0', max: len, step: '1', value: state.track.length, onChange: this.onTrackPosChange.bind(this) }),\n                    React.createElement(\"div\", { className: 'track__value' }, data.track.length))),\n            React.createElement(\"div\", { className: \"music-nav\" },\n                React.createElement(\"img\", { src: \"assets/Prev.svg\", className: \"music__prev\" }),\n                React.createElement(\"img\", { src: \"assets/Prev.svg\", className: \"music__next\", style: { transform: 'rotate(180deg)' } }),\n                React.createElement(\"div\", { className: \"volume\" },\n                    React.createElement(\"input\", { type: \"range\", onChange: this.onVolumeChange.bind(this), className: \"music__volume\", min: \"0\", max: \"100\", step: \"1\", value: state.volume }),\n                    React.createElement(\"div\", { className: \"volume__value\" }, `${state.volume}%`))));\n    }\n}\nexports.Music = Music;\n\n\n//# sourceURL=webpack:///./src/components/Event/Music/Music.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Music/Music@simple.sss":
-/*!*****************************************************!*\
-  !*** ./src/components/Event/Music/Music@simple.sss ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Music/Music@simple.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Temperature/Temperature.tsx":
-/*!**********************************************************!*\
-  !*** ./src/components/Event/Temperature/Temperature.tsx ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Temperature@simple.sss */ \"./src/components/Event/Temperature/Temperature@simple.sss\");\nfunction Temperature(props) {\n    const { obj: data } = props;\n    return React.createElement(\"div\", { className: 'state' },\n        React.createElement(\"div\", { className: 'temperature' },\n            \"\\u0422\\u0435\\u043C\\u043F\\u0435\\u0440\\u0430\\u0442\\u0443\\u0440\\u0430:\",\n            React.createElement(\"b\", null, ` ${data.temperature} C`)),\n        React.createElement(\"div\", { className: 'humidity' },\n            \"\\u0412\\u043B\\u0430\\u0436\\u043D\\u043E\\u0441\\u0442\\u044C:\",\n            React.createElement(\"b\", null, ` ${data.humidity}%`)));\n}\nexports.Temperature = Temperature;\n\n\n//# sourceURL=webpack:///./src/components/Event/Temperature/Temperature.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Temperature/Temperature@desktop.sss":
-/*!******************************************************************!*\
-  !*** ./src/components/Event/Temperature/Temperature@desktop.sss ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Temperature/Temperature@desktop.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Temperature/Temperature@mobile.sss":
-/*!*****************************************************************!*\
-  !*** ./src/components/Event/Temperature/Temperature@mobile.sss ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Temperature/Temperature@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/Temperature/Temperature@simple.sss":
-/*!*****************************************************************!*\
-  !*** ./src/components/Event/Temperature/Temperature@simple.sss ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/Temperature/Temperature@simple.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/desktop/Event@desktop.sss":
-/*!********************************************************!*\
-  !*** ./src/components/Event/desktop/Event@desktop.sss ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/desktop/Event@desktop.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/desktop/Event@desktop.tsx":
-/*!********************************************************!*\
-  !*** ./src/components/Event/desktop/Event@desktop.tsx ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Event_1 = __webpack_require__(/*! ../Event */ \"./src/components/Event/Event.tsx\");\n__webpack_require__(/*! ./Event@desktop.sss */ \"./src/components/Event/desktop/Event@desktop.sss\");\n__webpack_require__(/*! ../Temperature/Temperature@desktop.sss */ \"./src/components/Event/Temperature/Temperature@desktop.sss\");\n__webpack_require__(/*! ../Buttons/Buttons@desktop.sss */ \"./src/components/Event/Buttons/Buttons@desktop.sss\");\nexports.Event = Event_1.Event;\n\n\n//# sourceURL=webpack:///./src/components/Event/desktop/Event@desktop.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Event/index.tsx":
-/*!****************************************!*\
-  !*** ./src/components/Event/index.tsx ***!
-  \****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Event = {\n    desktop: () => __webpack_require__(/*! ./desktop/Event@desktop */ \"./src/components/Event/desktop/Event@desktop.tsx\").Event,\n    mobile: () => __webpack_require__(/*! ./mobile/Event@mobile */ \"./src/components/Event/mobile/Event@mobile.tsx\").Event\n};\n\n\n//# sourceURL=webpack:///./src/components/Event/index.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Event/mobile/Event@mobile.sss":
-/*!******************************************************!*\
-  !*** ./src/components/Event/mobile/Event@mobile.sss ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Event/mobile/Event@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Event/mobile/Event@mobile.tsx":
-/*!******************************************************!*\
-  !*** ./src/components/Event/mobile/Event@mobile.tsx ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Event_1 = __webpack_require__(/*! ../Event */ \"./src/components/Event/Event.tsx\");\n__webpack_require__(/*! ./Event@mobile.sss */ \"./src/components/Event/mobile/Event@mobile.sss\");\n__webpack_require__(/*! ../Temperature/Temperature@mobile.sss */ \"./src/components/Event/Temperature/Temperature@mobile.sss\");\n__webpack_require__(/*! ../Buttons/Buttons@mobile.sss */ \"./src/components/Event/Buttons/Buttons@mobile.sss\");\nconsole.log('MOBILE!');\nexports.Event = Event_1.Event;\n\n\n//# sourceURL=webpack:///./src/components/Event/mobile/Event@mobile.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/Footer.tsx":
-/*!******************************************!*\
-  !*** ./src/components/Footer/Footer.tsx ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer@simple.sss */ \"./src/components/Footer/Footer@simple.sss\");\n// Get Menu-part\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst BodyCN = classname_1.cn('Body');\nconst FooterCN = classname_1.cn('Footer');\n// Static block\nfunction Footer() {\n    return (React.createElement(di_1.RegistryConsumer, null, regs => {\n        const Footer = regs[FooterCN()].get(BodyCN());\n        return React.createElement(Footer, null);\n    }));\n}\nexports.Footer = Footer;\n\n\n//# sourceURL=webpack:///./src/components/Footer/Footer.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/Footer@simple.sss":
+/***/ "./src/components/mobile/Footer/Footer.sss":
 /*!*************************************************!*\
-  !*** ./src/components/Footer/Footer@simple.sss ***!
+  !*** ./src/components/mobile/Footer/Footer.sss ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Footer/Footer@simple.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/mobile/Footer/Footer.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Footer/desktop/Footer@desktop.sss":
-/*!**********************************************************!*\
-  !*** ./src/components/Footer/desktop/Footer@desktop.sss ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Footer/desktop/Footer@desktop.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/desktop/Footer@desktop.tsx":
-/*!**********************************************************!*\
-  !*** ./src/components/Footer/desktop/Footer@desktop.tsx ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer@desktop.sss */ \"./src/components/Footer/desktop/Footer@desktop.sss\");\n// Get Menu-part\nconst Menu_1 = __webpack_require__(/*! ../../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Footer_1 = __webpack_require__(/*! ../Footer */ \"./src/components/Footer/Footer.tsx\");\nconst FooterRegistry = new di_1.Registry({ id: classname_1.cn('Footer')() });\nFooterRegistry.set('Body', Body);\n// Static block\nfunction Body() {\n    return (React.createElement(\"footer\", { className: 'footer section media-desktop' },\n        React.createElement(\"div\", { className: 'footer-container container' },\n            React.createElement(Menu_1.MenuFooter, null),\n            React.createElement(\"nav\", { className: 'navigation navigation_footer' },\n                React.createElement(\"div\", { className: 'copyright' }, \"\\u00A9 2001-2017 \\u041E\\u041E\\u041E \\u00AB\\u042F\\u043D\\u0434\\u0435\\u043A\\u0441\\u00BB\")))));\n}\nexports.Footer = di_1.withRegistry(FooterRegistry)(Footer_1.Footer);\n\n\n//# sourceURL=webpack:///./src/components/Footer/desktop/Footer@desktop.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/mobile/Footer@mobile.sss":
-/*!********************************************************!*\
-  !*** ./src/components/Footer/mobile/Footer@mobile.sss ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Footer/mobile/Footer@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Footer/mobile/Footer@mobile.tsx":
-/*!********************************************************!*\
-  !*** ./src/components/Footer/mobile/Footer@mobile.tsx ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer@mobile.sss */ \"./src/components/Footer/mobile/Footer@mobile.sss\");\n// Get Menu-part\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Footer_1 = __webpack_require__(/*! ../Footer */ \"./src/components/Footer/Footer.tsx\");\nconst FooterRegistry = new di_1.Registry({ id: classname_1.cn('Footer')() });\nFooterRegistry.set('Body', Body);\n// Static block\nfunction Body() {\n    return (React.createElement(\"footer\", { className: 'media-desktop' }));\n}\nexports.Footer = di_1.withRegistry(FooterRegistry)(Footer_1.Footer);\n\n\n//# sourceURL=webpack:///./src/components/Footer/mobile/Footer@mobile.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Header/Header.tsx":
-/*!******************************************!*\
-  !*** ./src/components/Header/Header.tsx ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\n__webpack_require__(/*! ./Header@simple.sss */ \"./src/components/Header/Header@simple.sss\");\n// Import menu-parts\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Header extends React.Component {\n    render() {\n        return (React.createElement(\"header\", { className: 'header section' },\n            React.createElement(di_1.RegistryConsumer, null, regs => {\n                const Body = regs[classname_1.cn('Header')()].get(classname_1.cn('Body')());\n                return React.createElement(Body, null);\n            })));\n    }\n}\nexports.Header = Header;\n\n\n//# sourceURL=webpack:///./src/components/Header/Header.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Header/Header@simple.sss":
+/***/ "./src/components/mobile/Footer/Footer.tsx":
 /*!*************************************************!*\
-  !*** ./src/components/Header/Header@simple.sss ***!
+  !*** ./src/components/mobile/Footer/Footer.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Footer.sss */ \"./src/components/mobile/Footer/Footer.sss\");\n// Get Menu-part\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Footer_1 = __webpack_require__(/*! ../../common/Footer/Footer */ \"./src/components/common/Footer/Footer.tsx\");\nconst FooterRegistry = new di_1.Registry({ id: classname_1.cn('Footer')() });\nFooterRegistry.set('Body', Body);\n// Static block\nfunction Body() {\n    return (React.createElement(\"footer\", { className: 'media-desktop' }));\n}\nexports.Footer = di_1.withRegistry(FooterRegistry)(Footer_1.Footer);\n\n\n//# sourceURL=webpack:///./src/components/mobile/Footer/Footer.tsx?");
+
+/***/ }),
+
+/***/ "./src/components/mobile/Header/Header.sss":
+/*!*************************************************!*\
+  !*** ./src/components/mobile/Header/Header.sss ***!
   \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Header/Header@simple.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/mobile/Header/Header.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Header/desktop/Header@desktop.sss":
-/*!**********************************************************!*\
-  !*** ./src/components/Header/desktop/Header@desktop.sss ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Header/desktop/Header@desktop.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Header/desktop/Header@desktop.tsx":
-/*!**********************************************************!*\
-  !*** ./src/components/Header/desktop/Header@desktop.tsx ***!
-  \**********************************************************/
+/***/ "./src/components/mobile/Header/Header.tsx":
+/*!*************************************************!*\
+  !*** ./src/components/mobile/Header/Header.tsx ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst Header_1 = __webpack_require__(/*! ../Header */ \"./src/components/Header/Header.tsx\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\n__webpack_require__(/*! ./Header@desktop.sss */ \"./src/components/Header/desktop/Header@desktop.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ../../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst cnHeader = classname_1.cn('Header');\nclass Body extends React.Component {\n    render() {\n        return (React.createElement(\"div\", { className: 'container header__container' },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: 'header__logo', src: 'assets/logo.svg' })),\n            React.createElement(\"nav\", { className: `navigation navigation_header` },\n                React.createElement(\"div\", { className: 'navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null)))));\n    }\n}\nconst HeaderRegistry = new di_1.Registry({ id: cnHeader() });\nHeaderRegistry.set('Body', Body);\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/Header/desktop/Header@desktop.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst Header_1 = __webpack_require__(/*! ../../common/Header/Header */ \"./src/components/common/Header/Header.tsx\");\n__webpack_require__(/*! ./Header.sss */ \"./src/components/mobile/Header/Header.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ../../common/Menu/Menu */ \"./src/components/common/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Body extends React.Component {\n    constructor() {\n        super(...arguments);\n        this.state = {\n            isOpen: false\n        };\n    }\n    // Burger-toggler\n    onClickMenu() {\n        this.setState((state) => ({ isOpen: !state.isOpen }));\n        document.body.classList.toggle('no-overflow');\n    }\n    render() {\n        return (React.createElement(\"div\", { className: 'Container Header-Container' },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: 'Header-Logo', src: 'assets/logo.svg' })),\n            React.createElement(\"img\", { className: 'MediaMobile Burger', src: 'assets/i_burger.svg', onClick: this.onClickMenu.bind(this) }),\n            React.createElement(\"nav\", { className: `Navigation Navigation_header ${this.state.isOpen ? 'Navigation_header_active' : ''}` },\n                React.createElement(\"div\", { className: 'Navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null),\n                    React.createElement(Menu_1.MenuFooter, null)))));\n    }\n}\nexports.Body = Body;\nconst HeaderRegistry = new di_1.Registry({ id: classname_1.cn('Header')() });\nHeaderRegistry.set('Body', Body);\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/mobile/Header/Header.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Header/mobile/Header@mobile.sss":
-/*!********************************************************!*\
-  !*** ./src/components/Header/mobile/Header@mobile.sss ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Header/mobile/Header@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Header/mobile/Header@mobile.tsx":
-/*!********************************************************!*\
-  !*** ./src/components/Header/mobile/Header@mobile.tsx ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\n// React-imports\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n// BEM-imports\nconst classname_1 = __webpack_require__(/*! @bem-react/classname */ \"./node_modules/@bem-react/classname/index.js\");\nconst Header_1 = __webpack_require__(/*! ../Header */ \"./src/components/Header/Header.tsx\");\n__webpack_require__(/*! ./Header@mobile.sss */ \"./src/components/Header/mobile/Header@mobile.sss\");\n// Import menu-parts\nconst Menu_1 = __webpack_require__(/*! ../../Menu/Menu */ \"./src/components/Menu/Menu.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Body extends React.Component {\n    constructor() {\n        super(...arguments);\n        this.state = {\n            isOpen: false\n        };\n    }\n    // Burger-toggler\n    onClickMenu() {\n        this.setState((state) => ({ isOpen: !state.isOpen }));\n        document.body.classList.toggle('no-overflow');\n    }\n    render() {\n        return (React.createElement(\"div\", { className: 'container header__container' },\n            React.createElement(react_router_dom_1.Link, { to: { pathname: '/events' } },\n                React.createElement(\"img\", { className: 'header__logo', src: 'assets/logo.svg' })),\n            React.createElement(\"img\", { className: 'media-mobile burger', src: 'assets/i_burger.svg', onClick: this.onClickMenu.bind(this) }),\n            React.createElement(\"nav\", { className: `navigation navigation_header ${this.state.isOpen ? 'navigation_header_active' : ''}` },\n                React.createElement(\"div\", { className: 'navigation_header-wrapper' },\n                    React.createElement(Menu_1.MenuHeader, null),\n                    React.createElement(Menu_1.MenuFooter, null)))));\n    }\n}\nexports.Body = Body;\nconst HeaderRegistry = new di_1.Registry({ id: classname_1.cn('Header')() });\nHeaderRegistry.set('Body', Body);\nexports.Header = di_1.withRegistry(HeaderRegistry)(Header_1.Header);\n\n\n//# sourceURL=webpack:///./src/components/Header/mobile/Header@mobile.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Menu/Menu.tsx":
-/*!**************************************!*\
-  !*** ./src/components/Menu/Menu.tsx ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\n__webpack_require__(/*! ../Navigation/Navigation@simple.sss */ \"./src/components/Navigation/Navigation@simple.sss\");\n// Menu-part - Header\nfunction MenuHeader() {\n    return (React.createElement(\"ul\", { className: 'navigation-list navigation-list_footer' },\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(react_router_dom_1.Link, { className: 'link', to: '/' }, \"\\u0421\\u0432\\u043E\\u0434\\u043A\\u0430\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0423\\u0441\\u0442\\u0440\\u043E\\u0439\\u0441\\u0442\\u0432\\u0430\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0421\\u0446\\u0435\\u043D\\u0430\\u0440\\u0438\\u0438\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(react_router_dom_1.Link, { className: 'link', to: { pathname: '/videos' } }, \"\\u0412\\u0438\\u0434\\u0435\\u043E\\u043D\\u0430\\u0431\\u043B\\u044E\\u0434\\u0435\\u043D\\u0438\\u0435\"))));\n}\nexports.MenuHeader = MenuHeader;\n;\n// Menu-part - Footer\nfunction MenuFooter() {\n    return (React.createElement(\"ul\", { className: 'navigation-list navigation-list_footer' },\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u041F\\u043E\\u043C\\u043E\\u0449\\u044C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u041E\\u0431\\u0440\\u0430\\u0442\\u043D\\u0430\\u044F \\u0441\\u0432\\u044F\\u0437\\u044C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0420\\u0430\\u0437\\u0440\\u0430\\u0431\\u043E\\u0442\\u0447\\u0438\\u043A\\u0430\\u043C\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link' }, \"\\u0423\\u0441\\u043B\\u043E\\u0432\\u0438\\u044F \\u0438\\u0441\\u043F\\u043E\\u043B\\u044C\\u0437\\u043E\\u0432\\u0430\\u043D\\u0438\\u044F\")),\n        React.createElement(\"li\", { className: 'navigation-list__item navigation-list__item_footer' },\n            React.createElement(\"a\", { className: 'link', href: 'assets/license.pdf' }, \"\\u0410\\u0432\\u0442\\u043E\\u0440\\u0441\\u043A\\u0438\\u0435 \\u043F\\u0440\\u0430\\u0432\\u0430\"))));\n}\nexports.MenuFooter = MenuFooter;\n\n\n//# sourceURL=webpack:///./src/components/Menu/Menu.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Navigation/Navigation@simple.sss":
-/*!*********************************************************!*\
-  !*** ./src/components/Navigation/Navigation@simple.sss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Navigation/Navigation@simple.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Page/Page.tsx":
-/*!**************************************!*\
-  !*** ./src/components/Page/Page.tsx ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ./Page@simple.sss */ \"./src/components/Page/Page@simple.sss\");\n// Components\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nclass Page extends React.Component {\n    render() {\n        return React.createElement(di_1.RegistryConsumer, null, regs => {\n            const Page = regs['Page'];\n            const Header = Page.get('Header');\n            const Content = Page.get('Content');\n            const Footer = Page.get('Footer');\n            return React.createElement(\"div\", { className: 'main' },\n                React.createElement(Header, null),\n                React.createElement(Content, null, this.props.children),\n                React.createElement(Footer, null));\n        });\n    }\n}\nexports.Page = Page;\n\n\n//# sourceURL=webpack:///./src/components/Page/Page.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Page/Page@simple.sss":
+/***/ "./src/components/mobile/Page/Page.sss":
 /*!*********************************************!*\
-  !*** ./src/components/Page/Page@simple.sss ***!
+  !*** ./src/components/mobile/Page/Page.sss ***!
   \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("\n\n//# sourceURL=webpack:///./src/components/Page/Page@simple.sss?");
+eval("\n\n//# sourceURL=webpack:///./src/components/mobile/Page/Page.sss?");
 
 /***/ }),
 
-/***/ "./src/components/Page/desktop/Page@desktop.sss":
-/*!******************************************************!*\
-  !*** ./src/components/Page/desktop/Page@desktop.sss ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Page/desktop/Page@desktop.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Page/desktop/Page@desktop.tsx":
-/*!******************************************************!*\
-  !*** ./src/components/Page/desktop/Page@desktop.tsx ***!
-  \******************************************************/
+/***/ "./src/components/mobile/Page/Page.tsx":
+/*!*********************************************!*\
+  !*** ./src/components/mobile/Page/Page.tsx ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../Page */ \"./src/components/Page/Page.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\n__webpack_require__(/*! ./Page@desktop.sss */ \"./src/components/Page/desktop/Page@desktop.sss\");\nconst Header_desktop_1 = __webpack_require__(/*! ../../Header/desktop/Header@desktop */ \"./src/components/Header/desktop/Header@desktop.tsx\");\n__webpack_require__(/*! ../../Content/Content@desktop.sss */ \"./src/components/Content/Content@desktop.sss\");\nconst Content_1 = __webpack_require__(/*! ../../Content/Content */ \"./src/components/Content/Content.tsx\");\nconst Footer_desktop_1 = __webpack_require__(/*! ../../Footer/desktop/Footer@desktop */ \"./src/components/Footer/desktop/Footer@desktop.tsx\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_desktop_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_desktop_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/Page/desktop/Page@desktop.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../../common/Page/Page */ \"./src/components/common/Page/Page.tsx\");\n__webpack_require__(/*! ./Page.sss */ \"./src/components/mobile/Page/Page.sss\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Header_1 = __webpack_require__(/*! ../Header/Header */ \"./src/components/mobile/Header/Header.tsx\");\nconst Content_1 = __webpack_require__(/*! ../Content/Content */ \"./src/components/mobile/Content/Content.tsx\");\nconst Footer_1 = __webpack_require__(/*! ../Footer/Footer */ \"./src/components/mobile/Footer/Footer.tsx\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/mobile/Page/Page.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Page/index.tsx":
-/*!***************************************!*\
-  !*** ./src/components/Page/index.tsx ***!
-  \***************************************/
+/***/ "./src/components/mobile/Pages/Events.tsx":
+/*!************************************************!*\
+  !*** ./src/components/mobile/Pages/Events.tsx ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nexports.Page = {\n    desktop: () => __webpack_require__(/*! ./desktop/Page@desktop */ \"./src/components/Page/desktop/Page@desktop.tsx\").Page,\n    mobile: () => __webpack_require__(/*! ./mobile/Page@mobile */ \"./src/components/Page/mobile/Page@mobile.tsx\").Page\n};\n\n\n//# sourceURL=webpack:///./src/components/Page/index.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Events_1 = __webpack_require__(/*! ../../common/Pages/Events */ \"./src/components/common/Pages/Events.tsx\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Event_1 = __webpack_require__(/*! ../Event/Event */ \"./src/components/mobile/Event/Event.tsx\");\nconst PageReg = new di_1.Registry({ id: 'Page' });\nPageReg.set('Event', Event_1.Event);\nexports.EventPage = di_1.withRegistry(PageReg)(Events_1.EventPage);\n\n\n//# sourceURL=webpack:///./src/components/mobile/Pages/Events.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Page/mobile/Page@mobile.sss":
-/*!****************************************************!*\
-  !*** ./src/components/Page/mobile/Page@mobile.sss ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Page/mobile/Page@mobile.sss?");
-
-/***/ }),
-
-/***/ "./src/components/Page/mobile/Page@mobile.tsx":
-/*!****************************************************!*\
-  !*** ./src/components/Page/mobile/Page@mobile.tsx ***!
-  \****************************************************/
+/***/ "./src/components/mobile/Pages/Videos.tsx":
+/*!************************************************!*\
+  !*** ./src/components/mobile/Pages/Videos.tsx ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Page_1 = __webpack_require__(/*! ../Page */ \"./src/components/Page/Page.tsx\");\n__webpack_require__(/*! ./Page@mobile.sss */ \"./src/components/Page/mobile/Page@mobile.sss\");\nconst di_1 = __webpack_require__(/*! @bem-react/di */ \"./node_modules/@bem-react/di/index.js\");\nconst Header_mobile_1 = __webpack_require__(/*! ../../Header/mobile/Header@mobile */ \"./src/components/Header/mobile/Header@mobile.tsx\");\nconst Content_1 = __webpack_require__(/*! ../../Content/Content */ \"./src/components/Content/Content.tsx\");\n__webpack_require__(/*! ../../Content/Content@mobile.sss */ \"./src/components/Content/Content@mobile.sss\");\nconst Footer_mobile_1 = __webpack_require__(/*! ../../Footer/mobile/Footer@mobile */ \"./src/components/Footer/mobile/Footer@mobile.tsx\");\nconst PageRegistry = new di_1.Registry({ id: 'Page' });\nPageRegistry.set('Footer', Footer_mobile_1.Footer);\nPageRegistry.set('Content', Content_1.Content);\nPageRegistry.set('Header', Header_mobile_1.Header);\nexports.Page = di_1.withRegistry(PageRegistry)(Page_1.Page);\n\n\n//# sourceURL=webpack:///./src/components/Page/mobile/Page@mobile.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Videos_1 = __webpack_require__(/*! ../../common/Pages/Videos */ \"./src/components/common/Pages/Videos.tsx\");\nexports.VideoPage = Videos_1.VideoPage;\n\n\n//# sourceURL=webpack:///./src/components/mobile/Pages/Videos.tsx?");
 
 /***/ }),
 
-/***/ "./src/components/Pages/Events.tsx":
+/***/ "./src/components/mobile/routes.ts":
 /*!*****************************************!*\
-  !*** ./src/components/Pages/Events.tsx ***!
+  !*** ./src/components/mobile/routes.ts ***!
   \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst DB = __webpack_require__(/*! ./events.json */ \"./src/components/Pages/events.json\");\n// Options\nconst events = DB.events;\nconst index_1 = __webpack_require__(/*! ../Event/index */ \"./src/components/Event/index.tsx\");\nfunction EventPage(props) {\n    if (props.staticContext) {\n        const Event = index_1.Event[props.staticContext.platform]();\n        return [\n            React.createElement(\"div\", { className: 'content__title', key: 1 }, \"\\u041B\\u0435\\u043D\\u0442\\u0430 \\u0441\\u043E\\u0431\\u044B\\u0442\\u0438\\u0439\"),\n            React.createElement(\"div\", { className: 'events', key: 2 }, events && events.map((obj, i) => React.createElement(Event, { key: i, obj: obj })))\n        ];\n    }\n    else {\n        const Event = index_1.Event[window.PLATFORM]();\n        return [\n            React.createElement(\"div\", { className: 'content__title', key: 1 }, \"\\u041B\\u0435\\u043D\\u0442\\u0430 \\u0441\\u043E\\u0431\\u044B\\u0442\\u0438\\u0439\"),\n            React.createElement(\"div\", { className: 'events', key: 2 }, events && events.map((obj, i) => React.createElement(Event, { key: i, obj: obj })))\n        ];\n    }\n}\nexports.default = EventPage;\n\n\n//# sourceURL=webpack:///./src/components/Pages/Events.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Pages/Videos.tsx":
-/*!*****************************************!*\
-  !*** ./src/components/Pages/Videos.tsx ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n__webpack_require__(/*! ../Video/Video@simple.sss */ \"./src/components/Video/Video@simple.sss\");\nconst Media_1 = __webpack_require__(/*! ../Video/Media */ \"./src/components/Video/Media.ts\");\nclass VideoPage extends React.Component {\n    constructor(props) {\n        super(props);\n    }\n    componentDidMount() {\n        Media_1.default();\n    }\n    render() {\n        return [\n            React.createElement(\"div\", { className: 'content__title', key: 1 }, \"\\u041A\\u0430\\u043C\\u0435\\u0440\\u044B\"),\n            React.createElement(\"div\", { className: 'videos', key: 2 },\n                React.createElement(\"div\", { className: 'videos-navigations' },\n                    React.createElement(\"div\", { className: 'sub-nav' },\n                        React.createElement(\"p\", { className: 'sub-nav__title' }, \"\\u042F\\u0440\\u043A\\u043E\\u0441\\u0442\\u044C\"),\n                        React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'sub-nav__elem navigations__bright' }),\n                        React.createElement(\"p\", { className: 'sub-nav__title' }, \"\\u041A\\u043E\\u043D\\u0442\\u0440\\u0430\\u0441\\u0442\\u043D\\u043E\\u0441\\u0442\\u044C\"),\n                        React.createElement(\"input\", { type: 'range', min: '50', max: '150', className: 'sub-nav__elem navigations__contrast' }),\n                        React.createElement(\"p\", { className: \"sub-nav__title\" }, \"\\u0423\\u0440\\u043E\\u0432\\u0435\\u043D\\u044C \\u043E\\u0441\\u0432\\u0435\\u0449\\u0435\\u043D\\u043D\\u043E\\u0441\\u0442\\u0438\"),\n                        React.createElement(\"p\", { className: \"sub-nav__elem navigations__brigtness\" })),\n                    React.createElement(\"div\", { className: 'all-cams' }, \"\\u0412\\u0441\\u0435 \\u0432\\u0438\\u0434\\u0435\\u043E\"),\n                    React.createElement(\"canvas\", { className: 'analyser' })),\n                React.createElement(\"video\", { className: 'video-1 video', autoPlay: true, muted: true }),\n                React.createElement(\"video\", { className: 'video-2 video', autoPlay: true, muted: true }),\n                React.createElement(\"video\", { className: 'video-3 video', autoPlay: true, muted: true }),\n                React.createElement(\"video\", { className: 'video-4 video', autoPlay: true, muted: true }))\n        ];\n    }\n}\nexports.default = VideoPage;\n\n\n//# sourceURL=webpack:///./src/components/Pages/Videos.tsx?");
-
-/***/ }),
-
-/***/ "./src/components/Pages/events.json":
-/*!******************************************!*\
-  !*** ./src/components/Pages/events.json ***!
-  \******************************************/
-/*! exports provided: events, default */
-/***/ (function(module) {
-
-eval("module.exports = {\"events\":[{\"type\":\"info\",\"title\":\"Еженедельный отчет по расходам ресурсов\",\"source\":\"Сенсоры потребления\",\"time\":\"19:00, Сегодня\",\"description\":\"Так держать! За последнюю неделю вы потратили на 10% меньше ресурсов, чем неделей ранее.\",\"icon\":\"stats\",\"data\":{\"type\":\"graph\",\"values\":[{\"electricity\":[[\"1536883200\",115],[\"1536969600\",117],[\"1537056000\",117.2],[\"1537142400\",118],[\"1537228800\",120],[\"1537315200\",123],[\"1537401600\",129]]},{\"water\":[[\"1536883200\",40],[\"1536969600\",40.2],[\"1537056000\",40.5],[\"1537142400\",41],[\"1537228800\",41.4],[\"1537315200\",41.9],[\"1537401600\",42.6]]},{\"gas\":[[\"1536883200\",13],[\"1536969600\",13.2],[\"1537056000\",13.5],[\"1537142400\",13.7],[\"1537228800\",14],[\"1537315200\",14.2],[\"1537401600\",14.5]]}]},\"size\":\"l\"},{\"type\":\"info\",\"title\":\"Дверь открыта\",\"source\":\"Сенсор входной двери\",\"time\":\"18:50, Сегодня\",\"description\":null,\"icon\":\"key\",\"size\":\"s\"},{\"type\":\"info\",\"title\":\"Уборка закончена\",\"source\":\"Пылесос\",\"time\":\"18:45, Сегодня\",\"description\":null,\"icon\":\"robot-cleaner\",\"size\":\"s\"},{\"type\":\"info\",\"title\":\"Новый пользователь\",\"source\":\"Роутер\",\"time\":\"18:45, Сегодня\",\"description\":null,\"icon\":\"router\",\"size\":\"s\"},{\"type\":\"info\",\"title\":\"Изменен климатический режим\",\"source\":\"Сенсор микроклимата\",\"time\":\"18:30, Сегодня\",\"description\":\"Установлен климатический режим «Фиджи»\",\"icon\":\"thermal\",\"size\":\"m\",\"data\":{\"temperature\":24,\"humidity\":80}},{\"type\":\"critical\",\"title\":\"Невозможно включить кондиционер\",\"source\":\"Кондиционер\",\"time\":\"18:21, Сегодня\",\"description\":\"В комнате открыто окно, закройте его и повторите попытку\",\"icon\":\"ac\",\"size\":\"m\"},{\"type\":\"info\",\"title\":\"Музыка включена\",\"source\":\"Яндекс.Станция\",\"time\":\"18:16, Сегодня\",\"description\":\"Сейчас проигрывается:\",\"icon\":\"music\",\"size\":\"m\",\"data\":{\"albumcover\":\"https://avatars.yandex.net/get-music-content/193823/1820a43e.a.5517056-1/m1000x1000\",\"artist\":\"Florence & The Machine\",\"track\":{\"name\":\"Big God\",\"length\":\"4:31\"},\"volume\":80}},{\"type\":\"info\",\"title\":\"Заканчивается молоко\",\"source\":\"Холодильник\",\"time\":\"17:23, Сегодня\",\"description\":\"Кажется, в холодильнике заканчивается молоко. Вы хотите добавить его в список покупок?\",\"icon\":\"fridge\",\"size\":\"m\",\"data\":{\"buttons\":[\"Да\",\"Нет\"]}},{\"type\":\"info\",\"title\":\"Зарядка завершена\",\"source\":\"Оконный сенсор\",\"time\":\"16:22, Сегодня\",\"description\":\"Ура! Устройство «Оконный сенсор» снова в строю!\",\"icon\":\"battery\",\"size\":\"s\"},{\"type\":\"critical\",\"title\":\"Пылесос застрял\",\"source\":\"Сенсор движения\",\"time\":\"16:21, Сегодня\",\"description\":\"Робопылесос не смог сменить свое местоположение в течение последних 3 минут. Похоже, ему нужна помощь.\",\"icon\":\"cam\",\"data\":{\"image\":\"get_it_from_mocks_:3.jpg\"},\"size\":\"l\"},{\"type\":\"info\",\"title\":\"Вода вскипела\",\"source\":\"Чайник\",\"time\":\"16:20, Сегодня\",\"description\":null,\"icon\":\"kettle\",\"size\":\"s\"}]};\n\n//# sourceURL=webpack:///./src/components/Pages/events.json?");
-
-/***/ }),
-
-/***/ "./src/components/Video/Audio.ts":
-/*!***************************************!*\
-  !*** ./src/components/Video/Audio.ts ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfunction analysAudio(audioCtx, element, source, analyser) {\n    // If we not get that source\n    if (!source || !analyser) {\n        source = audioCtx.createMediaElementSource(element);\n        // Set analyser\n        analyser = audioCtx.createAnalyser();\n        analyser.fftSize = 256;\n        source.connect(analyser);\n        analyser.connect(audioCtx.destination);\n    }\n    visual(analyser, document.querySelector('.analyser'));\n    return { source, analyser };\n}\nexports.analysAudio = analysAudio;\nfunction visual(analyser, canvas) {\n    canvas = canvas || document.querySelector('.analyser');\n    const ctx = canvas.getContext('2d');\n    // Equals Math.floor(window[`inner${dimension}`])\n    canvas.width = Math.floor(window.innerWidth);\n    canvas.height = Math.floor(window.innerHeight);\n    function render() {\n        // Get all decBels for this media\n        const dataList = new Uint8Array(analyser.frequencyBinCount);\n        analyser.getByteFrequencyData(dataList);\n        // metrika\n        const m = {\n            fr: {\n                width: Math.floor(canvas.width / dataList.length * 2.5)\n            },\n            height: canvas.height,\n            width: canvas.width\n        };\n        ctx.clearRect(0, 0, m.width, m.height);\n        dataList.forEach((height, x) => {\n            // Create effect, of linear-gradient from red to blue, and to green\n            // 25 - prefer 255, but without 5 :)\n            const r = height + (25 * (x / dataList.length));\n            // 250 - not full green, but near 255\n            const g = 250 * (x / dataList.length);\n            // For dark blue behind green and red\n            const b = 50;\n            ctx.fillStyle = `rgb(${r}, ${g}, ${b})`;\n            ctx.fillRect(x * m.fr.width, m.height - height, m.fr.width, height);\n        });\n        requestAnimationFrame(render);\n    }\n    render();\n}\nexports.visual = visual;\n\n\n//# sourceURL=webpack:///./src/components/Video/Audio.ts?");
-
-/***/ }),
-
-/***/ "./src/components/Video/Media.ts":
-/*!***************************************!*\
-  !*** ./src/components/Video/Media.ts ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Video_1 = __webpack_require__(/*! ./Video */ \"./src/components/Video/Video.ts\");\nfunction mediaInit() {\n    // Set all vars, without DOM\n    const { port, hostname } = document.location;\n    let { protocol } = document.location;\n    protocol = protocol.slice(0, protocol.length - 1);\n    // AudioContext\n    // window.AudioContext = window.AudioContext || window.webkitAudioContext;\n    const audioCtx = new AudioContext();\n    // Canvas for analyser\n    const canvas = document.querySelector('.analyser');\n    window.addEventListener('resize', () => {\n        canvas.width = Math.floor(window.innerWidth);\n        canvas.height = Math.floor(window.innerHeight);\n    });\n    // All elems, whose must switch class\n    const videos = document.body.querySelector('.videos');\n    const navs = videos.querySelector('.videos-navigations');\n    const { initVideo, getActiveVideo: gAV } = Video_1.default(videos, navs);\n    // All subnavs\n    const bright = navs.querySelector('.navigations__bright');\n    const contrast = navs.querySelector('.navigations__contrast');\n    const allCamsBtn = navs.querySelector('.all-cams');\n    bright.addEventListener('change', function () {\n        // video_active\n        // Cr-ed for not call that func at yet\n        const vA = gAV();\n        if (!vA)\n            return;\n        vA.style.filter = vA.style.filter.replace(/brightness\\([\\s\\S]*\\)/ig, '') + `brightness(${this.value}%)`;\n    });\n    contrast.addEventListener('change', function () {\n        // video_active\n        // Cr-ed for not call that func at yet\n        const vA = gAV();\n        if (!vA)\n            return;\n        vA.style.filter = vA.style.filter.replace(/contrast\\([\\s\\S]*\\)/ig, '') + `contrast(${this.value}%)`;\n    });\n    allCamsBtn.addEventListener('click', () => {\n        // video_active\n        // Cr-ed for not call that func at yet\n        const vA = gAV();\n        if (!vA)\n            return;\n        // Clear state\n        vA.classList.remove('video_active');\n        // Switch off the audio\n        vA.muted = true;\n        // Clear the filter\n        vA.style.filter = '';\n        bright.value = '100';\n        contrast.value = '100';\n        // Clear state\n        navs.classList.remove('navigations_active');\n        // Clear translate\n        vA.style.transform = '';\n    });\n    // All paths to streams\n    ['sosed', 'dog', 'cat', 'hall']\n        .forEach((path, id) => {\n        initVideo(document.querySelector(`.video-${id + 1}`), \n        // Create url by path\n        `http://localhost:9191/master?url=${encodeURIComponent(`${protocol}://${hostname}:${port}/cams/${path}/master.m3u8`)}`, audioCtx);\n    });\n}\nexports.default = mediaInit;\n\n\n//# sourceURL=webpack:///./src/components/Video/Media.ts?");
-
-/***/ }),
-
-/***/ "./src/components/Video/Video.ts":
-/*!***************************************!*\
-  !*** ./src/components/Video/Video.ts ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Audio_1 = __webpack_require__(/*! ./Audio */ \"./src/components/Video/Audio.ts\");\nconst Hls = __webpack_require__(/*! hls.js */ \"./node_modules/hls.js/dist/hls.js\");\nfunction getObjects(videos, navs) {\n    const ctx = (document.createElement('canvas')).getContext('2d');\n    const brightnessLvlNode = document.querySelector('.navigations__brigtness');\n    // Storage, with AudioContext.createMediaElement(element)\n    // and analysers for this media\n    const mediaSource = new Map();\n    function getActiveVideo() {\n        return videos.querySelector('.video_active');\n    }\n    function initVideo(video, url, audioCtx) {\n        if (!video)\n            return;\n        function onCanPlay() {\n            video.play().catch();\n        }\n        function onClickVideo(event) {\n            event.preventDefault();\n            // Check the brightness\n            ctx.drawImage(video, 0, 0, 1, 1);\n            const summ = (ctx.getImageData(0, 0, 1, 1).data.reduce((prev, cur) => prev + cur) - 255) / 3;\n            let brightnessLvl;\n            if (summ > 200) {\n                brightnessLvl = 'Очень ярко';\n            }\n            else if (summ > 150) {\n                brightnessLvl = 'Ярко';\n            }\n            else if (summ > 100) {\n                brightnessLvl = 'Тускло';\n            }\n            else {\n                brightnessLvl = 'Темно';\n            }\n            // Add text for brightess\n            brightnessLvlNode.innerText = brightnessLvl;\n            if (video.muted) {\n                video.muted = false;\n            }\n            if (video.classList.contains('video_active'))\n                return;\n            video.classList.add('video_active');\n            navs.classList.add('navigations_active');\n            const { offsetTop: top, offsetLeft: left } = video;\n            video.style.transform = `translate(${-left}px, ${-top}px)`;\n            if (mediaSource.get(video)) {\n                const { source, analyser } = mediaSource.get(video);\n                Audio_1.analysAudio(audioCtx, video, source, analyser);\n            }\n            else {\n                mediaSource.set(video, Audio_1.analysAudio(audioCtx, video));\n            }\n        }\n        if (Hls.isSupported()) {\n            const hls = new Hls();\n            hls.loadSource(url);\n            hls.attachMedia(video);\n            hls.on(Hls.Events.MANIFEST_PARSED, onCanPlay);\n        }\n        else if (video.canPlayType('application/vnd.apple.mpegurl')) {\n            video.src = url;\n            video.addEventListener('loadedmetadata', onCanPlay);\n        }\n        video.addEventListener('ended', onCanPlay);\n        video.addEventListener('click', onClickVideo);\n    }\n    return { getActiveVideo, initVideo };\n}\nexports.default = getObjects;\n\n\n//# sourceURL=webpack:///./src/components/Video/Video.ts?");
-
-/***/ }),
-
-/***/ "./src/components/Video/Video@simple.sss":
-/*!***********************************************!*\
-  !*** ./src/components/Video/Video@simple.sss ***!
-  \***********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("\n\n//# sourceURL=webpack:///./src/components/Video/Video@simple.sss?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst Events_1 = __webpack_require__(/*! ./Pages/Events */ \"./src/components/mobile/Pages/Events.tsx\");\nconst Videos_1 = __webpack_require__(/*! ./Pages/Videos */ \"./src/components/mobile/Pages/Videos.tsx\");\nconst routes = [\n    {\n        path: '/events',\n        component: Events_1.EventPage,\n        exact: true\n    },\n    {\n        path: '/videos',\n        component: Videos_1.VideoPage,\n        exact: true\n    }\n];\nexports.default = routes;\n\n\n//# sourceURL=webpack:///./src/components/mobile/routes.ts?");
 
 /***/ }),
 
@@ -2920,7 +3160,7 @@ eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfuncti
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nconst cors = __webpack_require__(/*! cors */ \"./node_modules/cors/lib/index.js\");\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst server_1 = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.js\");\nconst path_1 = __webpack_require__(/*! path */ \"path\");\nconst html_1 = __webpack_require__(/*! ./html */ \"./src/server/html.ts\");\nconst App_1 = __webpack_require__(/*! ./../client/App */ \"./src/client/App.tsx\");\nconst PORT = 8000;\nconst app = express();\napp\n    .use('/cams', cors(), express.static(path_1.resolve('./streams')))\n    .use(express.static(path_1.resolve('./dist')))\n    .get('*', (req, res) => {\n    let platform = 'desktop';\n    if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent'])) {\n        platform = 'mobile';\n    }\n    const title = req.url;\n    const context = { platform, title };\n    const block = server_1.renderToString(React.createElement(react_router_dom_1.StaticRouter, { location: req.url, context: context },\n        React.createElement(App_1.default, { platform: platform, title: title })));\n    res.send(html_1.toHtml({ block, platform }));\n})\n    .use((error, req, res, next) => {\n    res.send(`${error.message}\\n${error.stack}`);\n});\napp.listen(PORT, () => { console.log(`Server is listening ${PORT} port`); });\n\n\n//# sourceURL=webpack:///./src/server/server.tsx?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nconst express = __webpack_require__(/*! express */ \"./node_modules/express/index.js\");\nconst cors = __webpack_require__(/*! cors */ \"./node_modules/cors/lib/index.js\");\nconst React = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nconst react_router_dom_1 = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/es/index.js\");\nconst server_1 = __webpack_require__(/*! react-dom/server */ \"./node_modules/react-dom/server.js\");\nconst path_1 = __webpack_require__(/*! path */ \"path\");\nconst html_1 = __webpack_require__(/*! ./html */ \"./src/server/html.ts\");\nconst PORT = 8000;\nconst app = express();\napp\n    .use('/cams', cors(), express.static(path_1.resolve('./streams')))\n    .use(express.static(path_1.resolve('./dist')))\n    .get('*', (req, res) => {\n    let platform = 'desktop';\n    let bundleName = 'bundle@desktop.js';\n    if (/Android|iPhone|iPad|iPod|Opera Mini/.test(req.headers['user-agent'])) {\n        platform = 'mobile';\n        bundleName = 'bundle@mobile.js';\n    }\n    const App = __webpack_require__(\"./src/components sync recursive ^\\\\.\\\\/.*\\\\/App$\")(`./${platform}/App`).App;\n    const block = server_1.renderToString(React.createElement(react_router_dom_1.StaticRouter, { location: req.url, context: {} },\n        React.createElement(App, null)));\n    res.send(html_1.toHtml({ block, platform, bundleName }));\n})\n    .use((error, req, res, next) => {\n    res.send(`${error.message}\\n${error.stack}`);\n});\napp.listen(PORT, () => { console.log(`Server is listening ${PORT} port`); });\n\n\n//# sourceURL=webpack:///./src/server/server.tsx?");
 
 /***/ }),
 
