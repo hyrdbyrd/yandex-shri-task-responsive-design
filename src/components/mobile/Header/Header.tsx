@@ -8,6 +8,8 @@ import { cn } from '@bem-react/classname';
 import { Header as HeaderCommon } from '../../common/Header/Header';
 import './Header.sss';
 
+const cnHeader = cn('Header');
+
 // Import menu-parts
 import { MenuHeader, MenuFooter } from '../../common/Menu/Menu';
 import { Registry, withRegistry } from '@bem-react/di';
@@ -24,14 +26,15 @@ export class Body extends React.Component<{}, { isOpen: boolean }> {
     }
 
     render() {
+        const cnNavigation = cn('Navigation_header');
         return (
-            <div className='Container Header-Container'>
+            <div className={cnHeader('Container', ['Container'])}>
                 <Link to={{ pathname: '/events' }}>
-                    <img className='Header-Logo' src='assets/logo.svg'/>
+                    <img className={cnHeader('Logo')} src='assets/logo.svg'/>
                 </Link>
                 <img className='MediaMobile Burger' src='assets/i_burger.svg' onClick={ this.onClickMenu.bind(this) }/>
-                <nav className={`Navigation Navigation_header ${this.state.isOpen ? 'Navigation_header_active' : ''}`}>
-                    <div className='Navigation_header-wrapper'>
+                <nav className={`Navigation ${cnNavigation()} ${cnNavigation({ active: this.state.isOpen })}`}>
+                    <div className={`${cnNavigation()}-wrapper`}>
                         <MenuHeader />
                         <MenuFooter />
                     </div>
@@ -41,7 +44,7 @@ export class Body extends React.Component<{}, { isOpen: boolean }> {
     }
 }
 
-const HeaderRegistry = new Registry({ id: cn('Header')() });
+const HeaderRegistry = new Registry({ id: cnHeader() });
 HeaderRegistry.set('Body', Body);
 
 export const Header = withRegistry(HeaderRegistry)(HeaderCommon);

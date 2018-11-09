@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import '../Video/Video.sss';
 import mediaInit from '../Video/Media';
+import { cn } from '@bem-react/classname';
 
 export class VideoPage extends React.Component<any, any> {
     constructor(props: any) {
@@ -13,33 +14,36 @@ export class VideoPage extends React.Component<any, any> {
     }
 
     render() {
+        const cnSubNav = cn('SubNav');
+        const cnNavs = cn('Navigations');
+
         return <>
             <div className='Content-Title'>Камеры</div>,
             <div className='Videos'>
                 <div className='VideosNavigations'>
-                    <div className='SubNav'>
-                        <p className='SubNav-Title'>
+                    <div className={cnSubNav()}>
+                        <p className={cnSubNav('Title')}>
                             Яркость
                         </p>
                         <input
                             type='range'
                             min='50'
                             max='150'
-                            className='SubNav-Elem Navigations-Bright'
+                            className={cnSubNav('Elem', [cnNavs('Bright')])}
                         />
-                        <p className='SubNav-Title'>
+                        <p className={cnSubNav('Title')}>
                             Контрастность
                         </p>
                         <input
                             type='range'
                             min='50'
                             max='150'
-                            className='SubNav-Elem Navigations-Contrast'
+                            className={cnSubNav('Elem', [cnNavs('Contrast')])}
                         />
-                        <p className="SubNav-Title">
+                        <p className={cnSubNav('Title')}>
                             Уровень освещенности
                         </p>
-                        <p className="SubNav-Elem Navigations-Brigtness"></p>
+                        <p className={cnSubNav('Elem', [cnNavs('Brigtness')])}></p>
                     </div>
                     <div className='AllCams'>
                         Все видео

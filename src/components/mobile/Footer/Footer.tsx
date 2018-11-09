@@ -13,7 +13,7 @@ FooterRegistry.set('Body', Body);
 // Static block
 function Body() {
     return (
-        <footer className='media-desktop'></footer>
+        <footer className='MediaDesktop'></footer>
     );
 }
 
