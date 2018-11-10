@@ -9,9 +9,9 @@ import { MenuFooter } from '../../common/Menu/Menu';
 export function Footer() {
     return (
         <footer className='Footer Section MediaDesktop'>
-            <div className='FooterContainer Container'>
+            <div className='Container Footer-Container'>
                 <MenuFooter />
-                <nav className='Navigation Navigation_footer'>
+                <nav className='Navigation Navigation_block_footer'>
                     <div className='Copyright'>
                         &copy; 2001-2017 ООО «Яндекс»
                     </div>

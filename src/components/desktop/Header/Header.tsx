@@ -22,7 +22,7 @@ class Body extends React.Component {
                 <Link to={{ pathname: '/events' }}>
                     <img className={cnHeader('Logo')} src='assets/logo.svg'/>
                 </Link>
-                <nav className={`Navigation Navigation_header`}>
+                <nav className={`Navigation Navigation_block_header`}>
                     <div className='Navigation_header-wrapper'>
                         <MenuHeader />
                     </div>

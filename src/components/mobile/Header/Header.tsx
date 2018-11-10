@@ -26,15 +26,15 @@ export class Body extends React.Component<{}, { isOpen: boolean }> {
     }
 
     render() {
-        const cnNavigation = cn('Navigation_header');
+        const cnNavigation = cn('Navigation');
         return (
             <div className={cnHeader('Container', ['Container'])}>
                 <Link to={{ pathname: '/events' }}>
                     <img className={cnHeader('Logo')} src='assets/logo.svg'/>
                 </Link>
                 <img className='MediaMobile Burger' src='assets/i_burger.svg' onClick={ this.onClickMenu.bind(this) }/>
-                <nav className={`Navigation ${cnNavigation()} ${cnNavigation({ active: this.state.isOpen })}`}>
-                    <div className={`${cnNavigation()}-wrapper`}>
+                <nav className={`Navigation ${cnNavigation({ active: this.state.isOpen })} ${cnNavigation({ block: 'header' })}`}>
+                    <div className={`${cnNavigation({ block: 'header' })}-wrapper`}>
                         <MenuHeader />
                         <MenuFooter />
                     </div>
