@@ -2,64 +2,56 @@ import * as React from 'react';
 import { Link } from 'react-router-dom';
 
 import './Navigation.sss';
+import { cn } from '@bem-react/classname';
+
+const cnNavList = cn('NavigationList');
 
 // Menu-part - Header
 export function MenuHeader() {
-    return (
-        <ul className='NavigationList NavigationList_block_header'>
-            <li className='NavigationList-Item NavigationList-Item_block_header'>
-                <Link className='Link' to='/'>
-                    Сводка
-                </Link>
+    const item = cnNavList('Item', { block: 'header' });
+
+    const list: Array<{ title: string, href: string, isLink: boolean }> = [
+        { title: 'Сводка', href: '/', isLink: true },
+        { title: 'Устройства', href: '#', isLink: false },
+        { title: 'Сценарии', href: '#', isLink: false },
+        { title: 'Видеонаблюдение', href: '/videos', isLink: true },
+    ];
+
+    return <ul className={cnNavList({ block: 'header' })}>
+        { list.map((obj, key) => (
+            <li key={key} className={item}>
+                { obj.isLink ?
+                    <Link className='Link' to={obj.href}>
+                        { obj.title }
+                    </Link> :
+                    <a className='Link' href={obj.href}>
+                        { obj.title }
+                    </a>
+                }
             </li>
-            <li className='NavigationList-Item NavigationList-Item_block_header'>
-                <a className='Link'>
-                    Устройства
-                </a>
-            </li>
-            <li className='NavigationList-Item NavigationList-Item_block_header'>
-                <a className='Link'>
-                    Сценарии
-                </a>
-            </li>
-            <li className='NavigationList-Item NavigationList-Item_block_header'>
-                <Link className='Link' to={{ pathname: '/videos' }}>
-                    Видеонаблюдение
-                </Link>
-            </li>
-        </ul>
-    )
+        )) }
+    </ul>;
 };
 
 // Menu-part - Footer
 export function MenuFooter() {
-    return (
-        <ul className='NavigationList NavigationList_block_footer'>
-            <li className='NavigationList-Item NavigationList-Item_block_footer'>
-                <a className='Link'>
-                    Помощь
+    const item = cnNavList('Item', { block: 'footer' });
+
+    const list: Array<{ title: string, href: string }> = [
+        { title: 'Помощь', href: '#' },
+        { title: 'Обратная связь', href: '#' },
+        { title: 'Разработчикам', href: '#' },
+        { title: 'Условия использования', href: '#' },
+        { title: 'Авторские права', href: 'assets/license.pdf' },
+    ];
+
+    return <ul className={cnNavList({ block: 'footer' })}>
+        { list.map((obj, key) => (
+            <li key={key} className={item}>
+                <a className='Link' href={obj.href}>
+                    { obj.title }
                 </a>
             </li>
-            <li className='NavigationList-Item NavigationList-Item_block_footer'>
-                <a className='Link'>
-                    Обратная связь
-                </a>
-            </li>
-            <li className='NavigationList-Item NavigationList-Item_block_footer'>
-                <a className='Link'>
-                    Разработчикам
-                </a>
-            </li>
-            <li className='NavigationList-Item NavigationList-Item_block_footer'>
-                <a className='Link'>
-                    Условия использования
-                </a>
-            </li>
-            <li className='NavigationList-Item NavigationList-Item_block_footer'>
-                <a className='Link' href='assets/license.pdf'>
-                    Авторские права
-                </a>
-            </li>
-        </ul>
-    )
+        )) }
+    </ul>;
 }

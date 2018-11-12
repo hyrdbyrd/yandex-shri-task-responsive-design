@@ -52,12 +52,13 @@
     "webpack-cli": "^3.1.2"
   },
   "scripts": {
-    "start": "run-p server murphy",
+    "start": "run-s build server:full",
     "start:dev": "run-p server:dev build:dev murphy",
     "build": "webpack --mode production",
     "build:dev": "webpack --watch --mode development",
     "server": "node server.js",
     "server:dev": "nodemon server.js",
+    "server:full": "run-p server murphy",
     "murphy": "murphy"
   },
   "author": "",

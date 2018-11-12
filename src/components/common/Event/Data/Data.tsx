@@ -6,7 +6,6 @@ import { RegistryConsumer } from '@bem-react/di';
 export type EventDataProps = {
     obj: IEventData,
     type: string,
-    platform?: 'desktop' | 'mobile'
 }
 
 export class EventDataBlock extends React.Component<EventDataProps> {
@@ -16,7 +15,6 @@ export class EventDataBlock extends React.Component<EventDataProps> {
 
     render() {
         const { obj: data, type } = this.props;
-        let res = <div></div>;
 
         return <RegistryConsumer>
             { regs => {

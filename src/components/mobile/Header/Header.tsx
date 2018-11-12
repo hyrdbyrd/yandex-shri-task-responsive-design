@@ -1,20 +1,18 @@
 // React-imports
 import * as React from 'react';
-import { Link } from 'react-router-dom';
 
 // BEM-imports
-import { cn } from '@bem-react/classname';
+import { cn, classnames } from '@bem-react/classname';
 
 import { Header as HeaderCommon } from '../../common/Header/Header';
 import './Header.sss';
 
-const cnHeader = cn('Header');
-
 // Import menu-parts
-import { MenuHeader, MenuFooter } from '../../common/Menu/Menu';
 import { Registry, withRegistry } from '@bem-react/di';
+import { MenuHeader, MenuFooter } from '../../common/Menu/Menu';
 
-export class Body extends React.Component<{}, { isOpen: boolean }> {
+const cnNavigation = cn('Navigation');
+export class Nav extends React.Component<{}, { isOpen: boolean }> {
     state = {
         isOpen: false
     };
@@ -26,25 +24,24 @@ export class Body extends React.Component<{}, { isOpen: boolean }> {
     }
 
     render() {
-        const cnNavigation = cn('Navigation');
-        return (
-            <div className={cnHeader('Container', ['Container'])}>
-                <Link to={{ pathname: '/events' }}>
-                    <img className={cnHeader('Logo')} src='assets/logo.svg'/>
-                </Link>
-                <img className='MediaMobile Burger' src='assets/i_burger.svg' onClick={ this.onClickMenu.bind(this) }/>
-                <nav className={`Navigation ${cnNavigation({ active: this.state.isOpen })} ${cnNavigation({ block: 'header' })}`}>
-                    <div className={`${cnNavigation({ block: 'header' })}-wrapper`}>
-                        <MenuHeader />
-                        <MenuFooter />
-                    </div>
-                </nav>
-            </div>
-        )
+        return <>
+            <img
+                className='Burger MediaMobile'
+                src='assets/i_burger.svg'
+                onClick={ this.onClickMenu.bind(this) }
+            />
+            <nav className={classnames(cnNavigation({ active: this.state.isOpen }), cnNavigation({ block: 'header' }))}>
+                <div className={cnNavigation({ block: 'header' }) + '-Wrapper'}>
+                    <MenuHeader />
+                    <MenuFooter />
+                </div>
+            </nav>
+        </>
     }
+
 }
 
-const HeaderRegistry = new Registry({ id: cnHeader() });
-HeaderRegistry.set('Body', Body);
+const HeaderRegistry = new Registry({ id: 'Header' });
+HeaderRegistry.set(cnNavigation(), Nav);
 
 export const Header = withRegistry(HeaderRegistry)(HeaderCommon);

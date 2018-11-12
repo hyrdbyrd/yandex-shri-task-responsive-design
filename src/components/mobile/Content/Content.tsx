@@ -1,4 +1,4 @@
 import { Content as ContentCommon } from '../../common/Content/Content';
-import './Content';
+import './Content.sss';
 
 export const Content = ContentCommon;

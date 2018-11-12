@@ -1,5 +1,5 @@
-import * as React from 'react';
+import { SFC } from 'react';
 
 import './Footer.sss';
 
-export const Footer = () => <div></div>;
+export const Footer: SFC = () => null;

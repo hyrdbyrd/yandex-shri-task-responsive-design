@@ -34,7 +34,7 @@ export class Event extends React.Component<IEventProps> {
                 </div> : null;
 
                 return <div className={cnBlock({ type: event.type, size: event.size })}>
-                    <div className={cnEmpty({ cross: true })}>
+                    <div className={cnEmpty()}>
                         <img className={cnBlock('Nav', ['Cross'])} src={`assets/cross${postfix}.svg`}/>
                     </div>
                     <header className={cnBlock('Header')}>
@@ -60,7 +60,7 @@ export class Event extends React.Component<IEventProps> {
                                 { eventDataBlock }
                             </div>
                     }
-                    <div className={cnEmpty({ slide: true })}>
+                    <div className={cnEmpty()}>
                         <img className={ cnBlock('Nav', ['Slide'])} src={`assets/next${postfix}.svg`} />
                     </div>
                 </div>;

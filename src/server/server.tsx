@@ -33,7 +33,7 @@ app
             </StaticRouter>
         );
 
-        res.send(toHtml({ block, platform, bundleName }));
+        res.send(toHtml({ block, bundleName }));
     })
     .use((error: Error, req: Request, res: Response, next: NextFunction) => {
         res.send(`${error.message}\n${error.stack}`);
