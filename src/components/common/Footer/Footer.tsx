@@ -8,6 +8,7 @@ import { cn } from '@bem-react/classname';
 
 // Static block
 export function Footer() {
+    // Classnames
     const cnFooter = cn('Footer');
     const cnNav = cn('Navigation');
 

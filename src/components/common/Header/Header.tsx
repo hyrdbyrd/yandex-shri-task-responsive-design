@@ -20,6 +20,7 @@ export class Header extends React.Component<{}, { isOpen: boolean }> {
                 <RegistryConsumer>
                     {regs => {
                         const HeaderReg = regs[cnHeader()];
+                        // Here can be just <Nav /> or <Burger /> with <Nav />
                         const Nav = HeaderReg.get(cnNavigation());
 
                         return <div className={cnHeader('Container', ['Container'])}>

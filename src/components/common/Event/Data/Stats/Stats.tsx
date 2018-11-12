@@ -1,5 +1,2 @@
 import * as React from 'react';
-
-export function Stats() {
-    return <img src='assets/Richdata.svg' />
-}
+export const Stats: React.SFC = () => <img src='assets/Richdata.svg' />

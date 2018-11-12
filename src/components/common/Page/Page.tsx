@@ -12,6 +12,9 @@ export class Page extends React.Component<IContentProps> {
                 { regs => {
                     const Page = regs['Page'];
 
+                    // This can be mobile or desktop version.
+                    // Header use Registries too.
+                    // Footer use Registries too.
                     const Header = Page.get('Header');
                     const Content = Page.get<IContentProps>('Content');
                     const Footer = Page.get('Footer');

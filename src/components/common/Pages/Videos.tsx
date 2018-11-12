@@ -4,6 +4,7 @@ import '../Video/Video.sss';
 import mediaInit from '../Video/Media';
 import { cn } from '@bem-react/classname';
 
+// Static page (all dinamic part int function - mediaInit)
 export class VideoPage extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
@@ -14,6 +15,7 @@ export class VideoPage extends React.Component<any, any> {
     }
 
     render() {
+        // Classnames
         const cnSubNav = cn('SubNav');
         const cnNavs = cn('Navigations');
 

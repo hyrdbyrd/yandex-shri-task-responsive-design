@@ -15,6 +15,7 @@ export function EventPage() {
                 {events && (
                     <RegistryConsumer>
                         {regs => {
+                            // Or desktop or mobile version
                             const Event = regs['Page'].get<IEventProps>('Event');
                             return events.map((obj: IEvent, i: number) => <Event className='Event' key={i} {...obj} />)
                         }}

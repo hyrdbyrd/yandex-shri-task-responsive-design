@@ -17,12 +17,14 @@ export class Event extends React.Component<IEventProps> {
             {regs => {
                 const { props: event } = this;
 
+                // Classnames
                 const cnBlock = cn(event.className);
                 const cnEmpty = cn('Empty');
 
-                const isCritical = event.type === 'critical';
-                const postfix = isCritical ? '-white' : '';
+                // Is critical? If yes - get white image, else another.
+                const postfix = event.type === 'critical' ? '-white' : '';
 
+                // Get from registry event__data
                 const EventDataBlock = regs['Event'].get<EventDataProps>('EventDataBlock');
 
                 const eventDescBlock = event.description ? <div className={cnBlock('Description')}>
@@ -53,12 +55,11 @@ export class Event extends React.Component<IEventProps> {
                             </div>
                         </div>
                     </header>
-                    {
-                        (event.description || event.data) &&
-                            <div className={cnBlock('Content')}>
-                                { eventDescBlock }
-                                { eventDataBlock }
-                            </div>
+                    { (event.description || event.data) &&
+                        <div className={cnBlock('Content')}>
+                            { eventDescBlock }
+                            { eventDataBlock }
+                        </div>
                     }
                     <div className={cnEmpty()}>
                         <img className={ cnBlock('Nav', ['Slide'])} src={`assets/next${postfix}.svg`} />

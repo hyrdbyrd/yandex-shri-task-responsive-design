@@ -71,7 +71,7 @@ const serverConfig = {
     entry: path.join(SRC_PATH, 'server/server.tsx'),
     target: 'node',
     resolve: { extensions: [".ts", ".tsx", ".js", ".jsx", ".json"] },
-    output: { path: path.resolve(__dirname, '.'), filename: 'server.js' },
+    output: { path: path.resolve(__dirname, './server'), filename: 'server.js' },
     module: {
         rules: [
             FILELOADER, TSLOADER,

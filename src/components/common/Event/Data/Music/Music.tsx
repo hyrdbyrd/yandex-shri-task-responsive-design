@@ -16,12 +16,12 @@ export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
 
     onVolumeChange(event: Event) {
         const target: HTMLElement | any = event.target;
-
         const val: number = target.value;
 
-        this.setState((state) => ({
+        // Change input[type='range'] pos
+        this.setState(({ track }) => ({
             volume: val,
-            track: state.track
+            track,
         }))
     }
 
@@ -29,6 +29,7 @@ export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
         const target: HTMLElement | any = event.target;
         const val: string = target.value;
 
+        // Change input[type='range'] pos
         this.setState((state) => ({
             volume: state.volume,
             track: {
@@ -42,9 +43,11 @@ export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
         const data: IDataMusic = this.props.obj;
         const { state } = this;
 
+        // Get time in seconds
         const time: string[] = data.track.length.split(':');
         const len: number = +time[0] * 60 + +time[1];
 
+        // Classnames
         const cnMusic = cn('Music');
         const cnTrack = cn('Track');
         const cnVolume = cn('Volume');
@@ -68,7 +71,7 @@ export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
                 <div className={cnVolume()}>
                     <input type="range" onChange={ this.onVolumeChange.bind(this) } className={cnMusic(cnVolume())} min="0" max="100" step="1" value={state.volume}/>
                     <div className={cnVolume('Value')}>
-                        { `${state.volume}%` }
+                        {`${state.volume}%`}
                     </div>
                 </div>
             </div>

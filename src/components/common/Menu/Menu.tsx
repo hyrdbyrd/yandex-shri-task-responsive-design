@@ -10,17 +10,18 @@ const cnNavList = cn('NavigationList');
 export function MenuHeader() {
     const item = cnNavList('Item', { block: 'header' });
 
-    const list: Array<{ title: string, href: string, isLink: boolean }> = [
-        { title: 'Сводка', href: '/', isLink: true },
-        { title: 'Устройства', href: '#', isLink: false },
-        { title: 'Сценарии', href: '#', isLink: false },
-        { title: 'Видеонаблюдение', href: '/videos', isLink: true },
+    const list: Array<{ title: string, href: string, isReactLink: boolean }> = [
+        { title: 'Сводка', href: '/', isReactLink: true },
+        { title: 'Устройства', href: '#', isReactLink: false },
+        { title: 'Сценарии', href: '#', isReactLink: false },
+        { title: 'Видеонаблюдение', href: '/videos', isReactLink: true },
     ];
 
+    // Generate the list
     return <ul className={cnNavList({ block: 'header' })}>
         { list.map((obj, key) => (
             <li key={key} className={item}>
-                { obj.isLink ?
+                { obj.isReactLink ?
                     <Link className='Link' to={obj.href}>
                         { obj.title }
                     </Link> :
@@ -45,6 +46,7 @@ export function MenuFooter() {
         { title: 'Авторские права', href: 'assets/license.pdf' },
     ];
 
+    // Generate the list
     return <ul className={cnNavList({ block: 'footer' })}>
         { list.map((obj, key) => (
             <li key={key} className={item}>

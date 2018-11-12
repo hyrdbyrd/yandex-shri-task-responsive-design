@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import { IEventData } from '../Event.d';
 import { RegistryConsumer } from '@bem-react/di';
+import { withBemMod, compose } from '@bem-react/core';
 
 export type EventDataProps = {
     obj: IEventData,

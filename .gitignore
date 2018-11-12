@@ -1,5 +1,12 @@
 node_modules
+
+# For MacOS
 .DS_Store
+
+# VSCode nothing to do for bundle or anything else.
+# Use for linters
 .vscode
+
+# Ignore bundles
 dist/*.js
-server.js
+server/server.js
