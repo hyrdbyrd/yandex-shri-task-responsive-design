@@ -1,17 +1,20 @@
 import * as React from 'react';
 
 import './Temperature.sss';
-import { IDataTemperature } from './Temperature.d';
+import { IDataTemperatureProps } from './Temperature.d';
+import { ModBody } from '@bem-react/core';
 
-export function Temperature(props: { obj: IDataTemperature }) {
-    const { obj: data } = props;
+export type TemperatureType = ModBody<IDataTemperatureProps>;
+
+export const Temperature: TemperatureType = (Base, props: IDataTemperatureProps) => {
+    const { humidity, temperature } = props;
     return <div className='State'>
         <div className='Temperature'>
             Температура:
-            <b>{`${data.temperature} C`}</b>
+            <b>{`${temperature} C`}</b>
         </div>
         <div className='Humidity'>
-            Влажность: <b>{`${data.humidity}%`}</b>
+            Влажность: <b>{`${humidity}%`}</b>
         </div>
     </div>
 }

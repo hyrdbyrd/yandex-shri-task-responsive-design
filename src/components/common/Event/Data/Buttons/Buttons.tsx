@@ -1,19 +1,22 @@
 import * as React from 'react';
 
 import './Buttons.sss';
-import { IDataButtons } from './Buttons.d';
+import { IDataButtonsProps } from './Buttons.d';
 import { cn } from '@bem-react/classname';
+import { ModBody } from '@bem-react/core';
 
-export function Buttons(props: { obj: IDataButtons }) {
-    const { obj: data } = props;
+export type ButtonsType = ModBody<IDataButtonsProps>;
+
+export const Buttons: ButtonsType = (Base, props: IDataButtonsProps) => {
+    const { buttons } = props;
     const cnButton = cn('Button');
 
     return <div className='Buttons'>
         <div className={cnButton({ type: 'confirm' })}>
-            { data.buttons[0] }
+            { buttons[0] }
         </div>
         <div className={cnButton({ type: 'close' })}>
-            { data.buttons[1] }
+            { buttons[1] }
         </div>
     </div>
 }

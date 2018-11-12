@@ -1,10 +1,12 @@
 import * as React from 'react';
 
 import './Music.sss';
-import { IDataMusic } from './Music.d';
-import { cn } from '@bem-react/classname';
+import { IDataMusic, IDataMusicProps } from './Music.d';
 
-export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
+import { cn } from '@bem-react/classname';
+import { ModBody } from '@bem-react/core';
+
+export class MusicBlock extends React.Component<{ obj: IDataMusic }, IDataMusic> {
     constructor(props: { obj: IDataMusic }) {
         super(props);
 
@@ -78,3 +80,6 @@ export class Music extends React.Component<{ obj: IDataMusic }, IDataMusic> {
         </div>
     }
 }
+
+export type MusicType = ModBody<IDataMusicProps>;
+export const Music: MusicType = (Base, props) => <MusicBlock obj={props} />
