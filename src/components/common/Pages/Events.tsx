@@ -7,6 +7,9 @@ import * as DB from './events.json';
 const events: IEvent[] = DB.events;
 import { RegistryConsumer } from '@bem-react/di';
 import { compose, withBemMod } from '@bem-react/core';
+import { cn } from '@bem-react/classname';
+
+export const cnCard = cn('Event');
 
 export function EventPage() {
     return <>
@@ -16,13 +19,13 @@ export function EventPage() {
                 <RegistryConsumer>
                     {regs => {
                         // Or desktop or mobile version
-                        const EventCommon = regs['Page'].get<IEventProps>('Event');
+                        const EventCommon = regs['Page'].get<IEventProps>(cnCard());
                         const Event = compose(
-                            withBemMod<IEventProps>('Event', { size: 's' }),
-                            withBemMod<IEventProps>('Event', { size: 'm' }),
-                            withBemMod<IEventProps>('Event', { size: 'l' }),
-                            withBemMod<IEventProps>('Event', { type: 'info' }),
-                            withBemMod<IEventProps>('Event', { type: 'critical' }),
+                            withBemMod<IEventProps>(cnCard(), { size: 's' }),
+                            withBemMod<IEventProps>(cnCard(), { size: 'm' }),
+                            withBemMod<IEventProps>(cnCard(), { size: 'l' }),
+                            withBemMod<IEventProps>(cnCard(), { type: 'info' }),
+                            withBemMod<IEventProps>(cnCard(), { type: 'critical' }),
                         )(EventCommon);
 
                         return events.map((obj: IEvent, i: number) => <Event key={i} {...obj} />)

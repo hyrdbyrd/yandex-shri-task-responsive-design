@@ -15,6 +15,7 @@ import { ImageType } from './Data/Image/Image';
 import { GraphType } from './Data/Stats/Stats';
 import { TemperatureType } from './Data/Temperature/Temperature';
 import { MusicType } from './Data/Music/Music';
+import { cnCard as cnBlock } from '../Pages/Events';
 
 export class Event extends React.Component<IEventProps> {
     constructor(props: IEventProps) {
@@ -27,7 +28,6 @@ export class Event extends React.Component<IEventProps> {
                 const { props: event } = this;
 
                 // Classnames
-                const cnBlock = cn('Event');
                 const cnEmpty = cn('Empty');
 
                 // Is critical? Get white image. Else standart icon.
