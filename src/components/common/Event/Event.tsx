@@ -15,7 +15,7 @@ import { ImageType } from './Data/Image/Image';
 import { GraphType } from './Data/Stats/Stats';
 import { TemperatureType } from './Data/Temperature/Temperature';
 import { MusicType } from './Data/Music/Music';
-import { cnCard as cnBlock } from '../Pages/Events';
+import { cnEvent as cnBlock } from '../Pages/Events';
 
 export class Event extends React.Component<IEventProps> {
     constructor(props: IEventProps) {
