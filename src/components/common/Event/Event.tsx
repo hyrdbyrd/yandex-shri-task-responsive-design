@@ -27,20 +27,19 @@ export class Event extends React.Component<IEventProps> {
                 const { props: event } = this;
 
                 // Classnames
-                const cnBlock = cn(event.className);
+                const cnBlock = cn('Event');
                 const cnEmpty = cn('Empty');
 
                 // Is critical? Get white image. Else standart icon.
                 const postfix = event.type === 'critical' ? '-white' : '';
 
-                const EventReg = regs['Event'];
-
                 // Import blocks from registry
+                const EventReg = regs['Event'];
                 const Stats = EventReg.get('Stats') as GraphType;
-                const Temperature = EventReg.get('Temperature') as TemperatureType;
                 const Music = EventReg.get('Music') as MusicType;
-                const Buttons = EventReg.get('Buttons') as ButtonsType;
                 const Image = EventReg.get('Image') as ImageType;
+                const Buttons = EventReg.get('Buttons') as ButtonsType;
+                const Temperature = EventReg.get('Temperature') as TemperatureType;
 
                 // Set DataBlock (if correct type), else, return Base (EventDataBLock)
                 const DataBlock = compose(
@@ -59,7 +58,7 @@ export class Event extends React.Component<IEventProps> {
                     { <DataBlock {...event.data} type={event.icon} /> }
                 </div> : null;
 
-                return <div className={cnBlock({ type: event.type, size: event.size })}>
+                return <div className={event.className}>
                     <div className={cnEmpty()}>
                         <img className={cnBlock('Nav', ['Cross'])} src={`assets/cross${postfix}.svg`}/>
                     </div>
