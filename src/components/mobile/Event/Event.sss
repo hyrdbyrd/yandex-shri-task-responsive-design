@@ -1,0 +1,30 @@
+.empty
+    display: flex
+
+.events
+    grid-template-columns: 100%
+    margin-bottom: 20px
+
+.event_size_l,
+.event_size_m,
+.event_size_s
+    grid-column: span 1
+    grid-row: span 1
+
+.event__description,
+.event_size_l.event__description
+    font-size: calc(0.5vw + 0.8rem)
+
+.event__icon
+    $s: 36px
+    width: $s
+    height: $s
+
+.event-intro
+    grid-gap: 15px
+
+.event-desc
+    font-size: calc(0.1vw + 0.8rem)
+
+.event__title
+    font-size: calc(0.5vw + 0.8rem)

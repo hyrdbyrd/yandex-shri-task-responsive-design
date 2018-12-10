@@ -1,0 +1,24 @@
+.navigation
+    display: flex
+    flex-direction: column
+
+.navigation-list
+    padding: 0
+    margin: 0
+    display: flex
+    flex-direction: row
+
+.navigation-list__item
+    display: flex
+    flex-direction: column
+    list-style: none
+
+@media (max-width: 991px)
+    .navigation
+        overflow: hidden
+    .navigation-list
+        flex-wrap: wrap
+    .navigation-list__item
+        display: flex
+        flex-direction: column
+        list-style: none
