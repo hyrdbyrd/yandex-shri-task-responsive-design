@@ -1,3 +1,4 @@
+
 const path = require('path');
 
 const DIST_PATH = path.join(__dirname, 'dist');

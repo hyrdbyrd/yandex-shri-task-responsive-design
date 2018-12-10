@@ -5,7 +5,6 @@ import { IDataTemperatureProps } from './Temperature.d';
 import { ModBody } from '@bem-react/core';
 
 export type TemperatureType = ModBody<IDataTemperatureProps>;
-
 export const Temperature: TemperatureType = (Base, props: IDataTemperatureProps) => {
     const { humidity, temperature } = props;
     return <div className='State'>
